@@ -2,7 +2,7 @@
 
 namespace CSharpStudy
 {
-    class Program
+    class HelloWorld
     {
         static void Main(string[] args)
         {

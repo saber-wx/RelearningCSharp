@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VariableExchange", "Variabl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadInput", "ReadInput\ReadInput.csproj", "{5B6D18A8-8987-4FA7-85EA-271B3DF8D4E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapeCharacter", "EscapeCharacter\EscapeCharacter.csproj", "{52C407B4-ED65-4929-8AAE-A1D6B467DF6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeCharacter", "EscapeCharacter\EscapeCharacter.csproj", "{52C407B4-ED65-4929-8AAE-A1D6B467DF6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArithmeticOperator", "ArithmeticOperator\ArithmeticOperator.csproj", "{AF13B047-E137-4880-BFCC-0AA1F5E5351B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArithmeticOperator", "ArithmeticOperator\ArithmeticOperator.csproj", "{AF13B047-E137-4880-BFCC-0AA1F5E5351B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationPractise", "OperationPractise\OperationPractise.csproj", "{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{AF13B047-E137-4880-BFCC-0AA1F5E5351B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF13B047-E137-4880-BFCC-0AA1F5E5351B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF13B047-E137-4880-BFCC-0AA1F5E5351B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeCharacter", "EscapeCh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArithmeticOperator", "ArithmeticOperator\ArithmeticOperator.csproj", "{AF13B047-E137-4880-BFCC-0AA1F5E5351B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationPractise", "OperationPractise\OperationPractise.csproj", "{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperationPractise", "OperationPractise\OperationPractise.csproj", "{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertStudy", "ConvertStudy\ConvertStudy.csproj", "{BE461A27-33C7-4CE5-B3E3-F01C48766D35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9361E91F-2F2F-47D6-9273-3B78D5FEAF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE461A27-33C7-4CE5-B3E3-F01C48766D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE461A27-33C7-4CE5-B3E3-F01C48766D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE461A27-33C7-4CE5-B3E3-F01C48766D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE461A27-33C7-4CE5-B3E3-F01C48766D35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

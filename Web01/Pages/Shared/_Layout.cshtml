@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web01</title>
+    <script>
+        //QUESTION2.利用JavaScript计算出：[(23 + 7)x12 - 8]÷6的值
+        alert("hello,world")
+        //QUESTION4.利用JavaScript计算出：[(23 + 7)x12 - 8]÷6的值
+        //var sum = ((23 + 7) * 12-8) / 6
+        //alert(sum)
+        //QUESTION5.利用循环，计算出1+3+5+7+...+99=?
+        var suma = 0;
+        for (var i = 0; i <= 100; i++) {
+            if (i % 2 == 1) {
+                suma += i;
+            }
+        }
+        alert('奇数和' + suma)
+
+
+        var sumb = 0;
+        for (var i = 0; i <= 100; i++) {
+            if (i % 2 == 0) {
+                sumb += i;
+            }
+        }
+        alert('偶数和' + sumb)
+        //5.如果一个数只能被1和它自己整除，这个数就被称之为“素数”。请找出100以内的所有素数。
+
+        for (var i = 0; i <= 100; i++) {
+            if (i % 2 == 1) {
+                document.writeln(i)
+            }
+        }
+
+        //1.将源栈同学姓名/昵称装入数组，再根据该数组输出共有多少同学
+
+        var arr1 = ['老赵', '老程', 'lw', 'long', 'xiang', 'xuan']
+        count1 = arr1.length;
+        alert(count1)
+        //2.在上述数组头部加上小雨老师，末尾加上大飞哥
+        arr1.unshift(' 小雨老师');
+        arr1[count1 + 1] = '大飞哥';
+        count1 = arr1.length;
+        alert(count1)
+        alert[arr1]
+    </script>
+    <script src="~/js/helloworld.js" type="text/javascript"></script>
+
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>

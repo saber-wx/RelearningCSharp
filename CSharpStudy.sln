@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperationPractise", "Operat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConvertStudy", "ConvertStudy\ConvertStudy.csproj", "{BE461A27-33C7-4CE5-B3E3-F01C48766D35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDay01", "Web01\WebDay01.csproj", "{BD87E28E-1C18-4684-B105-1D5227FA1A4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web01", "Web01\Web01.csproj", "{BD87E28E-1C18-4684-B105-1D5227FA1A4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

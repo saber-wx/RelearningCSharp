@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>注册界面</title>
+    
+    <script>
+
+        //QUESTION3.1显示密码的长度
+        function passwordLengtn() {
+            let length1 = document.getElementsByTagName('input')[1].value.length;
+            console.log("密码长度" + length1);
+        }
+
+        //QUESTION3.2如果密码和确认密码不一致，弹出提示
+        function passwordConfirm() {
+            let password = document.getElementsByTagName('input')[1].value;
+            let passwordConfirm = document.getElementsByTagName('input')[2].value;
+            if (password !== passwordConfirm) {
+                alert("两次密码输入不一致!");
+            }
+        }
+
+        // QUESTION1:实现铃铛闪烁效果 
+        var flag = false;
+        function start() {
+            var temp = document.getElementById("flicker");
+            if (!flag) {
+                temp.style.color = "blue";
+                flag = 1;
+            } else {
+                temp.style.color = "white";
+                flag = 0;
+            }
+            setTimeout("start()", 500);
+        }
+        
+    </script>
+</head>
+<body onload="start()">
+    <span id="flicker">铃铛</span>
+    <span class="glyphicon-font glyphicon-bell"></span>
+    <form onsubmit="passwordConfirm()">
+        <label>用户名:<input type="text" name="username" /></label><br />
+        <label>密码:<input onmouseleave="passwordLengtn()" type="password" name="password" /></label><br />
+        <label>确认密码:<input type="password" /></label><br />
+        <div>
+            <label>性别:</label>
+            <label><input type="radio" value="male" name="gender">男</label>
+            <label><input type="radio" value="female" name="gender">女</label>
+        </div>
+        <div>
+            <label>来自:</label>
+            <select neme="province">
+                <option value="js">江苏</option>
+                <option value="hn">湖南</option>
+                <option value="hlj">黑龙江</option>
+            </select>
+        </div>
+        <div>
+            <label>自我介绍:</label><br />
+            <textarea name="self-introduction"></textarea>
+        </div>
+        <input type="submit" value="提交" />
+        <input type="reset" value="重置" />
+        <label><input type="checkbox" id="remember" />记住我</label>
+    </form>
+</body>
+</html>

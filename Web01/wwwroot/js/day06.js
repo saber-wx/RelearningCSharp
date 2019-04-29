@@ -4,15 +4,16 @@
 //var weeks = 0;
 //function getRandom() {
 //    weeks++;
-//    var students = Math.floor(Math.random()*99999);
-//    if (weeks < weeks+1) {
-//        setTimeout(getRandom, 500)
-//        alert("第" + weeks + "周,源栈同学" + students+"人");
+//    var students = Math.floor(Math.random() * 99999);
+//    if (weeks < weeks + 1) {
+//        setTimeout(getRandom, 1000)
+//        alert("第" + weeks + "周,源栈同学" + students + "人");
 //    } else {
 //        alert("一年啦");
 //    }
 //}
-//setTimeout(getRandom, 500);
+////setTimeout(getRandom, 1000);
+//getRandom();
 
 ////2.完成猜数字的游戏：
 ////弹出游戏玩法说明，等待用户点击“确认”，开始游戏；
@@ -27,19 +28,27 @@
 ////用了10次都还没猜对，弹出：^ (*￣(oo) ￣)^ 
 
 //alert("尊敬的玩家,你好!请仔细阅读游戏规则!")
-//alert("输入一个1-1000的数字,猜中为止")
+//alert("浏览器将随机生成一个1-1000的数字,请输入您的数字,直到猜中为止")
 //var getRandom = Math.floor(Math.random() * 1000);
 //var count = 0;
 //while (1 === 1) {
-//    var num = prompt("请输入您的数字", "");
-//    count++;
-//    if (num < 1 || num > 1000) {
-//        count--;
-//        alert("输入范围错误!");
-//    }
-//    if (count >= 10) {
+//    var num = parseInt(prompt("请输入您的数字", ""));
+//    if (count > = 10) {
 //        alert("^ (*￣(oo) ￣)^");
 //    }
+//    count++;
+//    if (count >  10) {
+//        alert("^ (*￣(oo) ￣)^");
+//    }
+//    if (isNaN(num)) {
+//        alert("请输入数字类型!");
+//        continue;
+//    }
+//    if (num < 1 || num > 1000) {
+//        alert("输入范围超过!");
+//        continue;
+//    }
+
 //    if (num < getRandom) {
 //        alert("小了");
 //    } else if (num > getRandom) {
@@ -59,4 +68,27 @@
 //    }
 //}
 
+//设置闪烁颜色
+var colors = ['white', 'black'];
+//设置闪烁间隔
+var frequency = 500;
+//设置停止时间
+var duration = 60000
 
+var text = document.createElement('p');
+text.innerHTML = '这里是测试文字';
+document.body.innerHTML = ' ';
+document.body.appendChild(text);
+
+//设置循环间隔
+
+var i = 0;
+var timer = setInterval(function () {
+    text.setAttribute('style', 'color:' + colors[i % colors.length]);
+
+    //避免变量过大
+
+    if (i++ > colors.length) i = 0;
+}, frequency);
+//设置停止时间
+setTimeout(function () { clearInterval(timer) }, duration)

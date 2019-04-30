@@ -1,0 +1,71 @@
+﻿@page
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="users()">
+    <div class="user-show">
+        <div class="user">
+            <label>用户：</label>
+            <a style="color:#DCB962">叶飞</a>
+        </div>
+
+        <div class="gender">
+            <label>性别：</label>
+            <label>男</label>
+        </div>
+
+        <div class="birthday">
+            <label>生日：1981年4月金牛座</label>
+        </div>
+
+        <div class="keyword">
+            <label>关注：</label>
+            <p>
+                <span name="keyword"> C# </span>
+                <span name="keyword"> Javascript </span>
+                <span name="keyword"> SQL </span>
+                <span name="keyword"> 顾问咨询 </span>
+                <span name="keyword"> 法律 </span>
+                <span name="keyword"> 工具软件 </span>
+                <span name="keyword"> Visual </span>
+                <span name="keyword"> Studio </span>
+                <span name="keyword"> 操作系统 </span>
+                <span name="keyword"> Windows </span>
+                <span name="keyword"> MySQL </span>
+            </p>
+        </div>
+        <div class="introduceSelf">
+            <label>自我介绍：</label>
+            <p>野生程序员,十年来一直专注ASP.NET网站建设。熟悉Mysql,NHibernate,AutoMapper,Autofac,ASP.NET MVC,JQuery,bootstrap…….<br />长相惊为天人,人见人爱,花见花开,车间车爆胎!</p>
+        </div>
+
+    </div>
+    <script>
+        //取得用户名
+        var userName = document.getElementsByClassName("user")[0].getElementsByTagName('a')[0].textContent;
+        //取得用户性别
+        var gender = document.getElementsByClassName("gender")[0].childNodes[3].textContent;
+        //取得用户生日
+        var birthday = document.getElementsByClassName("birthday")[0].textContent;
+        //取得用户所有关键字节点
+        var keyword = document.getElementsByClassName("keyword")[0].getElementsByTagName("span");
+        var keywordArr = [];
+        //遍历每个关键字
+        for (var i = 0; i < keyword.length; i++) {
+            var keywords = keyword[i].textContent;
+            //将关键字装进数组
+            keywordArr.push(keywords);
+        }
+        var introduceSelf = document.getElementsByClassName("introduceSelf")[0].getElementsByTagName('p')[0].textContent
+        function users() {
+            console.log(`用户名为${userName}的用户是一位${gender}神`)
+            console.log(`${birthday}关注的关键字有:${keywordArr}`)
+            console.log(`是一位${introduceSelf}`)
+        }
+    </script>
+
+</body>
+</html>

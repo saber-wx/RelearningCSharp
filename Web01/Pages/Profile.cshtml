@@ -11,7 +11,11 @@
             <label>用户：</label>
             <a style="color:#DCB962">叶飞</a>
         </div>
-
+        <div>
+            <a href="http://17bang.ren/User/1 "  target="_blank">
+                <img src="~/images/handsomeman.png" title="点击进入最帅的辣个男人的空间!" />
+            </a>
+        </div>
         <div class="gender">
             <label>性别：</label>
             <label>男</label>
@@ -43,29 +47,5 @@
         </div>
 
     </div>
-    <script>
-        //取得用户名
-        var userName = document.getElementsByClassName("user")[0].getElementsByTagName('a')[0].textContent;
-        //取得用户性别
-        var gender = document.getElementsByClassName("gender")[0].childNodes[3].textContent;
-        //取得用户生日
-        var birthday = document.getElementsByClassName("birthday")[0].textContent;
-        //取得用户所有关键字节点
-        var keyword = document.getElementsByClassName("keyword")[0].getElementsByTagName("span");
-        var keywordArr = [];
-        //遍历每个关键字
-        for (var i = 0; i < keyword.length; i++) {
-            var keywords = keyword[i].textContent;
-            //将关键字装进数组
-            keywordArr.push(keywords);
-        }
-        var introduceSelf = document.getElementsByClassName("introduceSelf")[0].getElementsByTagName('p')[0].textContent
-        function users() {
-            console.log(`用户名为${userName}的用户是一位${gender}神`)
-            console.log(`${birthday}关注的关键字有:${keywordArr}`)
-            console.log(`是一位${introduceSelf}`)
-        }
-    </script>
-
 </body>
 </html>

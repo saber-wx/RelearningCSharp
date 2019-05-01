@@ -4,46 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title>注册界面</title>
-
-    <script>
-
-        //QUESTION3.1显示密码的长度
-        function passwordLengtn() {
-            let length1 = document.getElementsByTagName('input')[1].value.length;
-            console.log("密码长度" + length1);
-        }
-
-        //QUESTION3.2如果密码和确认密码不一致，弹出提示
-        function passwordConfirm() {
-            let password = document.getElementsByTagName('input')[1].value;
-            let passwordConfirm = document.getElementsByTagName('input')[2].value;
-            if (password !== passwordConfirm) {
-                alert("两次密码输入不一致!");
-            }
-        }
-
-        // QUESTION1:实现铃铛闪烁效果
-        var flag = false;
-        function start() {
-            var temp = document.getElementById("flicker");
-            if (!flag) {
-                temp.style.color = "blue";
-                flag = 1;
-            } else {
-                temp.style.color = "white";
-                flag = 0;
-            }
-            setTimeout("start()", 500);
-        }
-
-    </script>
 </head>
 <body onload="start()">
-    <span id="flicker">铃铛</span>
-    <span class="glyphicon-font glyphicon-bell"></span>
+    <span id="flicker" class="glyphicon glyphicon-bell"></span>
     <form onsubmit="passwordConfirm()">
         <label>用户名:<input type="text" name="username" /></label><br />
-        <label>密码:<input onmouseleave="passwordLengtn()" type="password" name="password" /></label><br />
+        <p style="color:red;display:none">用户名重复</p>
+        <label>密码:<input type="password" name="password" /></label><br />
         <label>确认密码:<input type="password" /></label><br />
         <div>
             <label>性别:</label>
@@ -62,9 +29,11 @@
             <label>自我介绍:</label><br />
             <textarea name="self-introduction"></textarea>
         </div>
-        <input type="submit" value="提交" />
-        <input type="reset" value="重置" />
-        <label><input type="checkbox" id="remember" />记住我</label>
+        <div>
+            <input class="submits" type="submit" value="提交" />
+            <input class="resets" type="reset" value="重置" />
+            <label><input class="checkboxs" type="checkbox" id="remember" />记住我</label>
+        </div>
     </form>
 </body>
 </html>

@@ -10,7 +10,7 @@
             margin: 5px 5px 5px 0;
         }
     </style>
-    
+
 
 
 </head>
@@ -97,9 +97,40 @@
                 <a href="http://17bang.ren/Problem?keyword=169" title="已使用333次"><span class="badge" style="font-size:12px">Java</span></a>
                 <a href="http://17bang.ren/Problem?keyword=169" title="已使用233次"><span class="badge" style="font-size:10px">PHP</span></a>
             </div>
+            <div>
+                <select name="add" class="form-control" id="add">
+                    <option value="">----- 使用新的广告 -----</option>
+                    <option value="">飞哥邀请你注册“一起帮”（含邀请码）</option>
+                    <option value="">saber邀请你注册“一起帮”（含邀请码）</option>
+                </select>
+                <section class="yellow-highlight" style="padding:10px 20px; margin-bottom:20px;">
+                    <div class="text-right checkbox">
+                        <label>
+                            <input name="Content.Edit" id="Content_Edit" type="checkbox" value="true" data-val-required="Edit 字段是必需的。" data-val="true" zyf-ad-content-edit=""><input name="Content.Edit" type="hidden" value="false"> 修改
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>文字内容：（* 必填）</label>
+                        <input name="Content.Text" class="form-control" id="Content_Text" type="text" placeholder="最多不超过24个字符" value="" data-val-required="* 文本不能为空" data-val="true" zyf-ad-in-widget-input-text="" data-val-length-max="30" data-val-length="* 文本的长度不能大于30">
+                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Text"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>链接：（* 必填）</label>
+                        <input name="Content.Url" class="form-control" id="Content_Url" type="text" placeholder="http或https开头的网址" value="" data-val-required="* 链接不能为空" data-val="true">
+                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Url"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <input class="btn btn-primary loading" type="submit" value="提交">
+                        <input class="btn btn-default" type="reset" value="重填">
+                    </div>
+                </section>
+            </div>
         </div>
+
     </div>
 </body>
 </html>
 
 
+@*saber邀请你注册“一起帮”（含邀请码）
+http://17bang.ren/Register/Home?name=Saber&code=6911*@

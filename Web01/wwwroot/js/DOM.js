@@ -59,6 +59,7 @@
 //// QUESTION1:实现铃铛闪烁效果
 //var flag = false;
 //function start() {
+
 //    var temp = document.getElementById("flicker");
 //    if (!flag) {
 //        temp.style.color = "blue";
@@ -67,7 +68,7 @@
 //        temp.style.color = "red";
 //        flag = 0;
 //    }
-//    setTimeout("start()", 500);
+//    setTimeout(start, 500);
 //}
 
 ////QUESTION3.1显示密码的长度
@@ -117,22 +118,18 @@
 
 //document.getElementsByName('checkAll')[0].onclick = function () {
 //    for (var i = 0; i < document.getElementsByName('check').length; i++) {
-//        if (document.getElementsByName('checkAll')[0].checked === true) {
-//            document.getElementsByName('check')[i].checked = true;
-//        } else {
-//            document.getElementsByName('check')[i].checked = false;
-//        }
+//        document.getElementsByName('check')[i].checked = this.checked;
 //    }
 //}
 
-//4.参考注册页面：
-//提交时，如果用户名重复（已有用户名用数组保存），阻止form提交，提示“用户名重复”。
-//重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失
-//当用户名或密码等有值时，关闭页面前弹出确认框 
+////4.参考注册页面：
+////提交时，如果用户名重复（已有用户名用数组保存），阻止form提交，提示“用户名重复”。
+////重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失
+////当用户名或密码等有值时，关闭页面前弹出确认框 
 
-var arrUserName = ["叶飞", "钟锦程", "赵昱泽", "金路炜", "龙俊升", "刘子祥", "文轩", "王枫", "王平"];
+var arrUserName = ["叶飞", "钟锦程", "赵昱泽", "金路炜", "龙俊升", "刘子祥", "文轩", "王枫", "王平","233"];
 var useNameInput = document.getElementsByName('username')[0];
-useNameInput.onmouseout = function () {
+useNameInput.onmouseover = function () {
     for (let i = 0; i < arrUserName.length; i++) {
         if (useNameInput.value === arrUserName[i]) {
             document.getElementsByTagName("p")[0].style.display = "block";
@@ -143,21 +140,31 @@ useNameInput.onmouseout = function () {
     }
 }
 
-//阻止form提交
-document.getElementsByClassName('submits')[0].onclick = function (event) {
-    for (let i = 0; i < arrUserName.length; i++) {
-        if (useNameInput.value === arrUserName[i]) {
-            alert('用户名重复');
-            event.preventDefault();
-        }
-    }
-}
+////阻止form提交
+//document.getElementsByClassName('register-submits')[0].onclick = function (event) {
+//    for (let i = 0; i < arrUserName.length; i++) {
+//        if (useNameInput.value === arrUserName[i]) {
+//            alert('用户名重复');
+//            event.preventDefault();
+//        }
+//    }
+//}
 
-//当用户名或密码等有值时，关闭页面前弹出确认框 
-window.addEventListener('beforeunload', function (e) {
-    if (document.getElementsByName('username')[0].value !== "" || document.getElementsByTagName('input')[1].value !== "") {
-        e.preventDefault();
-    }
-})
+////当用户名或密码等有值时，关闭页面前弹出确认框 
+//window.addEventListener('beforeunload', function (e) {
+//    if (document.getElementsByName('username')[0].value !== "" || document.getElementsByTagName('input')[1].value !== "") {
+//        e.preventDefault();
+//    }
+//})
 
+//5.参考求助首页侧边栏“免费广告发布”弹出Modal，实现（不需要弹出Modal）：
+//根据下拉列表选中项，填充“文字内容”和“链接”文本框
+//勾选修改的checkbox，实现“文字内容”和“链接”文本框的禁用和启用
+
+//6.参考发布求助，实现其关键字功能：
+//没有选择一级关键字，不能选择二级关键字
+//选择一级关键字后，二级关键字只能是一级关键字下的子集
+//一级关键字和二级关键字被选中后，会显示在下拉列表上方
+//自定义关键字输入完成后（按空格键），输入的关键字显示在下拉列表上方
+//后输入的关键字显示在前面 
 

@@ -1,0 +1,70 @@
+﻿@page
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>学费计算器</title>
+</head>
+
+<body onload="nowTime()">
+    <div>
+        <h>今天是:<label id="now-time"></label></h><br />
+
+        @*<div>
+                <P>根据学习周数获得课程结束日期</P>
+                <label>输入学习周数:<input name="week-amount" id="weeks" type="text"></label><br />
+                <input onclick="overTime()" id="week-submits" class="submits" type="submit" value="提交" />
+                <input id="week-resets" class="resets" type="reset" value="重置" /><br />
+                <h>结束的日期为:<label id="over-time"></label></h><br />
+            </div>*@
+
+        <label>你打算什么时间开始学习?<input name="start-time" id="start-time" type="date"></label><br />
+
+        <p>选择预计学习时间:四种方式任选其一即可</p>
+
+        <table border="1" cellspacing="0" cellpadding="0" height="200" width="320">
+            <tr>
+                <td>
+                    <div>
+                        <P>方式1:选择课程结束日期,获得课程时间及学费</P>
+                        <label>选择课程结束日期:<input name="end-time" id="end-time" type="date" style="width:150px"></label>
+                        <button name="confirm-time">确认</button><br />
+                        <h>您的课程及学费:<p id="over-time"></p></h>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <P>方式2:输入学习月数,获得课程结束日期及学费</P>
+                        <label>你打算学习几个月?<input name="month-amount" id="month" type="text" style="width:100px" placeholder="输入数字"></label>
+                        <button name="confirm-month">确认</button><br />
+                        <h>您的课程及学费:<label id="over-month"></label></h>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <P>方式3:输入学习周数,获得课程结束日期及学费</P>
+                        <label>你打算学习几个周?<input name="week-amount" id="weeks" type="text" style="width:100px" placeholder="输入数字"></label>
+                        <button name="confirm-week">确认</button><br />
+                        <h>您的课程及学费:<p id="over-week"></p></h>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <P>方式4:输入学习天数,获得课程结束日期及学费</P>
+                        <label>你打算学习多少天?<input name="day-amount" id="day" type="text" style="width:100px" placeholder="输入数字"></label>
+                        <button name="confirm-day">确认</button><br />
+                        <h>您的课程及学费:<p id="over-day"></p></h>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+@*<h>结束的日期为:<label id="over-time"></label></h><br />*@

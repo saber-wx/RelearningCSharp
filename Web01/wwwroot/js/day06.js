@@ -67,28 +67,3 @@
 
 //    }
 //}
-
-//设置闪烁颜色
-var colors = ['white', 'black'];
-//设置闪烁间隔
-var frequency = 500;
-//设置停止时间
-var duration = 60000
-
-var text = document.createElement('p');
-text.innerHTML = '这里是测试文字';
-document.body.innerHTML = ' ';
-document.body.appendChild(text);
-
-//设置循环间隔
-
-var i = 0;
-var timer = setInterval(function () {
-    text.setAttribute('style', 'color:' + colors[i % colors.length]);
-
-    //避免变量过大
-
-    if (i++ > colors.length) i = 0;
-}, frequency);
-//设置停止时间
-setTimeout(function () { clearInterval(timer) }, duration)

@@ -114,6 +114,8 @@
 //直接在HTML页面中以属性"title"显示
 
 //2.参考文章的全系列阅读功能，当滚动到页面底部时，将页面现有内容粘贴到页面底部，直到5次过后，在页面底部显示：已经没有更多内容了 
+
+
 ////3.参考消息页面：完成勾选全选功能 
 
 //document.getElementsByName('checkAll')[0].onclick = function () {
@@ -127,18 +129,18 @@
 ////重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失
 ////当用户名或密码等有值时，关闭页面前弹出确认框 
 
-var arrUserName = ["叶飞", "钟锦程", "赵昱泽", "金路炜", "龙俊升", "刘子祥", "文轩", "王枫", "王平","233"];
-var useNameInput = document.getElementsByName('username')[0];
-useNameInput.onmouseover = function () {
-    for (let i = 0; i < arrUserName.length; i++) {
-        if (useNameInput.value === arrUserName[i]) {
-            document.getElementsByTagName("p")[0].style.display = "block";
-            break;
-        } else {
-            document.getElementsByTagName("p")[0].style.display = "none";
-        }
-    }
-}
+//var arrUserName = ["叶飞", "钟锦程", "赵昱泽", "金路炜", "龙俊升", "刘子祥", "文轩", "王枫", "王平","233"];
+//var useNameInput = document.getElementsByName('username')[0];
+//useNameInput.onmouseover = function () {
+//    for (let i = 0; i < arrUserName.length; i++) {
+//        if (useNameInput.value === arrUserName[i]) {
+//            document.getElementsByTagName("p")[0].style.display = "block";
+//            break;
+//        } else {
+//            document.getElementsByTagName("p")[0].style.display = "none";
+//        }
+//    }
+//}
 
 ////阻止form提交
 //document.getElementsByClassName('register-submits')[0].onclick = function (event) {

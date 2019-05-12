@@ -3,15 +3,17 @@
 //2.静态方法：getBest(playName) ，返回一个score对象
 //3.实例方法：save()
 //  以及：一个整数值bestOfAll
-
-class score {
+//score.js对外所有成员，但bestOfAll对外名称为record
+//user.js默认对外暴露login() ，另外暴露getNameById() ，隐藏其他属性
+//score.js中的getBest()利用user.js的getNameById() ，将玩家名称转换成Id 
+class Score {
     constructor(playerName, score) {
         this.datetime = new Date;
         this.playerName = playerName;
         this.score = score;
     }
     static getBest(playName) {
-        return playName.datetime, playName.score, playName.score;
+        return score = new {};
     }
     set GetBest(value) {
         this.playName = value;
@@ -22,6 +24,7 @@ class score {
     save() {
 
     }
-    bestOfAll;
 }
+var bestOfAll = 0;
+export { bestOfAll as record, Score };
 

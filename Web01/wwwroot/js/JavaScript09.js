@@ -5,9 +5,9 @@ class Course {
         this.startDate = startDate;
         this.endDate = "2019/12/31";
         this.students = students;
-        this.end = function end() {
-            console.log(`${this.name}于${this.endDate}结束，共有${this.students.length}名同学(${this.students})听完`);
-        }
+    }
+    end() {
+        console.log(`${this.name}于${this.endDate}结束，共有${this.students.length}名同学(${this.students})听完`);
     }
     get EndDate() {
         return this.endDate;
@@ -28,8 +28,8 @@ class Course {
     begin() {
         console.log(`${this.name}于${this.startDate}开课，共有${this.students.length}名同学(${this.students})报名`);
     }
-    static getStudentsByName(name) {
-        console.log(`参加${name.name}课程的有${name.students.length}名同学`)
+    static getStudentsByName(course) {
+        console.log(`参加${course.name}课程的有${course.students.length}名同学`)
         //能根据不同的name返回不同的整数值（参加该course的学生数量）
     }
 }
@@ -69,6 +69,7 @@ SQL.begin();
 //Javascript.EndDate = "2018/4/25";
 ////控制台输出: 时间不正确 后 输出 Javascript于"2019/12/31"结束，共有5名同学(两开花、王枫、王平、采铃、老程)听完`
 //Javascript.end();
+SQL.enddate = "2019/4/25";
 
 //7.判断并证明以下说法：
 //  1.ES里的class其实就是一个function 对
@@ -119,7 +120,7 @@ class MajorCourse extends Course {
     }
     Exam(student) {
         student.score = Math.floor(Math.random() * 50 + 50);
-        this.end();
+        super.end();
         console.log(`${student.name}${student.score}`);
     }
 };
@@ -129,30 +130,33 @@ class ElectiveCourse extends Course {
         super(name, startDate, student);
     }
     Assess(student) {
-        var AssessScoreArr = ['A', 'B', 'C', 'D', 'E'];
+        var AssessScoreArr = "ABCDE";
+
         student.score = AssessScoreArr[Math.floor(Math.random() * 5)];
-        this.end();
+        super.end();
         console.log(`${student.name}${student.score}`);
     }
 };
 //4.创建一个MajorCourse的实例，运行它的Exam (student)方法，结束课程（使用end()方法），
 //  并给该student的score赋值为50 - 100的随机整数 
-//var java = new MajorCourse("Java", "2019/7/1", [lkh, wf, wp, cl, lc])
+var java = new MajorCourse("Java", "2019/7/1", [lkh, wf, wp, cl, lc]);
 //java.EndDate = "2019/7/25"
 //java.Exam(lkh);
-//java.end()
+//java.end();
 
 //5.创建一个ElectiveCourse的实例，运行它的Assess(student)方法，
 //    结束课程（使用end()方法），给该student的score赋值为ABCDE中的一个随机值
-//var php = new ElectiveCourse("PHP", "2019/7/26", [lkh, wf, wp, cl, lc])
-//php.EndDate = "2019/7/30"
+//var php = new ElectiveCourse("PHP", "2019/7/26", [lkh, wf, wp, cl, lc]);
+//php.EndDate = "2019/7/30";
 //php.Assess(lkh);
-//php.end()
+//php.end();
 //6.给Course声明一个静态的GetStudentsByName(name) ，
 //    能根据不同的name返回不同的整数值（参加该course的学生数量）
-//Course.getStudentsByName(Javascript)
+//Course.getStudentsByName(Javascript);
 //7.在子类调用GetStudentsByName(name)
-//ElectiveCourse.getStudentsByName(Javascript)
+//ElectiveCourse.getStudentsByName(Javascript);
 //8.说明：为什么子类可以继承父类的实例和静态方法？
 
-//ElectiveCourse.__proto__
+//MajorCourse.__proto__ === Course
+//java.__proto__.__proto__ === Course.prototype
+//Course.hasOwnProperty("getStudentsByName")

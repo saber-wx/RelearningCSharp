@@ -1,59 +1,59 @@
 ﻿
 //QUESTION2.1.统计有多少个悬赏大于1的求助
-//var count = 0;
-//function amount() {
-//    var moneyNumbers = document.getElementsByName("moneyNumbers");
-//    for (let i = 0; i < moneyNumbers.length; i++) {
-//        if (moneyNumbers[i].textContent > 1) {
-//            count++;
-//        }
-//    }
-//    return console.log("悬赏大与1的求助有" + count + "个")
-//}
+var count = 0;
+function amount() {
+    var moneyNumbers = document.getElementsByName("moneyNumbers");
+    for (let i = 0; i < moneyNumbers.length; i++) {
+        if (moneyNumbers[i].textContent > 1) {
+            count++;
+        }
+    }
+    return console.log("悬赏大与1的求助有" + count + "个")
+}
 
 ////QUESTION2.2.将状态为“协助中”的求助背景改成灰黑色
-//var state = document.getElementsByClassName('state');
-//function helpState() {
-//    for (let i = 0; i < state.length; i++) {
-//        if (state[i].textContent === '协助中') {
-//            state[i].parentNode.parentNode.style = "background:#D0D0D0;"
-//        }
-//    }
-//}
+var state = document.getElementsByClassName('state');
+function helpState() {
+    for (let i = 0; i < state.length; i++) {
+        if (state[i].textContent === '协助中') {
+            state[i].parentNode.parentNode.style = "background:#D0D0D0;"
+        }
+    }
+}
 
 ////QUESTION2.3.写一个函数，可以统计某个求助使用了多少关键字
 ////获得关键字标签
-//var keyword = document.getElementsByClassName('keword');
-//function keywordAmount() {
-//    for (let i = 0; i < keyword.length; i++) {
-//        //取得关键字个数
-//        var keywordAmounts = keyword[i].getElementsByTagName('a').length;
-//        //获得求助标题
-//        var helpContent = keyword[i].previousElementSibling.children[0].textContent;
-//        //打印
-//        console.log(`标题为"${helpContent}"的求助有"${keywordAmounts}"个关键字`);
-//    }
-//}
+var keyword = document.getElementsByClassName('keword');
+function keywordAmount() {
+    for (let i = 0; i < keyword.length; i++) {
+        //取得关键字个数
+        var keywordAmounts = keyword[i].getElementsByTagName('a').length;
+        //获得求助标题
+        var helpContent = keyword[i].previousElementSibling.children[0].textContent;
+        //打印
+        console.log(`标题为"${helpContent}"的求助有"${keywordAmounts}"个关键字`);
+    }
+}
 
 ////QUESTION2.4.如果总结数为0,将其从DOM树中删除
 
 ////取得总结数
-//var sumupNumbers = document.getElementsByName("sum-upNumbers");
-//function deleteAmountIsZero() {
-//    for (let i = 0; i < sumupNumbers.length; i++) {
-//        //总结数为0,删掉整个求助
-//        if (parseInt(sumupNumbers[i].textContent) === 0) {
-//            sumupNumbers[i].parentNode.parentNode.parentNode.remove();
-//        }
-//    }
-//}
+var sumupNumbers = document.getElementsByName("sum-upNumbers");
+function deleteAmountIsZero() {
+    for (let i = 0; i < sumupNumbers.length; i++) {
+        //总结数为0,删掉整个求助
+        if (parseInt(sumupNumbers[i].textContent) === 0) {
+            sumupNumbers[i].parentNode.parentNode.parentNode.remove();
+        }
+    }
+}
 
-//function implement() {
-//    helpState();
-////    amount();
-//////    keywordAmount();
-//////    //deleteAmountIsZero();
-//}
+function implement() {
+    helpState();
+    //amount();
+    //keywordAmount();
+    //deleteAmountIsZero();
+}
 
 
 //// QUESTION1:实现铃铛闪烁效果
@@ -115,6 +115,16 @@
 
 //2.参考文章的全系列阅读功能，当滚动到页面底部时，将页面现有内容粘贴到页面底部，直到5次过后，在页面底部显示：已经没有更多内容了 
 
+//获取页面顶部被卷起来的高度
+bodyHeight = Math.max(document.body.scrollTop);
+
+//获取页面文档的总高度
+Math.max(document.body.scrollHeight);
+
+//获取页面浏览器视口的高度
+document.documentElement.clientHeight
+
+
 
 ////3.参考消息页面：完成勾选全选功能 
 
@@ -154,7 +164,7 @@
 
 ////当用户名或密码等有值时，关闭页面前弹出确认框 
 //window.addEventListener('beforeunload', function (e) {
-//    if (document.getElementsByName('username')[0].value !== "" || document.getElementsByTagName('input')[1].value !== "") {
+//    if (document.getElementsByName('username')[0].value || document.getElementsByTagName('input')[1].value ) {
 //        e.preventDefault();
 //    }
 //})
@@ -163,10 +173,65 @@
 //根据下拉列表选中项，填充“文字内容”和“链接”文本框
 //勾选修改的checkbox，实现“文字内容”和“链接”文本框的禁用和启用
 
-//6.参考发布求助，实现其关键字功能：
-//没有选择一级关键字，不能选择二级关键字
-//选择一级关键字后，二级关键字只能是一级关键字下的子集
-//一级关键字和二级关键字被选中后，会显示在下拉列表上方
-//自定义关键字输入完成后（按空格键），输入的关键字显示在下拉列表上方
-//后输入的关键字显示在前面 
+//测试案例:
+//步骤1:
+//    选择"使用新广告"可在文本内容文本框和链接内容文本框中输入文本;
+//步骤2:
+//    a.选择"飞哥邀请你注册“一起帮”（含邀请码)",
+//    文本内容文本框中变成"飞哥邀请你注册“一起帮”（含邀请码)"
+//    链接内容文本框中变成"http://17bang.ren/Register/Home?name=Saber&code=2333"
+//    b.选择"saber邀请你注册“一起帮”（含邀请码)",
+//        文本内容文本框中变成"saber邀请你注册“一起帮”（含邀请码)"
+//        链接内容文本框中变成"http://17bang.ren/Register/Home?name=Saber&code=6911"
+//        且以上操作选择后位文本框中的内容不可更改;
+//步骤3: 步骤2的要求达到后, 选择修改checkbox框, 可以更改文本框中的内容;
+
+
+{
+    let selectAdd = document.getElementsByTagName('select')[0],
+        selectText = document.getElementById('Content_Text'),
+        selectUrl = document.getElementById('Content_Url'),
+        selectRevise = document.getElementById("change");
+    selectText.disabled = false;
+    selectUrl.disabled = false;
+
+    document.getElementById('add').onclick = function () {
+        if (selectAdd.value == 0) {
+            selectText.disabled = false;
+            selectUrl.disabled = false;
+            selectText.value = "";
+            selectUrl.value = "";
+        } else if (selectAdd.value == 1) {
+            selectRevise.checked == false;
+            selectText.value = "飞哥邀请你注册“一起帮”（含邀请码)";
+            selectUrl.value = "http://17bang.ren/Register/Home?name=Saber&code=2333"
+            selectText.disabled = true;
+            selectUrl.disabled = true;
+        } else if (selectAdd.value == 2) {
+            selectRevise.checked == false;
+            selectText.value = "saber邀请你注册“一起帮”（含邀请码)";
+            selectUrl.value = "http://17bang.ren/Register/Home?name=Saber&code=6911"
+            selectText.disabled = true;
+            selectUrl.disabled = true;
+        }
+    }
+    selectRevise.onclick = function () {
+        if (selectRevise.checked == true) {
+            selectText.disabled = false;
+            selectUrl.disabled = false;
+        } else {
+            selectText.disabled = true;
+            selectUrl.disabled = true;
+        }
+    }
+}
+
+
+    //6.参考发布求助，实现其关键字功能：
+    //没有选择一级关键字，不能选择二级关键字
+    //选择一级关键字后，二级关键字只能是一级关键字下的子集
+    //一级关键字和二级关键字被选中后，会显示在下拉列表上方
+    //自定义关键字输入完成后（按空格键），输入的关键字显示在下拉列表上方
+    //后输入的关键字显示在前面 
+
 

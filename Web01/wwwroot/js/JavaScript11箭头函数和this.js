@@ -8,7 +8,7 @@ var a = {
     fn: function () {
         console.log(this.sname);
     }
-}
+};
 //a.fn();
 //a.sname = sname;
 //a.fn();
@@ -19,9 +19,36 @@ var a = {
 //o.fn();
 
 //3.不改变上述代码，分别使用call()和apply() ，打印出‘文轩’和‘两开花’
-a.fn.call(a,[a.sname = "两开花"]);
-a.fn.apply({ sname: "文轩" });
+//a.fn.call(a,[a.sname = "两开花"]);
+//a.fn.apply({ sname: "文轩" });
 
 //4.将fn()永久拷贝到showName() ，始终打印‘源栈最棒！^ _ ^’
 
-let showName = a.fn.bind({ sname: "源栈最棒！^ _ ^" })
+//let showName = a.fn.bind({ sname: "源栈最棒！^ _ ^" });
+//showName();
+
+
+//var fun1 = (x, y) => { console.log(x * y) };
+//function fun2(x, y) { console.log(x * y) };
+
+
+
+function step1() {
+    setTimeout(() => true, 300);
+}
+
+function step2() {
+    setTimeout(() => step1(), 300);
+}
+
+function step3() {
+    setTimeout(() => step2(), 300);
+}
+
+
+if (step3()) {
+    console.log('oh yeah!');
+} else {
+    console.log('what happen?')
+}
+

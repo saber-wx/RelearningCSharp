@@ -1,8 +1,13 @@
 ﻿@page
+@{ Layout = null; }
+
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <title>help</title>
     <link type="text/css" href="wwwroot/lib/bootstrap/dist/css/bootstrap.css" />
     <style type="text/css">
@@ -15,122 +20,177 @@
 
 </head>
 <body onload="implement()">
-    <div style="margin-left:auto;margin-right:auto;width:85%">
-        <div class="col-md-8">
-            <div style="background:#66CCFF;" class="div">
-                <div>
-                    <h3>VS添加snippet后，输入代码时没有智能提示 </h3>
-                    <h4 class="state">已撤销</h4>
-                    <p>
-                        我模仿cw这个snippet添加一个console.writeline的Snippet，添加完成后在VS编辑器上输入cw然后Tab确实是出来代码了，
-                        看起来作用了，但是。。。在输入cr后智能提示列表中没有这个东西，但是输入cw就有对应的提示，如下图：……
-                    </p>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8" id="problem">
+                <div style="background:#66CCFF;" class="div">
+                    <div>
+                        <h3><a>VS添加snippet后，输入代码时没有智能提示</a> </h3>
+                        <h4 class="state">已撤销</h4>
+                        <p>
+                            我模仿cw这个snippet添加一个console.writeline的Snippet，添加完成后在VS编辑器上输入cw然后Tab确实是出来代码了，
+                            看起来作用了，但是。。。在输入cr后智能提示列表中没有这个东西，但是输入cw就有对应的提示，如下图：……
+                        </p>
+                    </div>
+                    <div class="keword">
+                        <a style="color:red;" href="#">snippet</a>
+                        <a style="color:red;" href="#">VisualStudio</a>
+                        <a style="color:red;" href="#">工具软件</a>
+                        <a style="color:red;" href="#">智能提示</a>
+                    </div>
+                    <div>
+                        <span name="money">悬赏:<span name="moneyNumbers">10</span></span>
+                        <span name="answer">应答:<span name="answerNumbers">1</span></span>
+                        <span name="sum-up">总结:<span name="sum-upNumbers">2</span></span>
+                    </div>
                 </div>
-                <div class="keword">
-                    <a style="color:red;" href="#">snippet</a>
-                    <a style="color:red;" href="#">VisualStudio</a>
-                    <a style="color:red;" href="#">工具软件</a>
-                    <a style="color:red;" href="#">智能提示</a>
+
+                <div style="background:#66CCFF;" class="div">
+                    <div>
+                        <h3> <a>多线程访问同一对象的同步问题  </a></h3>
+                        <h4 class="state">协助中</h4>
+                        <p>
+                            含有多个属性的对象，当此对象创建后还没有初始化X字段时，其他线程就使用X字段导致数据不同步的问题。
+                            举例：线程A从网络 得到数据更新对象student的所有属性；线程B使用student的属性name和age，并显示出来。
+                            这样会有一个问题：名字和年龄不对应。第一轮得到小李的信息：name:小李，age:10第二轮得到小王的
+                            信息：name:小王，age:10，本来小王的age应该是66的，结果显示的是上次小李的。各位大神指导一下如何处理这种问题的。……
+                        </p>
+                    </div>
+                    <div class="keword">
+                        <a style="color:red;" href="#">同步问题</a>
+                        <a style="color:red;" href="#">C#</a>
+                        <a style="color:red;" href="#">咨询顾问</a>
+                        <a style="color:red;" href="#">解决方案</a>
+                        <a style="color:red;" href="#">编程开发语言</a>
+                    </div>
+                    <div>
+                        <span name="money">悬赏:<span span name="moneyNumbers">5</span></span>
+                        <span name="answer">应答:<span name="answerNumbers">5</span></span>
+                        <span name="sum-up">总结:<span name="sum-upNumbers">0</span></span>
+                    </div>
                 </div>
-                <div>
-                    <span name="money">悬赏:<span name="moneyNumbers">10</span></span>
-                    <span name="answer">应答:<span name="answerNumbers">1</span></span>
-                    <span name="sum-up">总结:<span name="sum-upNumbers">2</span></span>
+
+                <div style="background:#66CCFF;" class="div">
+                    <div>
+                        <h3> <a>.net微信推送URL </a>  </h3>
+                        <h4 class="state">协助中</h4>
+                        <p>
+                            有.net大佬帮忙开通微信推送验证token的吗?
+                        </p>
+                    </div>
+                    <div class="keword">
+                        <a style="color:red;" href="#">C#</a>
+                        <a style="color:red;" href="#">.net</a>
+                        <a style="color:red;" href="#">编程开发语言</a>
+                    </div>
+                    <div>
+                        <span name="money">悬赏:<span span name="moneyNumbers">0</span></span>
+                        <span name="answer">应答:<span name="answerNumbers">5</span></span>
+                        <span name="sum-up">总结:<span name="sum-upNumbers">2</span></span>
+                    </div>
+                </div>
+
+                <div style="background:#66CCFF;" class="div">
+                    <div>
+                        <h3>  <a>使用mysqldump导出数据库时需要手动输入密码 </a> </h3>
+                        <h4 class="state">已撤销</h4>
+                        <p>
+                            目前使用的命令如下：
+                            mysqldump -u root -h 127.0.0.1 --password=001 -p db > d:\dumpcd\db.sql
+                            在bat文件中每执行到这一句都需要手动输入一下密码
+                        </p>
+                    </div>
+                    <div class="keword">
+                        <a style="color:red;" href="#">同步问题</a>
+                        <a style="color:red;" href="#">C#</a>
+                        <a style="color:red;" href="#">SQL</a>
+                        <a style="color:red;" href="#">数据库</a>
+                        <a style="color:red;" href="#">编程开发语言</a>
+                    </div>
+                    <div>
+                        <span name="money">悬赏:<span span name="moneyNumbers">5</span></span>
+                        <span name="answer">应答:<span name="answerNumbers">5</span></span>
+                        <span name="sum-up">总结:<span name="sum-upNumbers">0</span></span>
+                    </div>
+                </div>
+
+                <div style="background:#66CCFF;" class="div">
+                    <div>
+                        <h3>  <a>chrome打开本地html文件传递参数  </a></h3>
+                        <h4 class="state">协助中</h4>
+                        <p>
+                            比如本地文件URL：C:/1.html?a=1
+                            其中a=1是传递的参数。但是chrome出现找不到文件的错误提示。如下图：
+
+                        </p>
+                    </div>
+                    <div class="keword">
+                        <a style="color:red;" href="#">同步问题</a>
+                        <a style="color:red;" href="#">C#</a>
+                        <a style="color:red;" href="#">SQL</a>
+                        <a style="color:red;" href="#">数据库</a>
+                        <a style="color:red;" href="#">编程开发语言</a>
+                    </div>
+                    <div>
+                        <span name="money">悬赏:<span span name="moneyNumbers">5</span></span>
+                        <span name="answer">应答:<span name="answerNumbers">5</span></span>
+                        <span name="sum-up">总结:<span name="sum-upNumbers">0</span></span>
+                    </div>
                 </div>
             </div>
 
-            <div style="background:#66CCFF;" class="div">
-                <div>
-                    <h3>多线程访问同一对象的同步问题  </h3>
-                    <h4 class="state">协助中</h4>
-                    <p>
-                        含有多个属性的对象，当此对象创建后还没有初始化X字段时，其他线程就使用X字段导致数据不同步的问题。
-                        举例：线程A从网络 得到数据更新对象student的所有属性；线程B使用student的属性name和age，并显示出来。
-                        这样会有一个问题：名字和年龄不对应。第一轮得到小李的信息：name:小李，age:10第二轮得到小王的
-                        信息：name:小王，age:10，本来小王的age应该是66的，结果显示的是上次小李的。各位大神指导一下如何处理这种问题的。……
-                    </p>
-                </div>
-                <div class="keword">
-                    <a style="color:red;" href="#">同步问题</a>
-                    <a style="color:red;" href="#">C#</a>
-                    <a style="color:red;" href="#">咨询顾问</a>
-                    <a style="color:red;" href="#">解决方案</a>
-                    <a style="color:red;" href="#">编程开发语言</a>
-                </div>
-                <div>
-                    <span name="money">悬赏:<span span name="moneyNumbers">5</span></span>
-                    <span name="answer">应答:<span name="answerNumbers">5</span></span>
-                    <span name="sum-up">总结:<span name="sum-upNumbers">0</span></span>
-                </div>
-            </div>
 
-            <div style="background:#66CCFF;" class="div">
+            @*1.参考求助首页侧边栏关键字，实现：当鼠标移动到关键字上，显示关键字被使用次数*@
+            <div class="col-md-4">
+                <h1>关键字</h1>
                 <div>
-                    <h3>.net微信推送URL   </h3>
-                    <h4 class="state">协助中</h4>
-                    <p>
-                        有.net大佬帮忙开通微信推送验证token的吗?
-                    </p>
-                </div>
-                <div class="keword">
-                    <a style="color:red;" href="#">C#</a>
-                    <a style="color:red;" href="#">.net</a>
-                    <a style="color:red;" href="#">编程开发语言</a>
+                    <a href="http://17bang.ren/Problem?keyword=163" title="已使用9999次"><span class="badge" style="font-size:25px">如何保养头发</span></a>
+                    <a href="http://17bang.ren/User/1" title="已使用6666次"><span class="badge" style="font-size:25px">世界上最帅的人是谁?</span></a>
+                    <a href="http://17bang.ren/Problem?keyword=163" title="已使用9998次"><span class="badge" style="font-size:23px">编程开发语言</span></a>
+                    <a href="http://17bang.ren/Problem?keyword=163" title="已使用6666次"><span class="badge" style="font-size:21px">C#</span></a>
+                    <a href="http://17bang.ren/Problem?keyword=169" title="已使用555次"><span class="badge" style="font-size:15px">C语言</span></a>
+                    <a href="http://17bang.ren/Problem?keyword=169" title="已使用450次"><span class="badge" style="font-size:12px">C++</span></a>
+                    <a href="http://17bang.ren/Problem?keyword=169" title="已使用333次"><span class="badge" style="font-size:12px">Java</span></a>
+                    <a href="http://17bang.ren/Problem?keyword=169" title="已使用233次"><span class="badge" style="font-size:10px">PHP</span></a>
                 </div>
                 <div>
-                    <span name="money">悬赏:<span span name="moneyNumbers">0</span></span>
-                    <span name="answer">应答:<span name="answerNumbers">5</span></span>
-                    <span name="sum-up">总结:<span name="sum-upNumbers">2</span></span>
+                    <select name="add" class="form-control" id="add">
+                        <option value="0">----- 使用新的广告 -----</option>
+                        <option value="1">飞哥邀请你注册“一起帮”（含邀请码)</option>
+                        <option value="2">saber邀请你注册“一起帮”（含邀请码)</option>
+                    </select>
+                    <section class="yellow-highlight" style="padding:10px 20px; margin-bottom:20px;">
+                        <div>
+                            <label>
+                                <input type="checkbox" id="change"> 修改
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>文字内容：（* 必填）</label>
+                            <input name="Content.Text" class="form-control" id="Content_Text" value="" type="text" placeholder="最多不超过24个字符" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <label>链接：（* 必填）</label>
+                            <input name="Content.Url" class="form-control" id="Content_Url" value="" type="text" placeholder="http或https开头的网址" disabled="disabled">
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary loading" type="submit" value="提交">
+                            <input class="btn btn-default" type="reset" value="重填">
+                        </div>
+                    </section>
                 </div>
-            </div>
-        </div>
-        @*1.参考求助首页侧边栏关键字，实现：当鼠标移动到关键字上，显示关键字被使用次数*@
-        <div class="col-md-4">
-            <h1>关键字</h1>
-            <div>
-                <a href="http://17bang.ren/Problem?keyword=163" title="已使用9999次"><span class="badge" style="font-size:25px">如何保养头发</span></a>
-                <a href="http://17bang.ren/User/1" title="已使用6666次"><span class="badge" style="font-size:25px">世界上最帅的人是谁?</span></a>
-                <a href="http://17bang.ren/Problem?keyword=163" title="已使用9998次"><span class="badge" style="font-size:23px">编程开发语言</span></a>
-                <a href="http://17bang.ren/Problem?keyword=163" title="已使用6666次"><span class="badge" style="font-size:21px">C#</span></a>
-                <a href="http://17bang.ren/Problem?keyword=169" title="已使用555次"><span class="badge" style="font-size:15px">C语言</span></a>
-                <a href="http://17bang.ren/Problem?keyword=169" title="已使用450次"><span class="badge" style="font-size:12px">C++</span></a>
-                <a href="http://17bang.ren/Problem?keyword=169" title="已使用333次"><span class="badge" style="font-size:12px">Java</span></a>
-                <a href="http://17bang.ren/Problem?keyword=169" title="已使用233次"><span class="badge" style="font-size:10px">PHP</span></a>
-            </div>
-            <div>
-                <select name="add" class="form-control" id="add">
-                    <option value="">----- 使用新的广告 -----</option>
-                    <option value="">飞哥邀请你注册“一起帮”（含邀请码）</option>
-                    <option value="">saber邀请你注册“一起帮”（含邀请码）</option>
-                </select>
-                <section class="yellow-highlight" style="padding:10px 20px; margin-bottom:20px;">
-                    <div class="text-right checkbox">
-                        <label>
-                            <input name="Content.Edit" id="Content_Edit" type="checkbox" value="true" data-val-required="Edit 字段是必需的。" data-val="true" zyf-ad-content-edit=""><input name="Content.Edit" type="hidden" value="false"> 修改
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label>文字内容：（* 必填）</label>
-                        <input name="Content.Text" class="form-control" id="Content_Text" type="text" placeholder="最多不超过24个字符" value="" data-val-required="* 文本不能为空" data-val="true" zyf-ad-in-widget-input-text="" data-val-length-max="30" data-val-length="* 文本的长度不能大于30">
-                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Text"></span>
-                    </div>
-                    <div class="form-group">
-                        <label>链接：（* 必填）</label>
-                        <input name="Content.Url" class="form-control" id="Content_Url" type="text" placeholder="http或https开头的网址" value="" data-val-required="* 链接不能为空" data-val="true">
-                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Url"></span>
-                    </div>
-                    <div class="modal-footer">
-                        <input class="btn btn-primary loading" type="submit" value="提交">
-                        <input class="btn btn-default" type="reset" value="重填">
-                    </div>
-                </section>
             </div>
         </div>
 
     </div>
+    <script type="text/javascript" src="~/js/javaScript07DOM和事件.js"></script>
 </body>
 </html>
 
 
 @*saber邀请你注册“一起帮”（含邀请码）
-http://17bang.ren/Register/Home?name=Saber&code=6911*@
+    http://17bang.ren/Register/Home?name=Saber&code=6911*@
+
+

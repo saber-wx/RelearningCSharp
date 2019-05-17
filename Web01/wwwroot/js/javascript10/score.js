@@ -8,17 +8,17 @@
 //score.js中的getBest()利用user.js的getNameById() ，将玩家名称转换成Id 
 class Score {
     constructor(playerName, score) {
-        this.datetime = new Date;
+        this.datetime = new Date();
         this.playerName = playerName;
         this.score = score;
     }
     static getBest(playName) {
-        return score = new {};
+        return new Score = ("", 12);
     }
-    set GetBest(value) {
+    set Best(value) {
         this.playName = value;
     }
-    get GetBest() {
+    get Best() {
         return this.playName;
     }
     save() {

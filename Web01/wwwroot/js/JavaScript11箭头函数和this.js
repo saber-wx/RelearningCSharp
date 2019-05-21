@@ -33,22 +33,3 @@ var a = {
 
 
 
-function step1() {
-    setTimeout(() => true, 300);
-}
-
-function step2() {
-    setTimeout(() => step1(), 300);
-}
-
-function step3() {
-    setTimeout(() => step2(), 300);
-}
-
-
-if (step3()) {
-    console.log('oh yeah!');
-} else {
-    console.log('what happen?')
-}
-

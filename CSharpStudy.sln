@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConvertStudy", "ConvertStud
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web01", "Web01\Web01.csproj", "{BD87E28E-1C18-4684-B105-1D5227FA1A4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loop", "Loop\Loop.csproj", "{4C26253B-2CAF-4A54-A001-3845E08F1673}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{BD87E28E-1C18-4684-B105-1D5227FA1A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD87E28E-1C18-4684-B105-1D5227FA1A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD87E28E-1C18-4684-B105-1D5227FA1A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C26253B-2CAF-4A54-A001-3845E08F1673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C26253B-2CAF-4A54-A001-3845E08F1673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C26253B-2CAF-4A54-A001-3845E08F1673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C26253B-2CAF-4A54-A001-3845E08F1673}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

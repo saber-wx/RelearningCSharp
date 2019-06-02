@@ -6,7 +6,7 @@ namespace CSharpStudy
 {
     class ArithmeticOperator
     {
-        static void call()
+        public static void call()
         {
             int r = 5;
             double area = 3.14 * r * r;

@@ -6,7 +6,7 @@ namespace CSharpStudy
 {
     class OperationPractise
     {
-        static void call()
+        public static void call()
         {
             //58天是几周零几天?
             int days = 58;
@@ -28,8 +28,7 @@ namespace CSharpStudy
             secs = secs % 60; //求得分钟数后剩余的秒数
 
             Console.WriteLine("{0}秒是{1}天{2}小时{3}分钟{4}秒", seconds, days1, hours, mins, secs);
-            Console.ReadKey();
-
+            
         }
     }
 }

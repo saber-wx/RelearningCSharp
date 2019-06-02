@@ -6,7 +6,7 @@ namespace CSharpStudy
 {
     class Variable
     {
-        static void call()
+        public static void call()
         {
             Console.WriteLine("Hello World!");
             Console.ReadKey();
@@ -19,8 +19,6 @@ namespace CSharpStudy
             int d = GetMax(a, b);
             Console.WriteLine("较大的一个值是" + d);
             Print();
-            Console.ReadKey();
-
         }
         #region  这些代码获取两个变量最大值
         public static int GetMax(int a, int b)
@@ -40,10 +38,12 @@ namespace CSharpStudy
             Console.ReadKey();
         }
 
+        //交换两个变量的方法
         //static int VariableExchange(int n1, int n2);
         //{
         //    int n1 = 40;
         //    int n2 = 80;
+
 
         //    ////方法1
         //    //int temp;
@@ -62,5 +62,7 @@ namespace CSharpStudy
         //    Console.WriteLine(n1 + "和" + n2);
         //    Console.ReadKey();
         //}
+
     }
 }
+

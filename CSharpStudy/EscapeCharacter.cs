@@ -6,7 +6,7 @@ namespace CSharpStudy
 {
     class EscapeCharacter
     {
-        static void call(string[] args)
+        public static void call()
         {
             /*
              转义符指的是一个'\' 加 一个特殊的字符,组成一个具有特殊意义的字符

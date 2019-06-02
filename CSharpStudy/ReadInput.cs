@@ -6,7 +6,7 @@ namespace CSharpStudy
 {
     class ReadInput
     {
-        static void call()
+        public static void call()
         {
             Console.WriteLine("请输入您的姓名");
 
@@ -26,5 +26,6 @@ namespace CSharpStudy
             Console.WriteLine("好巧,我也喜欢吃{0}", fruit);
             Console.ReadKey();
         }
+
     }
 }

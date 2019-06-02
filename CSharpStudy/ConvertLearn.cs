@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace CSharpStudy
 {
-    class Convert
+    class ConvertLearn
     {
         internal static void call()
         {
@@ -44,16 +47,6 @@ namespace CSharpStudy
 
             Console.WriteLine("{0}你的总成绩是{1}分,平均分是{2}分", name, sum, avg);
             Console.ReadKey();
-        }
-
-        private static int ToInt32(string strChinese)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static double ToDouble(string s)
-        {
-            throw new NotImplementedException();
         }
     }
 }

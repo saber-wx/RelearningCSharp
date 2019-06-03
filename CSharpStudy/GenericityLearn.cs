@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpStudy;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,37 +10,24 @@ namespace CSharpStudy
     {
         public static void call()
         {
-            Publishs a = new Problem();
-            a.Publish();
-            a.Disagree();
-            a.Agree();
+
         }
 
     }
 
-
     class Publishs
     {
-        private string author;
-        private string title;
-        private string body;
+        private List<Comment> _comment;
+        private User _author;
+        public string _title;
+        public string _body;
 
-        public string Author
+        public Publishs(List<Comment> comment, User author, string title, string body)
         {
-            get { return author; }
-            set { author = value; }
-        }
-
-        public string Title
-        {
-            get { return title; }
-            set { title = value; }
-        }
-
-        public string Body
-        {
-            get { return body; }
-            set { body = value; }
+            this._comment = comment;
+            this._author = author;
+            this._title = title;
+            this._body = body;
         }
 
         public virtual void Publish()
@@ -53,15 +41,20 @@ namespace CSharpStudy
         public virtual void Disagree()
         {
         }
-
-        public virtual void BeCommented()
-        {
-
-        }
     }
 
-    class Problem : Publishs 
+    class User
     {
+        public string Name { get; set; }
+        public int Id { get; set; }
+    }
+
+    internal class Problem : Publishs
+    {
+        public Problem(List<Comment> comment, User author, string title, string body):base(comment, author, title, body)
+        {
+        }
+
         public override void Publish()
         {
             Console.WriteLine("发布一个问题");
@@ -77,41 +70,42 @@ namespace CSharpStudy
             Console.WriteLine("问题被踩");
         }
 
-        public override void BeCommented()
-        {
-            Console.WriteLine("问题被评论");
-        }
-
     }
 
     class Suggest : Publishs
     {
+        public Suggest(List<Comment> comment, User author, string title, string body) : base(comment, author, title, body)
+        {
+        }
 
     }
 
     class Article : Publishs
     {
-        private List<Comment> commit { get; set; }
-        private Appraise appraise { get; set; }
-        private List<KeyWord> keyWord { get; set; }
+        public Article(List<Comment> comment, User author, string title, string body) : base(comment, author, title, body)
+        {
+        }
+        private List<Comment> Commit { get; set; }
+        private Appraise Appraise { get; set; }
+        private List<KeyWord> KeyWord { get; set; }
     }
-
-
 
     class Comment
     {
-        private Article article { get; set; }
-        private Appraise appraise { get; set; }
+        private Article Article { get; set; }
+        private Appraise Appraise { get; set; }
     }
 
     class Appraise
     {
+        private string appraises;
 
+        public string Appraises { get; set; }
     }
 
     class KeyWord
     {
-        private List<Article> article { get; set; }
+        private List<Article> Article { get; set; }
     }
 
 

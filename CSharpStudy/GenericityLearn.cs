@@ -90,6 +90,8 @@ namespace CSharpStudy
         private List<KeyWord> KeyWord { get; set; }
     }
 
+    
+
     class Comment
     {
         private Article Article { get; set; }

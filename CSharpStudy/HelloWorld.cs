@@ -8,8 +8,8 @@ namespace CSharpStudy
     {
         static void Main(string[] args)
         {
-            GenericityLearn.call();
-            Console.ReadKey(); 
+
+            Console.Read();
         }
 
     }

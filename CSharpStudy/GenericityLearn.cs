@@ -69,9 +69,6 @@ namespace CSharpStudy
 
             IList<Article> Article = new List<Article>{ article_1, article_2, article_3, article_4 };
 
-            var excellent = from s in Article
-                            where s.
-                            //select s;
 
 
 

@@ -8,7 +8,7 @@ namespace CSharpStudy
     {
         static void Main(string[] args)
         {
-            GenericityLearn.call();
+            DelegateLearn.Call();
             Console.Read();
         }
 

@@ -8,7 +8,7 @@ namespace CSharpStudy
     {
         static void Main(string[] args)
         {
-            DelegateLearn.Call();
+            ExceptionLearn.Call();
             Console.Read();
         }
 

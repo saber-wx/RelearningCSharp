@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,35 +13,27 @@ namespace frameworkLearn
     {
         public static void Main(string[] args)
         {
-            Bitmap image = new Bitmap(200, 100);
-            Graphics g = Graphics.FromImage(image);
-            g.Clear(Color.AliceBlue);
-
-            Random ran = new Random();
-            //创建100内随机数
-            int a = ran.Next(0, 100);
-            int b = ran.Next(0, 100);
-
-            g.DrawString(($"{a}+{b}"), new Font("黑体",50), new SolidBrush(Color.DarkBlue), new PointF(5, 5));
-
-            for (int i = 0; i < 10; i++)
+            try
             {
-                int x1 = ran.Next(0, 200);
-                int x2 = ran.Next(0, 100);
-                int y1 = ran.Next(0, 200);
-                int y2 = ran.Next(0, 100);
-                g.DrawLine(new Pen(Color.Blue), new Point(x1, x2), new Point(y1, y2));
+                IdentifyingCode.Image(200, 100);
             }
-            for (int i = 0; i < 1000; i++)
+            catch (RrongColorException e)
             {
-                int z1 = ran.Next(0, 200);
-                int z2 = ran.Next(0, 100);
-                image.SetPixel(z1, z2, Color.Red);
+                File.AppendAllText("D:\\17bang\\wx-验证码-error.log",
+                $"{DateTime.Now}：长度不能超过250,高度不能超过150" + e.ToString() + Environment.NewLine);
+                Console.WriteLine("长度不能超过250,高度不能超过150");
+
             }
-
-            image.Save(@"D:\17bang\hello.jpeg", ImageFormat.Jpeg);
-
+            catch (InvalidCastException e)
+            {
+                File.AppendAllText("D:\\17bang\\wx-验证码-error.log",
+                $"{DateTime.Now}：长度不能超过250,高度不能超过150" + e.ToString() + Environment.NewLine);
+                Console.WriteLine("背景颜色不能是黑色");
+            }
+           
+            Console.Read();
         }
-
     }
+
+
 }

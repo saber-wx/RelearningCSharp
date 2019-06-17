@@ -36,6 +36,7 @@ namespace frameworkLearn
             else
             {
                 Bitmap image = new Bitmap(width, height);
+              
                 return image;
             }
 
@@ -155,7 +156,6 @@ namespace frameworkLearn
             {
                 Bitmap image = SpeckPoint(width, height);
                 image.Save(@"D:\17bang\IdentifyingCode.jpeg", ImageFormat.Jpeg);
-                验证();
                 return image;
 
             }

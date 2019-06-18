@@ -11,23 +11,14 @@ namespace frameworkLearn
 {
     class IdentifyingCode
     {
-
-        //private string[] arrChar = new string[] { "0", "1", "2", "3", "4", "5", "6", "7",
-        //    "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-        //    "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ,"a","a","b","c","d","e",
-        //    "f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
         //生成随机数
         private static Random ran = new Random();
         //创建100内随机数
         private static int a = ran.Next(0, 100);
         private static int b = ran.Next(0, 100);
-        //取得数组下标
-        //private static int arrCharIndex = ran.Next(0, 62);
-
-
 
         //生成一张位图
-        public static Bitmap BuildImage(int width, int height)
+        private static Bitmap BuildImage(int width, int height)
         {
             if (width > 250 || height > 150)
             {
@@ -43,7 +34,7 @@ namespace frameworkLearn
         }
 
         //给位图背景上色
-        public static Bitmap BackgroundColor(int width, int height)
+        private static Bitmap BackgroundColor(int width, int height)
         {
             try
             {
@@ -73,7 +64,7 @@ namespace frameworkLearn
         }
 
         //给图片写加法表达式
-        public static Bitmap Addition(int width, int height)
+        private static Bitmap Addition(int width, int height)
         {
             try
             {
@@ -95,7 +86,7 @@ namespace frameworkLearn
         }
 
         //给图片画线
-        public static Bitmap DrawLine(int width, int height)
+        private static Bitmap DrawLine(int width, int height)
         {
             try
             {
@@ -124,7 +115,7 @@ namespace frameworkLearn
         }
 
         //给图片加点
-        public static Bitmap SpeckPoint(int width, int height)
+        private static Bitmap SpeckPoint(int width, int height)
         {
             try
             {
@@ -247,6 +238,7 @@ namespace frameworkLearn
         //}
     }
 
+    //创建一个自定义异常
     class RrongColorException : Exception
     {
         private string 提示;

@@ -14,10 +14,15 @@ namespace frameworkLearn
     {
         public static void Main(string[] args)
         {
+            //Random ran = new Random();
+            //while (true) {
+            //    int oper = ran.Next(1, 3);
+            //    Console.WriteLine(oper);
+            //}
 
-            //Map a = new Map(200,100) ;
-            IdentifyingCode.Image(200, 100);
-            IdentifyingCode.验证();
+            Captcha a = new Captcha(200, 100);
+            a.Get();
+            //a.Confirmation();
             Console.Read();
         }
     }

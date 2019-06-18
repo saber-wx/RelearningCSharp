@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CAPTCHA\Map.cs" />
+    <Compile Include="CAPTCHA\Captcha.cs" />
     <Compile Include="CAPTCHA\IdentifyingCode .cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

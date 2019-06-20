@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,35 @@ namespace frameworkLearn.CAPTCHA
 {
     class Captcha
     {
+        public static void Call()
+        {
+            try
+            {
+                Captcha image = new Captcha(200, 100);
+                image.Get().Save(CaptchaPath, ImageFormat.Jpeg);
+            }
+            catch (ExceedWidthOrHeightException e)
+            {
+
+                File.AppendAllText("D:\\17bang\\wx-WidthOrHeight-error.log",
+                    $"{DateTime.Now}：长度不能超过250,高度不能超过150" + e.ToString() + Environment.NewLine);
+            }
+            catch (BackgroundCodeColorCoveredException e)
+            {
+
+                File.AppendAllText("D:\\17bang\\wx-BackgroundCodeColor-error.log",
+                    $"{DateTime.Now}：背景颜色被覆盖" + e.ToString() + Environment.NewLine);
+            }
+
+        }
+
+        const string CaptchaPath = @"D:\17bang\Captcha-wx.jpeg";
+
         //生成随机数对象
         private static Random ran = new Random();
 
         //位图属性
-        private Bitmap image { get; }
+        private Bitmap image;
 
         //图片长
         public int Width { get; }
@@ -31,26 +56,37 @@ namespace frameworkLearn.CAPTCHA
         //生成图片构造方法
         public Captcha(int width, int height)
         {
-            this.image = new Bitmap(width, height);
             this.Width = width;
             this.Height = height;
+            this.image = new Bitmap(width, height);
         }
 
-        //保存图片
-        private void ImageSave()
-        {
-            image.Save(@"D:\17bang\IdentifyingCode-1.jpeg", ImageFormat.Jpeg);
-        }
 
         //获得验证码图片
-        public Bitmap Get()
+        private Bitmap Get()
         {
-            BackgroundColor();
-            Content();
-            DrawLine();
-            SpeckPoint();
-            ImageSave();
-            return image;
+            if (image.Width>250||image.Height>150)
+            {
+                throw new ExceedWidthOrHeightException();
+            }
+            else
+            {
+                if (color.CodeColor!=color.BackgroundColor)
+                {
+                    BackgroundColor();
+                    Content();
+                    DrawLine();
+                    SpeckPoint();
+                    return image;
+                }
+                else
+                {
+                    throw new BackgroundCodeColorCoveredException();
+                }
+
+            }
+           
+
         }
 
         //画点
@@ -113,7 +149,7 @@ namespace frameworkLearn.CAPTCHA
 
         }
 
-        //数学验证码类
+        //数学验证码内容类
         class RandomArithmetic
         {
             //生成两个加数
@@ -137,55 +173,41 @@ namespace frameworkLearn.CAPTCHA
             }
         }
 
-        public void Confirmation()
-        {
-            Console.WriteLine("请输入验证码结果:(输入\"刷新\"刷新验证码)");
-            string input = Console.ReadLine();
-            string sum = "";
-            if (NumberContent.Content.Contains("+"))
-            {
-                 sum = (NumberContent.Number1 + NumberContent.Number2).ToString();
-            }
-            else
-            {
-                sum = (NumberContent.Number1 - NumberContent.Number2).ToString();
-            }
-
-            while (true)
-            {
-                if (sum == input)
-                {
-                    Console.WriteLine("验证通过!");
-                    break;
-                }
-                else if (input == "刷新")
-                {
-                    Get();
-                    Confirmation();
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("结果错误,请重新输入结果");
-                    input = Console.ReadLine();
-                }
-            }
-        }
-
-        //class RandomCodeForChar
+        ////验证
+        //public void Confirmation()
         //{
-        //    private string[] arrChar = new string[] { "0", "1", "2", "3", "4", "5", "6", "7",
-        // "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-        //  "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ,"a","a","b","c","d","e",
-        //"f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-        //    //获取数组的下标
-        //    private static int arrCharIndex = ran.Next(0, 62);
-        //    public string CodeForChar { get; }
-        //    CodeForChar = $"{AddtionNumber1}+{b}=";
-        //                    for (int i = 0; i<length; i++)
-
-
+        //    Console.WriteLine("请输入验证码结果:(输入\"刷新\"刷新验证码)");
+        //    string input = Console.ReadLine();
+        //    string sum = "";
+        //    if (NumberContent.Content.Contains("+"))
+        //    {
+        //         sum = (NumberContent.Number1 + NumberContent.Number2).ToString();
         //    }
+        //    else
+        //    {
+        //        sum = (NumberContent.Number1 - NumberContent.Number2).ToString();
+        //    }
+
+        //    while (true)
+        //    {
+        //        if (sum == input)
+        //        {
+        //            Console.WriteLine("验证通过!");
+        //            break;
+        //        }
+        //        else if (input == "刷新")
+        //        {
+        //            Get();
+        //            Confirmation();
+        //            break;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("结果错误,请重新输入结果");
+        //            input = Console.ReadLine();
+        //        }
+        //    }
+        //}
 
     }
 

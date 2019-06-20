@@ -14,15 +14,9 @@ namespace frameworkLearn
     {
         public static void Main(string[] args)
         {
-            //Random ran = new Random();
-            //while (true) {
-            //    int oper = ran.Next(1, 3);
-            //    Console.WriteLine(oper);
-            //}
 
-            Captcha a = new Captcha(200, 100);
-            a.Get();
-            //a.Confirmation();
+            Captcha.Call();
+
             Console.Read();
         }
     }

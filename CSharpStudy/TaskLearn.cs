@@ -8,6 +8,7 @@ namespace CSharpStudy
 {
     class TaskLearn
     {
+
         public static void Call()
         {
 
@@ -20,7 +21,7 @@ namespace CSharpStudy
                 //        $"ThreadId:{Thread.CurrentThread.ManagedThreadId}");
                 //    return DateTime.Now.Ticks;
                 //});
-
+                
                 Task<long> getup = new Task<long>((n) =>
                 {
                    

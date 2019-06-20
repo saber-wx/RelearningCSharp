@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAPTCHA\Captcha.cs" />
-    <Compile Include="CAPTCHA\IdentifyingCode .cs" />
+    <Compile Include="CAPTCHA\ExceedWidthOrHeightException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

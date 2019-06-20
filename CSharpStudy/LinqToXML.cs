@@ -12,7 +12,6 @@ namespace CSharpStudy
         {
             XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), articles());
             document.Save("D:\\17bang\\articles.xml");
-
         }
 
         private static XElement articles()

@@ -1,4 +1,5 @@
 ﻿using CSharpStudy;
+using CSharpStudy._17bang;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -59,161 +60,25 @@ namespace CSharpStudy
             { };
             article_3.KeyWord = new List<KeyWords> { Csharp, UI, Arts };
             article_3.Publish();
-
-
+            
             Article article_4 = new Article(xy, "UI进阶2:美术2", "美术好处都有啥,谁说对了就教给他", new DateTime(2019, 06, 17, 09, 00, 00))
             { };
             article_4.KeyWord = new List<KeyWords> { Net, UI, Arts };
             article_4.Publish();
-
-
             IList<Article> Article = new List<Article>{ article_1, article_2, article_3, article_4 };
-
-
-
-
         }
 
-        //发布类
-        public class Publishs
-        {
-            public User Author { get; set; }
-            public string Title { get; set; }
-            public string Body { get; set; }
-            public DateTime Date { get; set; }
-            public Publishs(User author, string title, string body, DateTime Date)
-            {
-                this.Author = author;
-                this.Title = title;
-                this.Body = body;
-                this.Date = Date;
-            }
-        }
+        
+  
         // 发布接口
         interface IPublishs<out T>
         {
             void Publish();
         }
 
-        //用户类
-        public class User
-        {
-            public string Name { get; set; }
-            public int Id { get; set; }
-        }
 
-        //求助类
-        public class Problem : Publishs, IPublishs
-        {
-            public Problem(User author, string title, string body, DateTime Date) : base(author, title, body, Date)
-            {
-            }
-            public List<Comment> Comment { get; set; }
-            public List<Agree> agree { get; set; }
-            public List<Agree> Disagree { get; set; }
-            public void Publish()
-            {
-                Console.WriteLine($"用户\"{Author.Name}\"在{Date}发布问题:");
-                Console.WriteLine($"标题:{Title}");
-                Console.WriteLine($"问题:{Body}");
-                Console.WriteLine("==========================================");
-            }
-
-        }
-
-        //建议类
-        public class Suggest : Publishs, IPublishs
-        {
-            public Suggest(User author, string title, string body, DateTime Date) : base(author, title, body, Date)
-            {
-            }
-            public List<Comment> Comment { get; set; }
-            public List<Agree> agree { get; set; }
-            public List<Agree> Disagree { get; set; }
-            public void Publish()
-            {
-                Console.WriteLine("发布一个建议");
-            }
-        }
-
-        //文章类
-        public class Article : Publishs, IPublishs
-        {
-            public Article(User author, string title, string body, DateTime Date) : base(author, title, body, Date)
-            {
-            }
-            public List<Comment> Comment { get; set; }
-            public List<Agree> agree { get; set; }
-            public List<Agree> Disagree { get; set; }
-            public Appraise Appraise { get; set; }
-            public List<KeyWords> KeyWord { get; set; }
-            public void Publish()
-            {
-                Console.WriteLine($"用户\"{Author.Name}\"在{Date}发布文章:");
-                Console.WriteLine($"标题:{Title}");
-                Console.WriteLine($"文章:{Body}");
-                Console.WriteLine($"关键字:{KeyWord.ToArray().Length}个");
-                Console.WriteLine("==========================================");
-            }
-
-        }
-
-
-        //评论类
-        public class Comment
-        {
-            public User Author { get; set; }
-            public string Body { get; set; }
-            public DateTime Date { get; set; }
-            public Publishs Publishs { get; set; }
-            public Appraise Appraise { get; set; }
-            public Comment(User author, string body, DateTime date, Publishs Publish)
-            {
-                this.Author = author;
-                this.Body = body;
-                this.Date = Date;
-                this.Publishs = Publish;
-            }
-            public void Publish()
-            {
-                Console.WriteLine($"用户\"{Author.Name}\"{Date}在:");
-                Console.WriteLine($"\"{Publishs.Author.Name}\"的<{Publishs.Title}>问题下发表了评论:");
-                Console.WriteLine($"{Body}");
-                Console.WriteLine("==========================================");
-            }
-        }
-
-        //点赞类
-        public class Agree
-        {
-            public IPublishs Publishs { get; set; }
-        }
-
-        //踩类
-        public class Disagree
-        {
-            public IPublishs Publishs { get; set; }
-        }
-
-
-
-        //评价类
-        public class Appraise
-        {
-            public Article Article { get; set; }
-            public Comment Comment { get; set; }
-            public string Appraises { get; set; }
-        }
-
-        //关键字类
-        public class KeyWords
-        {
-            public List<Article> Article { get; set; }
-            public String Name { get; set; }
-        }
-
-
-
+       
+        
     }
 }
 

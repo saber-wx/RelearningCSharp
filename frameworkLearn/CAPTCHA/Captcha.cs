@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace frameworkLearn.CAPTCHA
@@ -61,10 +62,10 @@ namespace frameworkLearn.CAPTCHA
             this.image = new Bitmap(width, height);
         }
 
-
         //获得验证码图片
         private Bitmap Get()
         {
+
             if (image.Width>250||image.Height>150)
             {
                 throw new ExceedWidthOrHeightException();
@@ -74,9 +75,14 @@ namespace frameworkLearn.CAPTCHA
                 if (color.CodeColor!=color.BackgroundColor)
                 {
                     BackgroundColor();
-                    Content();
-                    DrawLine();
-                    SpeckPoint();
+                    Thread current = Thread.CurrentThread;
+                    Console.WriteLine($"current:{current.ManagedThreadId }");
+                    Thread currentWorker = new Thread(new ThreadStart(Content));
+                    Console.WriteLine($"ContentCurrentWorkerThreadId:{currentWorker.ManagedThreadId}");
+                    Task t1 = new Task(DrawLine);
+                    Console.WriteLine($"DrawLineTaskT1:{t1.Id}");
+                    Task t2 = new Task(SpeckPoint);
+                    Console.WriteLine($"DrawLineTaskT1:{t2.Id}");
                     return image;
                 }
                 else

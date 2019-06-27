@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml;
+using System.IO;
 
 namespace CSharpStudy
 {
@@ -12,10 +13,24 @@ namespace CSharpStudy
         static void Main(string[] args)
         {
 
-            TaskLearn.Call();
+
+            //TaskLearn.Call();
+            //IOlearn.Call();
+            ReadInput.call();
+
+
+            //student a = new student();
+            //Console.WriteLine(a);
+            //Console.WriteLine(typeof(Int32).Assembly);
             Console.Read();
-            
         }
+
+
+
+    }
+
+    class student
+    {
 
     }
 

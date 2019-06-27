@@ -20,6 +20,4 @@ namespace frameworkLearn
             Console.Read();
         }
     }
-
-
 }

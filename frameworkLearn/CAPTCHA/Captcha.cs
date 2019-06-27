@@ -31,7 +31,6 @@ namespace frameworkLearn.CAPTCHA
                 File.AppendAllText("D:\\17bang\\wx-BackgroundCodeColor-error.log",
                     $"{DateTime.Now}：背景颜色被覆盖" + e.ToString() + Environment.NewLine);
             }
-
         }
 
         const string CaptchaPath = @"D:\17bang\Captcha-wx.jpeg";
@@ -65,14 +64,13 @@ namespace frameworkLearn.CAPTCHA
         //获得验证码图片
         private Bitmap Get()
         {
-
-            if (image.Width>250||image.Height>150)
+            if (image.Width > 250 || image.Height > 150)
             {
                 throw new ExceedWidthOrHeightException();
             }
             else
             {
-                if (color.CodeColor!=color.BackgroundColor)
+                if (color.CodeColor != color.BackgroundColor)
                 {
                     BackgroundColor();
                     Thread current = Thread.CurrentThread;
@@ -89,10 +87,7 @@ namespace frameworkLearn.CAPTCHA
                 {
                     throw new BackgroundCodeColorCoveredException();
                 }
-
             }
-           
-
         }
 
         //画点
@@ -168,7 +163,7 @@ namespace frameworkLearn.CAPTCHA
                 Number1 = ran.Next(50, 100);
                 Number2 = ran.Next(0, 100 - Number1);
                 int oper = ran.Next(1, 3);
-                if (oper==1)
+                if (oper == 1)
                 {
                     Content = $"{Number1}-{Number2}=";
                 }

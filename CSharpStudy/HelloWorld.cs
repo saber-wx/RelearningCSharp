@@ -12,16 +12,8 @@ namespace CSharpStudy
     {
         static void Main(string[] args)
         {
-
-
-            //TaskLearn.Call();
-            //IOlearn.Call();
-            ReadInput.call();
-
-
-            //student a = new student();
-            //Console.WriteLine(a);
-            //Console.WriteLine(typeof(Int32).Assembly);
+            ReflectLearn.Call();
+            Console.WriteLine();
             Console.Read();
         }
 
@@ -29,9 +21,6 @@ namespace CSharpStudy
 
     }
 
-    class student
-    {
 
-    }
 
 }

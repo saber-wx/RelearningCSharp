@@ -73,6 +73,9 @@ namespace frameworkLearn.CAPTCHA
                 if (color.CodeColor != color.BackgroundColor)
                 {
                     BackgroundColor();
+                    //Content();
+                    //DrawLine();
+                    //SpeckPoint();
                     Thread current = Thread.CurrentThread;
                     Console.WriteLine($"current:{current.ManagedThreadId }");
                     Thread currentWorker = new Thread(new ThreadStart(Content));

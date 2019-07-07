@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CSharpStudy
 {
     internal class Arr
     {
+
+        //StringBuilder
         public static void call()
         {
             int[] a = new int[20];

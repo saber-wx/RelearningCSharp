@@ -12,12 +12,14 @@ namespace CSharpStudy
     {
         static void Main(string[] args)
         {
-            ReflectLearn.Call();
-            Console.WriteLine();
+            
+            //ReflectLearn.Call();
+            //Console.WriteLine();
             Console.Read();
         }
+
+
+
     }
-
-
-
 }
+

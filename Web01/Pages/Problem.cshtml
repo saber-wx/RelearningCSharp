@@ -1,5 +1,6 @@
 ﻿@page
-@{ Layout = null; }
+@*@{ Layout = null; }*@
+{ Layout = "_Layout"; }
 
 <!DOCTYPE html>
 <html>
@@ -21,8 +22,14 @@
 </head>
 <body onload="implement()">
 
+
     <div class="container">
         <div class="row">
+            <h1>我是Promblem内容页</h1>
+            @section bar {
+                <div style="background-color:aquamarine">
+                    Problem页面的Section
+                </div> }
 
             <div class="col-md-8" id="problem">
                 <div style="background:#66CCFF;" class="div">

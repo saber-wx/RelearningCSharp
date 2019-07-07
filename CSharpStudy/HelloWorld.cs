@@ -16,9 +16,6 @@ namespace CSharpStudy
             Console.WriteLine();
             Console.Read();
         }
-
-
-
     }
 
 

@@ -36,10 +36,10 @@ namespace frameworkLearn.CAPTCHA
         const string CaptchaPath = @"D:\17bang\Captcha-wx.jpeg";
 
         //生成随机数对象
-        private static Random ran = new Random();
+        private static Random _ran = new Random();
 
         //位图属性
-        private Bitmap image;
+        private Bitmap _image;
 
         //图片长
         public int Width { get; }
@@ -48,29 +48,29 @@ namespace frameworkLearn.CAPTCHA
         public int Height { get; }
 
         //生成随机颜色对象字段
-        private RandomColor color = new RandomColor();
+        private RandomColor _color = new RandomColor();
 
         //数学验证码
-        private RandomArithmetic NumberContent = new RandomArithmetic();
+        private RandomArithmetic _numberContent = new RandomArithmetic();
 
         //生成图片构造方法
         public Captcha(int width, int height)
         {
             this.Width = width;
             this.Height = height;
-            this.image = new Bitmap(width, height);
+            this._image = new Bitmap(width, height);
         }
 
         //获得验证码图片
         private Bitmap Get()
         {
-            if (image.Width > 250 || image.Height > 150)
+            if (_image.Width > 250 || _image.Height > 150)
             {
                 throw new ExceedWidthOrHeightException();
             }
             else
             {
-                if (color.CodeColor != color.BackgroundColor)
+                if (_color.CodeColor != _color.BackgroundColor)
                 {
                     BackgroundColor();
                     //Content();
@@ -84,7 +84,7 @@ namespace frameworkLearn.CAPTCHA
                     Console.WriteLine($"DrawLineTaskT1:{t1.Id}");
                     Task t2 = new Task(SpeckPoint);
                     Console.WriteLine($"DrawLineTaskT1:{t2.Id}");
-                    return image;
+                    return _image;
                 }
                 else
                 {
@@ -98,28 +98,28 @@ namespace frameworkLearn.CAPTCHA
         {
             for (int i = 0; i < 1000; i++)
             {
-                int red = ran.Next(0, 255);
-                int green = ran.Next(0, 255);
-                int blue = ran.Next(0, 255);
-                int XAxis = ran.Next(0, image.Width);
-                int YAxis = ran.Next(0, image.Height);
-                image.SetPixel(XAxis, YAxis, Color.FromArgb(red, green, blue));
+                int red = _ran.Next(0, 255);
+                int green = _ran.Next(0, 255);
+                int blue = _ran.Next(0, 255);
+                int XAxis = _ran.Next(0, _image.Width);
+                int YAxis = _ran.Next(0, _image.Height);
+                _image.SetPixel(XAxis, YAxis, Color.FromArgb(red, green, blue));
             }
         }
 
         //画线
         private void DrawLine()
         {
-            Graphics g = Graphics.FromImage(image);
+            Graphics g = Graphics.FromImage(_image);
             for (int i = 0; i < 20; i++)
             {
-                int red = ran.Next(0, 255);
-                int green = ran.Next(0, 255);
-                int blue = ran.Next(0, 255);
-                int XAxis1 = ran.Next(0, image.Width);
-                int XAxis2 = ran.Next(0, image.Width);
-                int YAxis1 = ran.Next(0, image.Height);
-                int YAxis2 = ran.Next(0, image.Height);
+                int red = _ran.Next(0, 255);
+                int green = _ran.Next(0, 255);
+                int blue = _ran.Next(0, 255);
+                int XAxis1 = _ran.Next(0, _image.Width);
+                int XAxis2 = _ran.Next(0, _image.Width);
+                int YAxis1 = _ran.Next(0, _image.Height);
+                int YAxis2 = _ran.Next(0, _image.Height);
                 g.DrawLine(new Pen(Color.FromArgb(red, green, blue)), new Point(XAxis1, YAxis1), new Point(XAxis2, YAxis2));
             }
         }
@@ -128,16 +128,16 @@ namespace frameworkLearn.CAPTCHA
         private void Content()
         {
             //创建
-            Graphics g = Graphics.FromImage(image);
-            SolidBrush solidBrush = new SolidBrush(color.CodeColor);
-            g.DrawString(NumberContent.Content, new Font("黑体", 40), solidBrush, new PointF(5, 5));
+            Graphics g = Graphics.FromImage(_image);
+            SolidBrush solidBrush = new SolidBrush(_color.CodeColor);
+            g.DrawString(_numberContent.Content, new Font("黑体", 40), solidBrush, new PointF(5, 5));
         }
 
         //给背景上色
         private void BackgroundColor()
         {
-            Graphics g = Graphics.FromImage(image);
-            g.Clear(color.BackgroundColor);
+            Graphics g = Graphics.FromImage(_image);
+            g.Clear(_color.BackgroundColor);
         }
 
         //随机颜色类
@@ -147,8 +147,8 @@ namespace frameworkLearn.CAPTCHA
             public Color CodeColor { get; }
             public RandomColor()
             {
-                BackgroundColor = Color.FromArgb(ran.Next(0, 255), ran.Next(0, 255), ran.Next(0, 255));
-                CodeColor = Color.FromArgb(ran.Next(0, 255), ran.Next(0, 255), ran.Next(0, 255));
+                BackgroundColor = Color.FromArgb(_ran.Next(0, 255), _ran.Next(0, 255), _ran.Next(0, 255));
+                CodeColor = Color.FromArgb(_ran.Next(0, 255), _ran.Next(0, 255), _ran.Next(0, 255));
             }
 
         }
@@ -163,9 +163,9 @@ namespace frameworkLearn.CAPTCHA
 
             public RandomArithmetic()
             {
-                Number1 = ran.Next(50, 100);
-                Number2 = ran.Next(0, 100 - Number1);
-                int oper = ran.Next(1, 3);
+                Number1 = _ran.Next(50, 100);
+                Number2 = _ran.Next(0, 100 - Number1);
+                int oper = _ran.Next(1, 3);
                 if (oper == 1)
                 {
                     Content = $"{Number1}-{Number2}=";

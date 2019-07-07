@@ -1,1 +1,27 @@
 ﻿@page
+@{ Layout = "_layout"; }
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>index</title>
+    <link type="text/css" href="wwwroot/lib/bootstrap/dist/css/bootstrap.css" />
+
+
+</head>
+<body>
+    <div style="margin-top:55px" class="row">
+        @section bar {
+        <div style="background-color:brown">
+            Index页面的Section
+        </div> }
+        <h1>我是Index内容页</h1>
+    </div>
+</body>
+</html>
+
+

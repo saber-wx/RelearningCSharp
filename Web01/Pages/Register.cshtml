@@ -1,41 +1,47 @@
 ﻿@page
-@{ Layout = "_Yz"; }
+@{ Layout = "_Layout"; }
+@section bar {
+
+}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>注册界面</title>
 </head>
+
 <body onload="start()">
-    <span id="flicker" class="glyphicon glyphicon-bell"></span>
-    <form onsubmit="passwordConfirm()">
-        <label>用户名:<input type="text" name="username" /></label><br />
-        <p style="color:red;display:none">用户名重复</p>
-        <label>密码:<input type="password" name="password" /></label><br />
-        <label>确认密码:<input type="password" /></label><br />
-        <div>
-            <label>性别:</label>
-            <label><input type="radio" value="male" name="gender">男</label>
-            <label><input type="radio" value="female" name="gender">女</label>
-        </div>
-        <div>
-            <label>来自:</label>
-            <select neme="province">
-                <option value="js">江苏</option>
-                <option value="hn">湖南</option>
-                <option value="hlj">黑龙江</option>
-            </select>
-        </div>
-        <div>
-            <label>自我介绍:</label><br />
-            <textarea name="self-introduction"></textarea>
-        </div>
-        <div>
-            <input class="register-submits" type="submit" value="提交" />
-            <input class="register-resets" type="reset" value="重置" />
-            <label><input class="register-checkboxs" type="checkbox" id="remember" />记住我</label>
-        </div>
-    </form>
+    <div align="center">
+        <span id="flicker" class="glyphicon glyphicon-bell"></span>
+        <form onsubmit="passwordConfirm()">
+            <label>用户名:<input type="text" name="username" /></label><br />
+            <p style="color:red;display:none">用户名重复</p>
+            <label>密码:<input type="password" name="password" /></label><br />
+            <label>确认密码:<input type="password" /></label><br />
+            <div>
+                <label>性别:</label>
+                <label><input type="radio" value="male" name="gender">男</label>
+                <label><input type="radio" value="female" name="gender">女</label>
+            </div>
+            <div>
+                <label>来自:</label>
+                <select neme="province">
+                    <option value="js">江苏</option>
+                    <option value="hn">湖南</option>
+                    <option value="hlj">黑龙江</option>
+                </select>
+            </div>
+            <div>
+                <label>自我介绍:</label><br />
+                <textarea name="self-introduction"></textarea>
+            </div>
+            <div>
+                <input class="register-submits" type="submit" value="提交" />
+                <input class="register-resets" type="reset" value="重置" />
+                <label><input class="register-checkboxs" type="checkbox" id="remember" />记住我</label>
+            </div>
+        </form>
+    </div>
 
 </body>
 

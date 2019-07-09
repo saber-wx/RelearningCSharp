@@ -9,28 +9,29 @@
 @section bar {
 }
 
-@{
+@*<div >
+        @{
 
-    string color;
-    for (int i = 1; i < 6; i++)
-    {
-        color = i % 2 == 0 ? "blue" : "red";
-        {
-            for (int j = 0; j < i * 2 - 1; j++)
+            string color;
+            for (int i = 1; i < 6; i++)
             {
-
-                if (i % 2 == 1)
+                color = i % 2 == 0 ? "blue" : "red";
                 {
-                    <span style="color:@(color)"> i </span>
+                    for (int j = 0; j < i * 2 - 1; j++)
+                    {
+
+                        if (i % 2 == 1)
+                        {
+                            <span style="color:@(color)"> i </span>
+                        }
+                        else
+                        { <span style="color:@(color)"> i </span>}
+
+                    }
+                    <br />
                 }
-                else
-                { <span style="color:@(color)"> i </span>}
-
             }
-            <br />
         }
-    }
-
-}
+    </div>*@
 }
 <p>Use this area to provide additional information.</p>

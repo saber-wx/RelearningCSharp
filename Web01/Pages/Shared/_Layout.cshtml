@@ -7,7 +7,7 @@
     <title>Web01</title>
 </head>
 <body>
-     @RenderSection("bar")
+
 
     <header>一起帮·源栈欢迎您</header>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -82,8 +82,15 @@
             </div>
         </div>
     </div>
+    @RenderSection("bar")
     @RenderBody()
-    <footer>大神小班……</footer>
+    <footer>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div align="center">关于我们 | 常见问题 | 意见建议 | 历史通知 | 友情捐赠 | 融资2018</div>
+            <div align="left">友情链接：</div>
+            <div align="right">渝ICP备18007191号（备案）© 2019 - 首顾科技</div>
+        </div>
+    </footer>
     <script type="text/javascript" src="~/js/JavaScript12异常和异步.js"></script>
 
 </body>

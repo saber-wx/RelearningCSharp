@@ -1,17 +1,12 @@
 ﻿@page
-@{
-    Layout = "_Layout";
-}
-@section bar {
 
-}
 <!DOCTYPE html>
 <html>
 <head>
 
 </head>
 <body>
-    <table border="1">
+    @*<table border="1">
         <caption>12</caption>
         <thead>
             <tr>
@@ -71,7 +66,20 @@
                 <td>2</td>
             </tr>
         </tbody>
-    </table>
-    <div>现在时间:<datetime>@DateTime.Now</datetime></div>
+    </table>*@
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+        
+        <DateTime asp-only="datetime" asp-showicon="false">@DateTime.Now</DateTime>
+    
+    </div>
+
 </body>
 </html>

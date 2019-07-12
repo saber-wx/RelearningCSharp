@@ -24,15 +24,20 @@ namespace Web01
             object showicon = context.AllAttributes["asp-showicon"].Value;
             object only = context.AllAttributes["asp-only"].Value;
 
-            //判断asp-only是否有"date"属性,并返回要现实的内容
-            string Content = Only(only, output, htmlContent);
-            //判断asp-showicon是否为true,并返回要现实的内容
-            string showiconHtmlContent = Showicon(showicon, output, Content);
-            
+            ////判断asp-only是否有"date"属性,并返回要现实的内容
+            //string Content = Only(only, output, htmlContent);
+            ////判断asp-showicon是否为true,并返回要现实的内容
+            //string showiconHtmlContent = Showicon(showicon, output, Content);
+
+            string Content = only.ToString().ToLower() == "date" ? $"{htmlContent.ToString("yyyy年mm月dd日")}" : htmlContent.ToString();
+            string showiconHtmlContent = showicon.ToString().ToLower() == "true" ? $"<div class=\"glyphicon glyphicon-calendar\">{Content}</div>" : Content;
+
             output.Content.SetHtmlContent(showiconHtmlContent);
+
+           
         }
 
-        //当asp-only="date"时，生成的HTML标签只显示日期，不显示时间 
+        //当asp-only="date"时，生成的HTML标签只显示日期，不显示时间 并返回要现实的内容
         public string Only(object only, TagHelperOutput output, DateTime htmlContent)
         {
             if (only.ToString().ToLower() == "date")
@@ -46,7 +51,7 @@ namespace Web01
             }
         }
 
-        //当asp-showicon="true"时，生成的HTML标签包含一个日历图标： 
+        //当asp-showicon="true"时，生成的HTML标签将包含一个日历图标 并返回要现实的内容
         public string Showicon(object showicon, TagHelperOutput output, string Content)
         {
             if (showicon.ToString().ToLower() == "true")

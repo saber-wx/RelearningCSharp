@@ -1,8 +1,6 @@
 ﻿@page
 @{ Layout = "_Layout"; }
-@section bar {
 
-}
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +10,39 @@
 
 <body onload="start()">
     <div align="center">
-        <span id="flicker" class="glyphicon glyphicon-bell"></span>
+        @*<span id="flicker" class="glyphicon glyphicon-bell"></span>*@
+
+        <div class="col-lg-4 col-md-5">
+            <div class="container" style="margin-bottom: 16px;">
+                <div class="row">
+                    <a class="visible-sm visible-xs pull-right" show-introduction="">
+                        <span class="fa fa-question-circle"></span><span style="margin-left:4px;">
+                            说明
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="introductionLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="introductionLabel"></h4>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">知道了</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
         <form onsubmit="passwordConfirm()">
             <label>用户名:<input type="text" name="username" /></label><br />
             <p style="color:red;display:none">用户名重复</p>

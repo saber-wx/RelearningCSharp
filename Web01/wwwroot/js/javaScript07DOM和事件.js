@@ -57,19 +57,19 @@ function implement() {
 
 
 //// QUESTION1:实现铃铛闪烁效果
-//var flag = false;
-//function start() {
+var flag = false;
+function start() {
 
-//    var temp = document.getElementById("flicker");
-//    if (!flag) {
-//        temp.style.color = "blue";
-//        flag = 1;
-//    } else {
-//        temp.style.color = "red";
-//        flag = 0;
-//    }
-//    setTimeout(start, 500);
-//}
+    var temp = document.getElementById("flicker");
+    if (!flag) {
+        temp.style.color = "blue";
+        flag = 1;
+    } else {
+        temp.style.color = "red";
+        flag = 0;
+    }
+    setTimeout(start, 500);
+}
 
 ////QUESTION3.1显示密码的长度
 //document.getElementsByTagName('input')[1].onkeydown = function () {

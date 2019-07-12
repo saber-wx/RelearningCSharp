@@ -3,87 +3,116 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/js/bootstrap.js"/>
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Web01</title>
 </head>
-<body>
 
+<body onload="start()">
+    <header>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <a href="/" data-toggle="tooltip" title="" data-original-title="返回首页">
+                    <img src="/Images/logo-big.ico" alt="一起帮Logo" class="pull-left">
+                </a>
+                <p class="navbar-text pull-left">
+                    <span style="font-size:18px; font-weight:600;">一起帮</span>
+                    <span class="visible-md-inline visible-lg-inline">· 网络互助平台</span>
+                    
+                </p>
+                <a href="/Message/Mine" class="navbar-text pull-left" style="font-size:18px; margin-left:10px;">
+                    <span class="fa fa-bell  pull-left hide" style="color: darkblue;" zyf-bell=""></span>
+                    <span id="flicker" class="glyphicon glyphicon-bell"></span>
+                </a>
 
-    <header>一起帮·源栈欢迎您</header>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <a href="/" data-toggle="tooltip" title="" data-original-title="返回首页">
-                <img src="/Images/logo-big.ico" alt="一起帮Logo" class="pull-left">
-            </a>
-            <p class="navbar-text pull-left">
-                <span style="font-size:18px; font-weight:600;">一起帮</span>
-                <span class="visible-md-inline visible-lg-inline">· 网络互助平台</span>
-            </p>
-            <a href="/Message/Mine" class="navbar-text pull-left" style="font-size:18px; margin-left:10px;">
-                <span class="fa fa-bell  pull-left hide" style="color: darkblue;" zyf-bell=""></span>
-            </a>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-question-circle"></span> 求助</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="dropdown-header">督导班</li>
-                            <li><a href="/Course/Confusion/New"><span class="fa fa-edit"></span> 疑问发布</a> </li>
-                            <li><a href="/Course/Confusion"><span class="fa fa-list"></span> 疑问列表</a> </li>
-                            <li class="divider"></li>
-                            <li><a href="/Problem?excludeCanceled=true&amp;excludeRewarded=true"><span class="fa fa-list"></span> 列表</a> </li>
-                            <li><a href="/Problem/New"><span class="fa fa-edit"></span> 发布</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span zyf-ducu-notices="" class="fa fa-eye"></span> 督促</a>
-                        <ul class="dropdown-menu" role="menu" zyf-navigator-ducu="">
-                            <li><a href="/Plan/New"><span class="fa fa-edit fa-fw"></span> 求督促</a></li>
-                            <li><a href="/Plan"><span class="fa fa-gavel fa-fw"></span> 督促别人</a></li>
-                            <li><a href="/Plan?my=f&amp;full=False&amp;due=False&amp;expire=False&amp;Frozen=False"><span class="fa fa-list fa-fw"></span> 我的目标</a></li>
-                            <li><a href="/Plan?my=s&amp;full=False&amp;due=False&amp;expire=True&amp;Frozen=False"><span class="fa fa-list fa-fw"></span> 我的督促</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="/Article" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-articles"></span> 文章</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/Article"><span class="fa fa-list fa-fw"></span> 列表</a> </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-mobile"></span>APP下载<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/install-Android.apk"><span class="fa fa-android"></span> Android</a></li>
-                            <li><a href="/install-iOS.ipa"><span class="fa fa-apple"></span> iOS<small>（越狱）</small> </a> </li>
-                        </ul>
-                    </li>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">                                               
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-question-circle"></span> 求助</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown-header">督导班</li>
+                                <li><a href="/Course/Confusion/New"><span class="fa fa-edit"></span> 疑问发布</a> </li>
+                                <li><a href="/Course/Confusion"><span class="fa fa-list"></span> 疑问列表</a> </li>
+                                <li class="divider"></li>
+                                <li><a href="/Problem?excludeCanceled=true&amp;excludeRewarded=true"><span class="fa fa-list"></span> 列表</a> </li>
+                                <li><a href="/Problem/New"><span class="fa fa-edit"></span> 发布</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span zyf-ducu-notices="" class="fa fa-eye"></span> 督促</a>
+                            <ul class="dropdown-menu" role="menu" zyf-navigator-ducu="">
+                                <li><a href="/Plan/New"><span class="fa fa-edit fa-fw"></span> 求督促</a></li>
+                                <li><a href="/Plan"><span class="fa fa-gavel fa-fw"></span> 督促别人</a></li>
+                                <li><a href="/Plan?my=f&amp;full=False&amp;due=False&amp;expire=False&amp;Frozen=False"><span class="fa fa-list fa-fw"></span> 我的目标</a></li>
+                                <li><a href="/Plan?my=s&amp;full=False&amp;due=False&amp;expire=True&amp;Frozen=False"><span class="fa fa-list fa-fw"></span> 我的督促</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/Article" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-articles"></span> 文章</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/Article"><span class="fa fa-list fa-fw"></span> 列表</a> </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-mobile"></span>APP下载<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/install-Android.apk"><span class="fa fa-android"></span> Android</a></li>
+                                <li><a href="/install-iOS.ipa"><span class="fa fa-apple"></span> iOS<small>（越狱）</small> </a> </li>
+                            </ul>
+                        </li>
 
-                    <li class="dropdown">
-                        <a zyf-navigator-loginstatus="" class="text-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                            <span class="text-muted"><span class="fa fa-user-secret"></span><span> 未登录</span></span>
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown">
+                            <a zyf-navigator-loginstatus="" class="text-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                <span class="text-muted"><span class="fa fa-user-secret"></span><span> 未登录</span></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
 
-                            <li><a href="/Log/On?prepage=%2fArticle%2f546"><span class="fa fa-sign-in"></span> 登录</a></li>
-                            <li><a href="/Register/Home?prepage=%2fArticle%2f546"><span class="fa fa-registered"></span> 注册</a></li>
-                            <li><a href="/Password/Forget"><span class="fa fa-lock"></span> 忘记密码</a></li>
-                        </ul>
-                    </li>
+                                <li><a href="/Log/On?prepage=%2fArticle%2f546"><span class="fa fa-sign-in"></span> 登录</a></li>
+                                <li><a href="/Register/Home?prepage=%2fArticle%2f546"><span class="fa fa-registered"></span> 注册</a></li>
+                                <li><a href="/Password/Forget"><span class="fa fa-lock"></span> 忘记密码</a></li>
+                            </ul>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    @RenderSection("bar",false)
+
+        <br />
+        <br />
+        <br />
+
+
+        <div class="container visible-md visible-lg top-user-message" zyf-user-message="">
+            <a class="pull-right" href="#"><span class="fa fa-hand-o-right"></span> 全部消息</a>
+            <div>
+                <span title="" class="fa fa-calendar" data-original-title="2019年07月10日 23点01分" data-toggle="tooltip" data-placement="bottom"></span>
+                <span class="fa fa-thumbs-o-up text-success "></span> 欢迎
+
+                <span title="" data-original-title="" data-toggle="tooltip">
+                    <a style="color" href="#" zyf-show-contact="4219">
+                        伊夏若
+                    </a>
+                </span>
+                <a title="" class="text-muted" style="position:relative; top:-1px;" href="/FAQ/Credit#" data-original-title="初级学徒" data-toggle="tooltip">
+                    <span>①</span>
+                </a>加入“一起帮”！记得完成“新手任务”获得 <b class="iconfont icon-drips water"></b><a class="text-info" href="http://17bang.ren/FAQ/Credit">帮帮点</a>  奖励哟。<span class="text-success">O(∩_∩)O~</span>
+            </div>
+        </div>
+    </header>
     @RenderBody()
+    @RenderSection("bar", false)
     <footer>
         <div class="navbar navbar-default navbar-fixed-bottom">
             <div align="center">关于我们 | 常见问题 | 意见建议 | 历史通知 | 友情捐赠 | 融资2018</div>
@@ -91,7 +120,8 @@
             <div align="right">渝ICP备18007191号（备案）© 2019 - 首顾科技</div>
         </div>
     </footer>
-    <script type="text/javascript" src="~/js/JavaScript12异常和异步.js"></script>
+
+    <script type="text/javascript" src="~/js/javaScript07DOM和事件.js"></script>
 
 </body>
 </html>

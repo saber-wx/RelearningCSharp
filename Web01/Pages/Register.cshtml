@@ -1,5 +1,5 @@
 ﻿@page
-@model Web01.Pages.Register
+@model RegisterModel
 @{ Layout = "_Layout"; }
 
 <!DOCTYPE html>
@@ -21,38 +21,29 @@
 </head>
 
 <body class="hold-transition register-page" onload="start()">
-
-
-    
     <div class="row">
         <div class="col-lg-4 col-md-5" id="register">
             <div class="register-box">
                 <form onsubmit="passwordConfirm()" method="post">
                     <div class="form-group">
-                        <label>用户名：（* 必填） <input asp-for="UserName" placeholder="登录用户名，可修改，不可重复" class="form-control" /></label>
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>用户名：（* 必填） <input asp-for="UserName" placeholder="登录用户名，可修改，不可重复" class="form-control" /></label>
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        <label>用户名：（* 必填） <input asp-for= "Register.UserName" placeholder="登录用户名，可修改，不可重复" class="form-control" /></label>
+                        <span asp-validation-for="Register.UserName"></span>
                     </div>
 
                     <div class="form-group">
-                        <label>密码：（* 必填） <input type="password" asp-for="Password" class="form-control" placeholder="6-16位，只可包含英文字母及数字 " /></label>
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <label>密码：（* 必填） <input asp-for="Register.Password" class="form-control" placeholder="6-16位，只可包含英文字母及数字 " /></label>
+                        <span asp-validation-for="Register.Password"></span>
                     </div>
                     <div class="form-group">
-                        <label>验证密码：（* 必填） <input type="password" class="form-control" placeholder="和密码相同" /></label>
-                        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                        <label>验证密码：（* 必填） <input asp-for="Register.ConfirmPassword" class="form-control" placeholder="和密码相同" /></label>
+                        <span asp-validation-for="Register.ConfirmPassword"></span>
                     </div>
                     <div class="bs-example" data-example-id="btn-variants">
                         <button type="submit" class="btn btn-primary ">注册</button>
                         <button type="reset" class="btn btn-default">重置</button>
                     </div>
                 </form>
-                <a href="all-admin-login.html" class="text-center">我有账号，现在就去登录</a>
+                <a href="#" class="text-center">我有账号，现在就去登录</a>
             </div>
         </div>
         <div class="class="col-lg-4 col-md-5""></div>

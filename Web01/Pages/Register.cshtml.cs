@@ -8,9 +8,20 @@ using SRV;
 
 namespace Web01.Pages
 {
+     
     [BindProperties]
     public class RegisterModel : PageModel
     {
+        private RegisterService _registerService;
+         
+        public RegisterModel()
+        {
+
+                _registerService = new RegisterService();
+
+           
+        }
+
         public Register Register { get; set; }
         public void OnGet()
         {
@@ -23,7 +34,13 @@ namespace Web01.Pages
             {
                 return;
             }
-            new RegisterService().Register(Register.UserName,Register.Password);
+
+            if (_registerService.HasExist(Register.UserName))
+            {
+                ModelState.AddModelError("Register.UserName", "*用户名重复");
+                return;
+            }
+            _registerService.Register(Register.UserName,Register.Password);
         }
 
         private void Save()

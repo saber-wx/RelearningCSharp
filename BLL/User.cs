@@ -11,10 +11,10 @@ namespace BLL
         public string Name { get; set; }
         public string Password { get; set; }
 
-        public static void Register(User user)
+        public  void Register()
         {
 
-            _userHealper.Save(user.Name, user.Password);
+            //_userHealper.Save(user.Name, user.Password);
 
             //显示欢迎语句                              (UI)
             //如果注册超过,返回True                   (BLL)

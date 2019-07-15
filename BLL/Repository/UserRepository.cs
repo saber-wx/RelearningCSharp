@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BLL.Repository
 {
-    class UserRepository
+    public class UserRepository
     {
         private static IList<User> _users;
         private static int _idCounter;
@@ -15,6 +16,13 @@ namespace BLL.Repository
             user.Id = _idCounter;
             _users.Add(user);
             return user;
+        }
+
+        public User GetByName(string userName)
+        {
+            return _users == null ? null:
+                _users.Where(u => u.Name == userName)
+                .SingleOrDefault();
         }
     }
 }

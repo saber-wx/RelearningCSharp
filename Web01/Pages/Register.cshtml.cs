@@ -9,15 +9,15 @@ using SRV;
 
 namespace Web01.Pages
 {
-     
+
     [BindProperties]
     public class RegisterModel : PageModel
     {
         private RegisterService _registerService;
-         
+
         public RegisterModel()
         {
-                _registerService = new RegisterService();
+            _registerService = new RegisterService();
         }
 
         public Register Register { get; set; }
@@ -41,7 +41,7 @@ namespace Web01.Pages
                 ModelState.AddModelError("Register.UserName", "*用户名重复");
                 return;
             }
-            _registerService.Register(Register.UserName,Register.Password);
+            _registerService.Register(Register.UserName, Register.Password);
         }
 
         private void Save()
@@ -51,26 +51,26 @@ namespace Web01.Pages
     }
 
     public class Register
-    { 
-        
-        [MyRequired]
-        [Display(Name ="用户名")]
-        [DisplayFormat(ConvertEmptyStringToNull =false)]
+    {
+        [MustFillInRequired]
+        [Display(Name = "用户名")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
 
         public string UserName { get; set; }
 
-       
+
         [DataType(DataType.Password)]
         [MaxLength(16)]
         [MinLength(6)]
-        //[RegularExpression("[a-z]*")]
-        [MyRequired]
-        //[Display(Name = "密码")]
+        [MustFillInRequired]
+        [LengthIncorrectRequired]
+        [Display(Name = "密码")]
         public string Password { get; set; }
 
 
         [Compare("Password")]
-        [MyRequired]
+        [MustFillInRequired]
+        [Display(Name ="验证密码")]
         public string ConfirmPassword { get; set; }
     }
 }

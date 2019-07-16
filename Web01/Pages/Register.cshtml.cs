@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -16,13 +17,13 @@ namespace Web01.Pages
          
         public RegisterModel()
         {
-
                 _registerService = new RegisterService();
-
-           
         }
 
         public Register Register { get; set; }
+
+        //[BindProperty]
+        //[Required(AllowEmptyStrings = true)] 
         public void OnGet()
         {
             ViewData["title"] = "注册";
@@ -51,9 +52,16 @@ namespace Web01.Pages
 
     public class Register
     {
-        //[YQBRequired]
+        
+        [Required(AllowEmptyStrings =false, ErrorMessage ="* 必须填写")]
+        [Display(Name ="用户名")]
+        [DisplayFormat(ConvertEmptyStringToNull =false)]
         public string UserName { get; set; }
+
+       
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+
         public string ConfirmPassword { get; set; }
 
     }

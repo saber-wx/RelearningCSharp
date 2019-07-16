@@ -7,9 +7,6 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>
-
-    </title>
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <title>help</title>
     <link type="text/css" href="wwwroot/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,7 +23,7 @@
             <div class="register-box">
                 <form onsubmit="passwordConfirm()" method="post">
                     <div class="form-group">
-                        <label>用户名：（* 必填） <input asp-for= "Register.UserName" placeholder="登录用户名，可修改，不可重复" class="form-control" /></label>
+                        <label>用户名：（* 必填） <input asp-for="Register.UserName" placeholder="登录用户名，可修改，不可重复" class="form-control" /></label>
                         <span asp-validation-for="Register.UserName"></span>
                     </div>
 
@@ -46,7 +43,7 @@
                 <a href="#" class="text-center">我有账号，现在就去登录</a>
             </div>
         </div>
-        <div class="class="col-lg-4 col-md-5""></div>
+        <div class="class=" col-lg-4 col-md-5""></div>
     </div>
 
 </body>

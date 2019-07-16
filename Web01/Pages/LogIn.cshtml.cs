@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,11 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web01.Pages
 {
-    public class IndexModel : PageModel
+    public class LogInModel : PageModel
     {
         public void OnGet()
         {
-            ViewData["title"] = "欢迎来到“一起帮”";
+
         }
     }
 }

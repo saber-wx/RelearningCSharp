@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/js/bootstrap.js" />
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
@@ -27,7 +29,7 @@
                 <p class="navbar-text pull-left">
                     <span style="font-size:18px; font-weight:600;">一起帮</span>
                     <span class="visible-md-inline visible-lg-inline">· 网络互助平台</span>
-                    
+
                 </p>
                 <a href="/Message/Mine" class="navbar-text pull-left" style="font-size:18px; margin-left:10px;">
                     <span class="fa fa-bell  pull-left hide" style="color: darkblue;" zyf-bell=""></span>
@@ -43,7 +45,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">                                               
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-question-circle"></span> 求助</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li class="dropdown-header">督导班</li>
@@ -100,30 +102,16 @@
         <br />
 
 
-        <div class="container visible-md visible-lg top-user-message" zyf-user-message="">
-            <a class="pull-right" href="#"><span class="fa fa-hand-o-right"></span> 全部消息</a>
-            <div>
-                <span title="" class="fa fa-calendar" data-original-title="2019年07月10日 23点01分" data-toggle="tooltip" data-placement="bottom"></span>
-                <span class="fa fa-thumbs-o-up text-success "></span> 欢迎
-
-                <span title="" data-original-title="" data-toggle="tooltip">
-                    <a style="color" href="#" zyf-show-contact="4219">
-                        伊夏若
-                    </a>
-                </span>
-                <a title="" class="text-muted" style="position:relative; top:-1px;" href="/FAQ/Credit#" data-original-title="初级学徒" data-toggle="tooltip">
-                    <span>①</span>
-                </a>加入“一起帮”！记得完成“新手任务”获得 <b class="iconfont icon-drips water"></b><a class="text-info" href="http://17bang.ren/FAQ/Credit">帮帮点</a>  奖励哟。<span class="text-success">O(∩_∩)O~</span>
-            </div>
-        </div>
     </header>
     @RenderBody()
+
     @RenderSection("bar", false)
+
+
     <footer>
         <div class="navbar navbar-default navbar-fixed-bottom">
-            <div align="center">关于我们 | 常见问题 | 意见建议 | 历史通知 | 友情捐赠 | 融资2018</div>
-            <div align="left">友情链接：</div>
-            <div align="right">渝ICP备18007191号（备案）© 2019 - 首顾科技</div>
+            <p align="center">About Us |Common Question | Suggestion | History | Firend | 融资2018<a href="#"> 参考 </a></p>
+            <div align="center">渝ICP备18007191号（备案）© 2019 - 首顾科技</div>
         </div>
     </footer>
 
@@ -131,6 +119,24 @@
 
 </body>
 </html>
+
+
+@*<div class="container visible-md visible-lg top-user-message" zyf-user-message="">
+    <a class="pull-right" href="#"><span class="fa fa-hand-o-right"></span> 全部消息</a>
+    <div>
+        <span title="" class="fa fa-calendar" data-original-title="2019年07月10日 23点01分" data-toggle="tooltip" data-placement="bottom"></span>
+        <span class="fa fa-thumbs-o-up text-success "></span> 欢迎
+
+        <span title="" data-original-title="" data-toggle="tooltip">
+            <a style="color:aqua" href="#" zyf-show-contact="4219">
+                伊夏若
+            </a>
+        </span>
+        <a title="" class="text-muted" style="position:relative; top:-1px;" href="/FAQ/Credit#" data-original-title="初级学徒" data-toggle="tooltip">
+            <span>①</span>
+        </a>加入“一起帮”！记得完成“新手任务”获得 <b class="iconfont icon-drips water"></b><a class="text-info" href="http://17bang.ren/FAQ/Credit">帮帮点</a>  奖励哟。<span class="text-success">O(∩_∩)O~</span>
+    </div>
+</div>*@
 
 
 

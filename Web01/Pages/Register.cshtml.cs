@@ -22,7 +22,7 @@ namespace Web01.Pages
 
         public Register Register { get; set; }
 
-        //[BindProperty]
+        //[BindProperty] 
         //[Required(AllowEmptyStrings = true)] 
         public void OnGet()
         {
@@ -60,6 +60,9 @@ namespace Web01.Pages
 
        
         [DataType(DataType.Password)]
+        [MaxLength(16)]
+        [MinLength(6)]
+        [Required(ErrorMessage = "* 必须填写")]
         public string Password { get; set; }
 
         public string ConfirmPassword { get; set; }

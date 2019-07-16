@@ -19,34 +19,61 @@
 
 <body class="hold-transition register-page" onload="start()">
     <div class="row">
-        <div class="col-lg-6 col-md-6"></div>
-        <div class="col-lg-4 col-md-4" id="register">
-            <div class="register-box">
-                <form onsubmit="passwordConfirm()" method="post">
+        <div class="col-lg-6 col-md-5"></div>
+
+        <div class="col-lg-4 col-md-5" id="register">
+            <div style="background-color:antiquewhite">
+                <div class="col-xs-8">
                     <div class="form-group">
-                        <label>用户名：（* 必填） <input asp-for="Register.UserName" placeholder="登录用户名 可修改 不可重复" class="form-control" /></label>
-                        <span asp-validation-for="Register.UserName"></span>
+                        <label>邀请人：</label>（* 必填，<a title="" class="text-info" href="#" data-original-title="点击由系统推荐" data-toggle="tooltip">没有邀请人</a>）
+                        <input name="InviterName" class="form-control" id="InviterName" type="text" placeholder="他的用户名，模糊查询只能从头开始" value="" zyf-search-by-username="" data-val-required="* 邀请人不能为空" data-val-length-max="20" data-val-length="* 邀请人的长度不能大于20" data-val="true">
+                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="InviterName"></span>
                     </div>
 
                     <div class="form-group">
-                        <label>密码：（* 必填） <input asp-for="Register.Password" class="form-control" placeholder="6-16位 只可包含英文字母及数字 " /></label>
-                        <span asp-validation-for="Register.Password"></span>
+                        <label>邀请码：（* 必填）</label>
+                        <input name="InviteCode" class="form-control" placeholder="4位数字" data-val-required="* 邀请码不能为空">
+                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="InviteCode"></span>
                     </div>
-                    <div class="form-group">
-                        <label>验证密码：（* 必填） <input asp-for="Register.ConfirmPassword" class="form-control" placeholder="和密码相同" /></label>
-                        <span asp-validation-for="Register.ConfirmPassword"></span>
-                    </div>
-                    <div class="bs-example" data-example-id="btn-variants">
-                        <button type="submit" class="btn btn-primary ">注册</button>
-                        <button type="reset" class="btn btn-default">重置</button>
-                    </div>
-                </form>
+                </div>
+            </div>
 
-                <a href="./login" class="text-center">我有账号，现在就去登录</a>
+            <br />
+            <br />
+            <div class="col-xs-10">
+                <div class="register-box">
+                    <form method="post" asp-page="/Register">
+                        <div class="form-group">
+                            <label>用户名：（* 必填） </label>
+                            <input asp-for="Register.UserName" placeholder="登录用户名 可修改 不可重复" class="form-control" />
+                            <span asp-validation-for="Register.UserName"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>密码：（* 必填）</label>
+                            <input asp-for="Register.Password" class="form-control" placeholder="6-16位 只可包含英文字母及数字 " />
+                            <span asp-validation-for="Register.Password"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>验证密码：（* 必填）</label>
+                            <input asp-for="Register.ConfirmPassword" class="form-control" placeholder="和密码相同"/>
+                            <span asp-validation-for="Register.ConfirmPassword" ></span>
+                        </div>
+
+                        <div class="bs-example" data-example-id="btn-variants">
+                            <button type="submit" class="btn btn-primary ">注册</button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                            <a href="/login" class="text-right">我有账号，现在就去登录</a>
+                        </div>
+
+                    </form>
+                </div>
+               
             </div>
         </div>
 
-    </div>
+        </div>
 
 </body>
 </html>

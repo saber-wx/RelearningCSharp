@@ -51,21 +51,26 @@ namespace Web01.Pages
     }
 
     public class Register
-    {
+    { 
         
-        [Required(AllowEmptyStrings =false, ErrorMessage ="* 必须填写")]
+        [MyRequired]
         [Display(Name ="用户名")]
         [DisplayFormat(ConvertEmptyStringToNull =false)]
+
         public string UserName { get; set; }
 
        
         [DataType(DataType.Password)]
         [MaxLength(16)]
         [MinLength(6)]
-        [Required(ErrorMessage = "* 必须填写")]
+        //[RegularExpression("[a-z]*")]
+        [MyRequired]
+        //[Display(Name = "密码")]
         public string Password { get; set; }
 
-        public string ConfirmPassword { get; set; }
 
+        [Compare("Password")]
+        [MyRequired]
+        public string ConfirmPassword { get; set; }
     }
 }

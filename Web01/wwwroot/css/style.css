@@ -1,13 +1,6 @@
 /* tab 1*/
 
-body {
-    text-align: center;
-    background: url("../images/b4.jpg") 0px 0px no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 
-    background-color: rgba(0,0,0,0.1);
-}
 
 .double {
 	line-height: 58px;

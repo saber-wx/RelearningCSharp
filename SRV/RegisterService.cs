@@ -6,8 +6,14 @@ namespace SRV
 {
     public class RegisterService
     {
+        public UserRepository _userRepository;
+        public RegisterService()
+        {
+            _userRepository = new UserRepository();
+        }
         public void Register(string userName, string password)
         {
+
             User user = new User
             {
                 Name = userName,
@@ -15,12 +21,12 @@ namespace SRV
             };
             user.Register();
 
-            new UserRepository().Save(user);
+            _userRepository.Save(user);
         }
 
         public bool HasExist(string userName)
         {
-          return  new UserRepository().GetByName(userName)!=null;
+            return _userRepository.GetByName(userName) != null;
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿using DAL;
+﻿using BLL.Repository;
 using System;
 
 namespace BLL
 {
     public class User
     {
-        private static UserHealper _userHealper;
-        static User() { _userHealper = new UserHealper(); }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
@@ -25,8 +24,8 @@ namespace BLL
 
         public static bool IsNameDuplicated(string name)
         {
-
-            return _userHealper.GetByName(name) != null;
+            return false;
+         
         }
 
         public bool IsPasswordValid()

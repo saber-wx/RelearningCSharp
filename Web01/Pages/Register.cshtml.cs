@@ -38,7 +38,7 @@ namespace Web01.Pages
 
             if (_registerService.HasExist(Register.UserName))
             {
-                ModelState.AddModelError("Register.UserName", "*用户名重复");
+                ModelState.AddModelError("Register.UserName", "*用户名已经存在");
                 return;
             }
             _registerService.Register(Register.UserName, Register.Password);
@@ -55,7 +55,6 @@ namespace Web01.Pages
         [MustFillInRequired]
         [Display(Name = "用户名")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-
         public string UserName { get; set; }
 
 
@@ -63,7 +62,6 @@ namespace Web01.Pages
         [MaxLength(16)]
         [MinLength(6)]
         [MustFillInRequired]
-        [LengthIncorrectRequired]
         [Display(Name = "密码")]
         public string Password { get; set; }
 

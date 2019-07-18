@@ -1,25 +1,47 @@
 ﻿using BLL.Repository;
 using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BLL
 {
     public class User
     {
+        //-- 不可更改！！
+        private const string _salt="s$)&a@^b!~#)e%*r";
+        //-- 不可更改！！
 
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+        public User InvitedBy { get; set; }
 
         public  void Register()
         {
+            //if (InvitedBy !=null) 
+            //{
+            //    Message.Send("", InvitedBy);
+            //}
+            using (MD5 md5Hash = MD5.Create())
+            {
+                Password = (GetMd5Hash(md5Hash, Password+_salt));
+            }
 
-            //_userHealper.Save(user.Name, user.Password);
+        }
 
-            //显示欢迎语句                              (UI)
-            //如果注册超过,返回True                   (BLL)
-            //如果有邀请人,邀请人积分增加,收到通知       (BLL)
-            //获得10个初始积分                           (BLL)
-            //将用户名和密码存入数据库,的到数据库返回的Id   (DAL=>Repository)
+        private string GetMd5Hash(MD5 md5Hash, string input)
+        {
+            //1. 将字符串转换成byte[]
+            //2. 进行MD5加密运算
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            //StringBuilder提高性能（其实也提高了可读性）
+            StringBuilder sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+            return sBuilder.ToString();
         }
 
         public static bool IsNameDuplicated(string name)

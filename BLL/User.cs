@@ -7,6 +7,10 @@ namespace BLL
 {
     public class User
     {
+        //-- 不可更改！！
+        private const string _salt = "s$)&a@^b!~#)e%*r";
+        //-- 不可更改！！
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
@@ -24,9 +28,6 @@ namespace BLL
 
         public static string GetMd5Hash(string input)
         {
-            //-- 不可更改！！
-            const string _salt = "s$)&a@^b!~#)e%*r";
-            //-- 不可更改！！
 
             using (MD5 md5Hash = MD5.Create())
             {

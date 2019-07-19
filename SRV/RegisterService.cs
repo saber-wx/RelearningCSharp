@@ -14,23 +14,17 @@ namespace SRV
 
         public void Register(string userName, string password)
         {
-
-            User user = new User
-            {
-                Name = userName,
-                Password = password
-            };
+            User user = new User{Name = userName,Password = password};
             user.Register();
-
             _userRepository.Save(user);
         }
+        
+        //public UserModel GetById(int id)
+        //{
+        //    User user = _userRepository.GetById(id);
+        //    return mapFrom(user);
+        //}
 
-        public bool HasExist(string userName)
-        {
-            return _userRepository.GetByName(userName) != null;
-        }
-
-      
         public UserModel Login(string userName, string password)
         {
             User user = _userRepository.GetByName(userName);
@@ -40,19 +34,28 @@ namespace SRV
             }
             else
             {
+
                 UserModel model = new UserModel();
-                    model.Id = user.Id;
-                    model.MD5Password = user.Password;
-         
+                model.Id = user.Id;
+                model.MD5Password = user.Password;
+
                 return model;
             }
 
         }
 
+        public bool HasExist(string userName)
+        {
+            return _userRepository.GetByName(userName) != null;
+        }
+
+      
+
+
         //检查密码
         public bool PasswordCorrect(string rawPassword, string MD5Password)
         {
-            return User.GetMd5Hash(rawPassword) ==MD5Password;
+            return User.GetMd5Hash(rawPassword) == MD5Password;
         }
 
         //根据Info取

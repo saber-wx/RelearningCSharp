@@ -10,6 +10,7 @@ using SRV;
 
 namespace Web01.Pages
 {
+    [BindProperties]
     public class LogInModel : PageModel
     {
         private const string _userId = "userId";
@@ -45,7 +46,7 @@ namespace Web01.Pages
                 return;
             }
 
-            if (_registerService.PasswordCorrect(Password, model.MD5Password))
+            if (!_registerService.PasswordCorrect(Password, model.MD5Password))
             {
                 ModelState.AddModelError("Password", "* 用户名或密码错误");
                 return;

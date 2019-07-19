@@ -49,10 +49,10 @@ namespace Web01
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseCookiePolicy(new CookiePolicyOptions
-            { CheckConsentNeeded = x => false});
+            //app.UseCookiePolicy(new CookiePolicyOptions
+            //{ CheckConsentNeeded = x => false});
 
-            //app.UseCookiePolicy();
+            app.UseCookiePolicy();
 
             app.UseMvc();
         }

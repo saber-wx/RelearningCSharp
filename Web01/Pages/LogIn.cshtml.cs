@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
@@ -31,11 +32,11 @@ namespace Web01.Pages
 
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
 
             UserModel model = _registerService.GetUser(UserName);
@@ -43,20 +44,19 @@ namespace Web01.Pages
             if (model == null)
             {
                 ModelState.AddModelError("UserName", "* 用户名不存在");
-                return;
+                return Page();
             }
 
             if (!_registerService.PasswordCorrect(Password, model.MD5Password))
             {
                 ModelState.AddModelError("Password", "* 用户名或密码错误");
-                return;
+                return Page();
             }
-
-           
-
-            Response.Cookies.Append(_userId, model.Id.ToString());
+            
+            Response.Cookies.Append(_userId, model.Id.ToString(),new CookieOptions { IsEssential = true });
             Response.Cookies.Append(_userId, model.MD5Password);
 
+            return Page();
 
         }
     }

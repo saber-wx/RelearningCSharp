@@ -62,12 +62,14 @@ namespace Web01.Pages
         [MaxLength(16)]
         [MinLength(6)]
         [MustFillInRequired]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         [Display(Name = "密码")]
         public string Password { get; set; }
 
 
         [Compare("Password")]
         [MustFillInRequired]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         [Display(Name ="验证密码")]
         public string ConfirmPassword { get; set; }
     }

@@ -11,6 +11,7 @@ namespace SRV
         {
             _userRepository = new UserRepository();
         }
+
         public void Register(string userName, string password)
         {
 
@@ -28,5 +29,59 @@ namespace SRV
         {
             return _userRepository.GetByName(userName) != null;
         }
+
+      
+        public UserModel Login(string userName, string password)
+        {
+            User user = _userRepository.GetByName(userName);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                UserModel model = new UserModel();
+                    model.Id = user.Id;
+                    model.MD5Password = user.Password;
+         
+                return model;
+            }
+
+        }
+
+        //检查密码
+        public bool PasswordCorrect(string rawPassword, string MD5Password)
+        {
+            return User.GetMd5Hash(rawPassword) ==MD5Password;
+        }
+
+        //根据Info取
+        public UserModel GetUser( string userName)
+        {
+            User user = _userRepository.GetByName(userName);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                UserModel model = new UserModel();
+                model.Id = user.Id;
+                model.MD5Password = user.Password;
+
+                return model;
+            }
+        }
+
+        public object getByName(string userName)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class UserModel
+    {
+        public int Id { get; set; }
+        public string MD5Password { get; set; }
     }
 }

@@ -7,47 +7,48 @@ namespace BLL
 {
     public class User
     {
-        //-- 不可更改！！
-        private const string _salt="s$)&a@^b!~#)e%*r";
-        //-- 不可更改！！
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public User InvitedBy { get; set; }
 
-        public  void Register()
+        public void Register()
         {
             //if (InvitedBy !=null) 
             //{
             //    Message.Send("", InvitedBy);
             //}
-            using (MD5 md5Hash = MD5.Create())
-            {
-                Password = (GetMd5Hash(md5Hash, Password+_salt));
-            }
 
+            Password = (GetMd5Hash(Password));
         }
 
-        private string GetMd5Hash(MD5 md5Hash, string input)
+        public static string GetMd5Hash(string input)
         {
-            //1. 将字符串转换成byte[]
-            //2. 进行MD5加密运算
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            //-- 不可更改！！
+            const string _salt = "s$)&a@^b!~#)e%*r";
+            //-- 不可更改！！
 
-            //StringBuilder提高性能（其实也提高了可读性）
-            StringBuilder sBuilder = new StringBuilder();
-            for (int i = 0; i < data.Length; i++)
+            using (MD5 md5Hash = MD5.Create())
             {
-                sBuilder.Append(data[i].ToString("x2"));
+                //1. 将字符串转换成byte[]
+                //2. 进行MD5加密运算
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input + _salt));
+
+                //StringBuilder提高性能（其实也提高了可读性）
+                StringBuilder sBuilder = new StringBuilder();
+                for (int i = 0; i < data.Length; i++)
+                {
+                    sBuilder.Append(data[i].ToString("x2"));
+                }
+                return sBuilder.ToString();
             }
-            return sBuilder.ToString();
+
         }
 
         public static bool IsNameDuplicated(string name)
         {
             return false;
-         
+
         }
 
         public bool IsPasswordValid()

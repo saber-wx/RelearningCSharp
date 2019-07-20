@@ -18,12 +18,36 @@ namespace SRV
             user.Register();
             _userRepository.Save(user);
         }
-        
-        //public UserModel GetById(int id)
-        //{
-        //    User user = _userRepository.GetById(id);
-        //    return mapFrom(user);
-        //}
+
+        public UserModel GetById(int id)
+        {
+            User user = _userRepository.GetById(id);
+            return mapFrom(user);
+        }
+
+        private UserModel mapFrom(User user)
+        {
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                UserModel model = new UserModel
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    MD5Password = user.Password
+                };
+                return model;
+            }
+        }
+
+        public UserModel getByName(string userName)
+        {
+            User user = _userRepository.GetByName(userName);
+            return mapFrom(user);
+        }
 
         public UserModel Login(string userName, string password)
         {
@@ -34,23 +58,17 @@ namespace SRV
             }
             else
             {
-
                 UserModel model = new UserModel();
                 model.Id = user.Id;
                 model.MD5Password = user.Password;
-
                 return model;
             }
-
         }
 
         public bool HasExist(string userName)
         {
             return _userRepository.GetByName(userName) != null;
         }
-
-
-
 
         //比较用户输入的密码和数据存储的密码
         public bool PasswordCorrect(string rawPassword, string MD5Password)
@@ -76,16 +94,13 @@ namespace SRV
             }
         }
 
-        public object getByName(string userName)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     //Service层向UI层传递数据的容器： 
     public class UserModel
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string MD5Password { get; set; }
     }
 }

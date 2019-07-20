@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SRV;
+using Web01.Pages.Shared;
 
 namespace Web01.Pages
 {
 
     [BindProperties]
-    public class RegisterModel : PageModel
+    public class RegisterModel : _LayoutModel
     {
         private RegisterService _registerService;
 
@@ -24,9 +25,9 @@ namespace Web01.Pages
 
         //[BindProperty] 
         //[Required(AllowEmptyStrings = true)] 
-        public void OnGet()
+        public override void OnGet()
         {
-            ViewData["title"] = "注册";
+            base.OnGet();
         }
 
         public void OnPost()

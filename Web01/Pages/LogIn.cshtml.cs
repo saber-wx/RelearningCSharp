@@ -8,13 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using SRV;
+using Web01.Pages.Shared;
 
 namespace Web01.Pages
 {
     [BindProperties]
-    public class LogInModel : PageModel
+    public class LogInModel : _LayoutModel
     {
-        private const string _userId = "userId";
+        //private const string _userId = "userId";
         public string Greet = "Hello,一起帮欢迎您！";
 
         private RegisterService _registerService;
@@ -27,20 +28,20 @@ namespace Web01.Pages
         public string UserName { get; set; }
         [Required]
         public string Password { get; set; }
-        public void OnGet()
+        public override void  OnGet()
         {
-
+            base.OnGet();
         }
 
         public IActionResult OnPost()
         {
+            //UI层需要（通过Service层最终）从持久层得到用户登录相关信息（用户名和密码）：
+
+            UserModel model = _registerService.getByName(UserName);
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            //UI层需要（通过Service层最终）从持久层得到用户登录相关信息（用户名和密码）：
-            UserModel model = _registerService.GetUser(UserName);
 
             //然后，根据model信息做判断：
             if (model == null)
@@ -56,13 +57,20 @@ namespace Web01.Pages
             }
 
             //单个cookie,IsEssential=true 可绕过 consent policy限制
-            Response.Cookies.Append(_userId, model.Id.ToString(),
+            Response.Cookies.Append("userId", model.Id.ToString(),
                 new CookieOptions
                 {
-                    Expires = DateTime.Now.AddMinutes(2),
+                    Expires = DateTime.Now.AddDays(2),
                     IsEssential = true
                 });
-            Response.Cookies.Append(_userId, model.MD5Password);
+
+            Response.Cookies.Append("userAuth", model.MD5Password,
+                new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(2),
+                    IsEssential = true
+                }
+                );
 
             return Page();
 

@@ -44,16 +44,17 @@ namespace Web01
             else
             {
                 app.UseExceptionHandler("/Error");
+                app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
 
             //使用cookie不需要用户同意，或者，注释掉app.UseCookiePolicy();
             //app.UseCookiePolicy(new CookiePolicyOptions
             //{ CheckConsentNeeded = x => false});
 
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
 
             app.UseMvc();
         }

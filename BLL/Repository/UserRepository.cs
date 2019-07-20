@@ -29,5 +29,9 @@ namespace BLL.Repository
 
         }
 
+        public User GetById(int id)
+        {
+            return _users.Where(u => u.Id == id).SingleOrDefault();
+        }
     }
 }

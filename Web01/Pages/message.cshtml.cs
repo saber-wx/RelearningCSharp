@@ -4,14 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Web01.Pages.Shared;
 
 namespace Web01.Pages
 {
-    public class MineModel : PageModel
+    public class MineModel : _LayoutModel
     {
-        public void OnGet()
+        public override void OnGet()
         {
-
+            base.OnGet();
         }
     }
 }

@@ -28,7 +28,6 @@ namespace BLL
 
         public static string GetMd5Hash(string input)
         {
-
             using (MD5 md5Hash = MD5.Create())
             {
                 //1. 将字符串转换成byte[]

@@ -49,6 +49,7 @@ namespace Web01
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            //使用cookie不需要用户同意，或者，注释掉app.UseCookiePolicy();
             //app.UseCookiePolicy(new CookiePolicyOptions
             //{ CheckConsentNeeded = x => false});
 

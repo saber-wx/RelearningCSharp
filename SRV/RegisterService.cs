@@ -49,16 +49,16 @@ namespace SRV
             return _userRepository.GetByName(userName) != null;
         }
 
-      
 
 
-        //检查密码
+
+        //比较用户输入的密码和数据存储的密码
         public bool PasswordCorrect(string rawPassword, string MD5Password)
         {
             return User.GetMd5Hash(rawPassword) == MD5Password;
         }
 
-        //根据Info取
+        //在Service层通过Repository获得用户信息： 
         public UserModel GetUser( string userName)
         {
             User user = _userRepository.GetByName(userName);
@@ -82,6 +82,7 @@ namespace SRV
         }
     }
 
+    //Service层向UI层传递数据的容器： 
     public class UserModel
     {
         public int Id { get; set; }

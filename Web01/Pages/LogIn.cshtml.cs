@@ -39,8 +39,10 @@ namespace Web01.Pages
                 return Page();
             }
 
+            //UI层需要（通过Service层最终）从持久层得到用户登录相关信息（用户名和密码）：
             UserModel model = _registerService.GetUser(UserName);
 
+            //然后，根据model信息做判断：
             if (model == null)
             {
                 ModelState.AddModelError("UserName", "* 用户名不存在");
@@ -52,8 +54,14 @@ namespace Web01.Pages
                 ModelState.AddModelError("Password", "* 用户名或密码错误");
                 return Page();
             }
-            
-            Response.Cookies.Append(_userId, model.Id.ToString(),new CookieOptions { IsEssential = true });
+
+            //单个cookie,IsEssential=true 可绕过 consent policy限制
+            Response.Cookies.Append(_userId, model.Id.ToString(),
+                new CookieOptions
+                {
+                    Expires = DateTime.Now.AddMinutes(2),
+                    IsEssential = true
+                });
             Response.Cookies.Append(_userId, model.MD5Password);
 
             return Page();

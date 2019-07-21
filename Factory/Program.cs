@@ -1,6 +1,8 @@
 ﻿using BLL.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
+
 
 namespace Factory
 {
@@ -8,9 +10,13 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            new UserRepository().Database.Migrate();
+            DatabaseFacade db = new SQLContext().Database;
+            db.EnsureDeleted();
+            db.Migrate();
+
             RegisterFactory.Create();
-            Console.WriteLine("hello world !");
+            //Article.NewFactory.Create();
+            Console.Read();
         }
     }
 }

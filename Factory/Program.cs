@@ -9,6 +9,7 @@ namespace Factory
         static void Main(string[] args)
         {
             new UserRepository().Database.Migrate();
+            RegisterFactory.Create();
             Console.WriteLine("hello world !");
         }
     }

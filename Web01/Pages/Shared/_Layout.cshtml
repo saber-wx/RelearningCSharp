@@ -69,9 +69,17 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" aria-expanded="false" href="/Article" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span> 文章</a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="/Article"><span class="glyphicon glyphicon-menu-hamburger"></span> 列表</a> </li>
-                                <li><a href="/Article/User-4092"><span class="fa fa-home fa-fw"></span> 我的</a></li>
-                                <li><a href="/Article/New"><span class="fa fa-pencil fa-fw"></span> 发布</a></li>
+
+                                @if (ViewData["UserName"] == null)
+                                {
+                                    <li><a href="/Article"><span class="glyphicon glyphicon-menu-hamburger"></span> 列表</a> </li>
+                                }
+                                else
+                                {
+                                    <li><a href="/Article"><span class="glyphicon glyphicon-menu-hamburger"></span> 列表</a> </li>
+                                    <li><a href="/Article/User-4092"><span class="fa fa-home fa-fw"></span> 我的</a></li>
+                                    <li><a href="/Article/New"><span class="fa fa-pencil fa-fw"></span> 发布</a></li>
+                                }
                             </ul>
                         </li>
 
@@ -137,7 +145,7 @@
                                     <li><a href="/Contact/Edit?prepage=%2fArticle%2f554"><span class="fa fa-envelope fa-fw"></span> 联系方式</a></li>
                                     <li><a href="/Profile/Write?prepage=%2fArticle%2f554"><span class="fa fa-camera fa-fw"></span> 个人资料</a></li>
                                     <li class="divider"></li>
-                                    <li ><a href="/Log/Off"><span class="fa fa-sign-out"></span> 退出登录</a></li>
+                                    <li><a href="/Log/Off"><span class="fa fa-sign-out"></span> 退出登录</a></li>
                                 </ul>
                             </li>
                             <li>

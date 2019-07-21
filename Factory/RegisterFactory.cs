@@ -8,14 +8,14 @@ namespace Factory
    internal class RegisterFactory
     {
         private static RegisterService _registerService;
-        public RegisterFactory()
+        static RegisterFactory()
         {
             _registerService = new RegisterService();
         }
         internal static void Create()
         {
-            _registerService.Register("张三",Helper.PASSWORD);
-            _registerService.Register("王五",Helper.PASSWORD);
+            _registerService.Register("小明",Helper.PASSWORD);
+            _registerService.Register("老王",Helper.PASSWORD);
 
         }
     }

@@ -1,12 +1,14 @@
-﻿using SRV;
+﻿using BLL;
+using SRV;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Factory
 {
-   internal class RegisterFactory
+    internal class RegisterFactory
     {
+        internal static User Saber, Lancer, Caster;
         private static RegisterService _registerService;
         static RegisterFactory()
         {
@@ -14,9 +16,9 @@ namespace Factory
         }
         internal static void Create()
         {
-            _registerService.Register("小明",Helper.PASSWORD);
-            _registerService.Register("老王",Helper.PASSWORD);
-
+            Saber = _registerService.Register("saber", Helper.PASSWORD);
+            Lancer = _registerService.Register("lancer", Helper.PASSWORD);
+            Caster = _registerService.Register("caster", Helper.PASSWORD);
         }
     }
 }

@@ -12,20 +12,22 @@ namespace SRV
             _userRepository = new UserRepository();
         }
 
-        public void Register(string userName, string password)
+        public User Register(string userName, string password)
         {
             User user = new User{Name = userName,Password = password};
             user.Register();
             _userRepository.Save(user);
+            return user;
         }
+
 
         public UserModel GetById(int id)
         {
             User user = _userRepository.GetById(id);
-            return mapFrom(user);
+            return MapFrom(user);
         }
 
-        private UserModel mapFrom(User user)
+        private UserModel MapFrom(User user)
         {
             if (user == null)
             {
@@ -43,10 +45,10 @@ namespace SRV
             }
         }
 
-        public UserModel getByName(string userName)
+        public UserModel GetByName(string userName)
         {
             User user = _userRepository.GetByName(userName);
-            return mapFrom(user);
+            return MapFrom(user);
         }
 
         public UserModel Login(string userName, string password)

@@ -13,13 +13,13 @@ using Web01.Pages.Shared;
 namespace Web01.Pages
 {
     [BindProperties]
-    public class LogOnModel : _LayoutModel
+    public class LogInModel : _LayoutModel
     {
         //private const string _userId = "userId";
         public string Greet = "Hello,一起帮欢迎您！";
 
         private RegisterService _registerService;
-        public LogOnModel()
+        public LogInModel()
         {
             _registerService = new RegisterService();
         }
@@ -72,7 +72,7 @@ namespace Web01.Pages
                 }
                 );
 
-            return RedirectToPage("/index");
+            return Page();
 
         }
     }

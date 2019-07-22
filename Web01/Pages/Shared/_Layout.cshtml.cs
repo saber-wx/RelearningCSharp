@@ -22,7 +22,7 @@ namespace Web01.Pages.Shared
                 {
                     if (Request.Cookies.TryGetValue(userAuth, out string userAuthValue))
                     {
-                        if (userAuthValue ==model.MD5Password)
+                        if (userAuthValue == model.MD5Password)
                         {
                             ViewData["UserName"] = model.Name;
                         }

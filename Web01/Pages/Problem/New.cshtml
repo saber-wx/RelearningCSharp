@@ -1,0 +1,290 @@
+﻿@page
+@model Web01.Pages.Problem.NewModel
+@{
+    ViewData["Title"] = "New";
+}
+
+<h2>New</h2>
+
+<div class="row">
+
+    <div class="col-md-9">
+        <h2 class="page-header">
+
+            <span class="fa fa-question-circle " aria-hidden="true"></span> 我要求助
+
+        </h2>
+
+        <div class="yellow-highlight text-info" style="padding:10px 10px 0 10px; margin-bottom:15px;">
+            <p>
+                <span class="fa fa-info-circle"></span> 这是你第一次发布求助，求助发布成功系统会奖励你 20
+                <a href="/FAQ/Credit" data-toggle="tooltip" class="water" title="" data-original-title="点击了解">
+                    <span class="iconfont icon-drips"></span> 帮帮点
+                </a>
+                。
+            </p>
+            <p>
+                <span class="fa fa-info-circle"></span> 你还没有<a href="/FAQ/Problem#first" data-toggle="tooltip" title="" data-original-title="点击了解">自由发布权限</a>，为了保证求助的质量，我们会帮助你检查完善该求助内容，然后再公开显示，请耐心等待。<br>
+                中途如有任何问题，工作人员会主动和你联系，请注意保持联系方式畅通。
+            </p>
+        </div>
+        <div zyf-old-draft-check=""></div>
+        <script>
+            $(document).ready(function () {
+                //检查是否有未使用的草稿并提示
+                $.ajax({
+                    url: "/Draft/_CheckProblem",
+                    method: "GET",
+                    cache: false,
+                    dataType: "html",
+                    success: function (data) {
+                        $("[zyf-old-draft-check]").append(data);
+                    },
+                    error: JqueryAjaxError
+                })
+            })
+        </script>
+        <form action="/Problem/New" method="post" novalidate="novalidate">
+            <div class="checkbox clearfix">
+                <label class="pull-right text-primary">
+                    <input checked="checked" data-val="true" data-val-required="NeedRemoteHelp 字段是必需的。" id="NeedRemoteHelp" name="NeedRemoteHelp" type="checkbox" value="true" zyf-need-remote-help=""><input name="NeedRemoteHelp" type="hidden" value="false">需要远程协助
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>标题：（* 必填）</label>
+                <input class="form-control" data-val="true" data-val-length="* 标题的长度不能大于255" data-val-length-max="255" data-val-required="* 标题不能为空" id="Content_Title" name="Content.Title" placeholder="简明扼要，不超过255字" type="text" value="" zyf-draft-check-title="">
+                <span class="field-validation-valid" data-valmsg-for="Content.Title" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <label>说明：（* 必填）</label>
+                <div class="ke-container ke-container-default" style="width: 100%;"><div style="display:block;" class="ke-toolbar" unselectable="on"><span class="ke-outline" data-name="source" title="HTML代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-source" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="bold" title="粗体(Ctrl+B)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-bold" unselectable="on"></span></span><span class="ke-outline" data-name="italic" title="斜体(Ctrl+I)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-italic" unselectable="on"></span></span><span class="ke-outline" data-name="underline" title="下划线(Ctrl+U)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-underline" unselectable="on"></span></span><span class="ke-outline" data-name="strikethrough" title="删除线" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-strikethrough" unselectable="on"></span></span><span class="ke-outline" data-name="removeformat" title="删除格式" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-removeformat" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="insertorderedlist" title="编号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertorderedlist" unselectable="on"></span></span><span class="ke-outline" data-name="insertunorderedlist" title="项目符号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertunorderedlist" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="link" title="超级链接" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-link" unselectable="on"></span></span><span class="ke-outline" data-name="unlink" title="取消超级链接" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-unlink" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="code" title="插入程序代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-code" unselectable="on"></span></span><span class="ke-outline" data-name="quote" title="插入引用" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-quote" unselectable="on"></span></span><span class="ke-outline" data-name="image" title="图片" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-image" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="fullscreen" title="全屏显示(Esc)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fullscreen" unselectable="on"></span></span></div><div style="display: block; height: 368px;" class="ke-edit"><iframe class="ke-edit-iframe" hidefocus="true" frameborder="0" tabindex="" style="width: 100%; height: 368px;"></iframe><textarea class="ke-edit-textarea" hidefocus="true" tabindex="" style="width: 100%; height: 368px; display: none;"></textarea></div><div class="ke-statusbar"><span class="ke-inline-block ke-statusbar-center-icon"></span><span class="ke-inline-block ke-statusbar-right-icon"></span></div></div><textarea class="form-control" cols="20" data-val="true" data-val-length="* 正文的长度不能小于25，大于2147483647" data-val-length-min="25" data-val-required="* 正文不能为空" id="Content_Body" name="Content.Body" placeholder="我们提倡&quot;一对一&quot;的远程协助，以直接的解决你的问题。
+所以求助只需简明扼要的说明问题即可，不要超过255个字符（还可以配图的嘛，一图胜千言！）。
+问题解决之后，你可以发布总结，详细的描述你的问题和解决过程，以帮助其他同学。" rows="20" zyf-kindeditor="" style="display: none;"></textarea>
+                <span class="field-validation-valid" data-valmsg-for="Content.Body" data-valmsg-replace="true"></span>
+            </div>
+
+
+            <script src="/Scripts/kindeditor-v4.1/kindeditor.js"></script>
+            <script src="/Scripts/kindeditor-v4.1/lang/zh_CN.js"></script>
+            <script src="/Scripts/kindeditor.help.js"></script>
+
+            <div class="form-group">
+                <label>关键字：（* 使用空格分隔）</label>
+                <div zyf-keyword-show="" style="padding-bottom:3px;"></div>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default ">--- 1级 ---</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" zyf-keyword-dropdownlist="1">
+                            <li><a data-keyword-id="163">编程开发语言</a></li>
+                            <li><a data-keyword-id="162">工具软件</a></li>
+                            <li><a data-keyword-id="164">顾问咨询</a></li>
+                            <li><a data-keyword-id="161">操作系统</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="input-group-btn input-group-btn-middle" zyf-keyword-dropdownlist-2="">
+                        <button type="button" class="btn btn-default ">--- 2级 ---</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" zyf-keyword-dropdownlist="2"></ul>
+                    </div>
+                    <input type="text" class="form-control" placeholder="自定义关键字，使用空格分隔" zyf-keyword-input="">
+                </div>
+                <input data-val="true" data-val-required="* 关键字不能为空" id="Keywords" name="Keywords" type="hidden" value="" zyf-keyword-submit-value="">
+                <span class="field-validation-valid" data-valmsg-for="Keywords" data-valmsg-replace="true"></span>
+            </div>
+            <script>
+                $(document).ready(function () {
+
+                    var oldKeywords = $("[zyf-keyword-submit-value]").val().split(" ");
+                    $("[zyf-keyword-submit-value]").val("");
+                    for (var i = 0; i < oldKeywords.length; i++) {
+                        var keyword = $.trim(oldKeywords[i]);
+                        if (oldKeywords[i] !== "") {
+                            makeBadge(keyword, true);
+                        }
+                    }
+
+                    //二级关键字为空时提示
+                    $('[zyf-keyword-dropdownlist-2]').on('show.bs.dropdown', function () {
+                        if ($(this).find(".dropdown-menu").children().length === 0) {
+                            showRemind('<span class="fa fa-info-circle text-info"></span> 还没有选择 --- 1级 --- 关键字呢。');
+                        }
+                    })
+
+                })
+            </script>    <div class="form-group">
+                <label>定向求助：（<a zyf-user-recommend="">推荐</a> <small><span class="fa fa-question-circle text-info" data-toggle="tooltip" title="" data-original-title="根据关键字筛选用户"></span></small>）</label>
+                @*<div class="input-group">
+                        <span class="input-group-addon"></span>
+                        <input type="text" class="form-control" placeholder="输入你想要求助的大神用户名" zyf-problem-invitee-name="">
+
+                    </div>*@
+                <div zyf-search-username-result=""></div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox pull-right" style="margin:0px; /*去除checkbox的影响*/">
+                    <label><input data-val="true" data-val-required="Settlement 字段是必需的。" id="Settlement" name="Settlement" type="checkbox" value="true" zyf-problem-reward-settlement=""><input name="Settlement" type="hidden" value="false">据实结算</label>
+                </div>
+                <label>
+                    悬赏
+                    <a href="/FAQ/Money" data-toggle="tooltip" class="credit" title="" data-original-title="点击了解">
+                        <span class="iconfont icon-money"></span> 帮帮币
+                    </a>
+                    ：（<a href="/Money/Owner">现有<span zyf-current-money="" class="credit">0</span>枚</a>
+                    <small class="fa fa-refresh text-info" data-toggle="tooltip" title="" zyf-money-available-refresh="" data-original-title="刷新"></small>
+                    <input id="CurrentCredit" name="CurrentCredit" type="hidden" value="0" zyf-hide-current-money="">）
+                </label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <a href="/FAQ/Money" data-toggle="tooltip" class="credit" title="" data-original-title="点击了解">
+                            <span class="iconfont icon-money"></span>
+                        </a>
+                    </span>
+                    <input class="form-control" data-rule-creditenough="[zyf-current-money]" data-val="true" data-val-number="字段 悬赏帮帮币 必须是一个数字。" data-val-regex="* 悬赏帮帮币只能为正整数" data-val-regex-pattern="^[1-9][0-9]*$" data-val-required="* 悬赏帮帮币不能为空" id="Reward" name="Reward" placeholder="正整数，建议10枚以上" type="text" value="" zyf-problem-reward-amount="">
+                    <span class="input-group-addon">枚</span>
+                </div>
+                <a href="/FAQ/Money#gain" class="pull-right"><span class="fa fa-question-circle"></span> 如何获得“帮帮币”</a>
+                <span class="field-validation-valid" data-valmsg-for="Reward" data-valmsg-replace="true"></span>
+            </div>
+            <div class="submit">
+                <input type="submit" class="btn btn-primary loading" value="发布" zyf-submit-once="" zyf-exclude-draft="">
+                <button type="button" class="btn btn-default" data-toggle="tooltip" title="" zyf-submit-once="" zyf-write-draft="" data-original-title="存为草稿">保存</button>
+                <small class="text-success" zyf-article-draft-remind=""></small>
+                <input type="hidden" name="draftId" zyf-draft-hide-id="">
+
+                <script>
+                    $(document).ready(function () {
+
+                        var $button = $("[zyf-write-draft]"),
+                            $hidenInput = $("[zyf-draft-hide-id]"),
+                            $form = $button.parents("form"),
+                            $remind = $("[zyf-article-draft-remind]"),
+                            title,
+                            body,
+                            url;
+
+                        //存为草稿
+                        $button.click(function () {
+                            if (notEmptyContent()) {
+                                save();
+                            } else {
+                                $remind.html(
+                                    '<span class="text-warning">* 还没有要保存的内容呢</span> ');
+                            }
+                        });
+
+                        $form.submit(function () {
+                            $(window).off("beforeunload");
+                        })
+
+                        //关闭前自动保存草稿
+                        $(window).on("beforeunload", function () {
+                            if (notEmptyContent()) {
+                                save();
+                            }
+                        })
+
+                        //每120秒自动保存一次
+                        setInterval(function () {
+                            if (notEmptyContent() && contentChanged()) {
+                                save();
+                            }
+                        }, 120000);
+
+                        function save() {
+                            $remind.html("");
+                            if ($hidenInput.val() == "") {
+                                url = "/Problem/_DraftNew";
+                            } else {
+                                url = "/Problem/_DraftEdit/" + $hidenInput.val();
+                            }
+                            $.ajax({
+                                url: url,
+                                data: $form.serialize(),
+                                method: "POST",
+                                async: false,
+                                success: function (data) {
+                                    if ($hidenInput.val() == "") {
+                                        $hidenInput.val(data);
+                                    }
+                                    $remind.html(
+                                        '<span class="fa fa-check text-success"></span> ' +
+                                        new Date().toTimeString().substring(0, 8));
+
+                                    title = $.trim($("[zyf-draft-check-title]").val());
+                                    body = $.trim($("[zyf-kindeditor]").val());
+                                },
+                                error: JqueryAjaxError
+                            });
+                        }
+
+                        function notEmptyContent() {
+                            return $.trim($("[zyf-draft-check-title]").val()) !== "" ||
+                                $.trim($("[zyf-kindeditor]").val()) !== "";
+                        }
+
+                        function contentChanged() {
+                            return title != $.trim($("[zyf-draft-check-title]").val()) ||
+                                body != $.trim($("[zyf-kindeditor]").val());
+                        }
+                    })
+                </script>
+            </div>
+        </form>
+        <div class="modal fade" tabindex="-1" role="dialog" zyf-need-remote-help-modal="" id="contact" style="display: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h3 class="modal-title"><span class="fa fa-question-circle"></span> 是否需要远程协助</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            “一起帮”提倡通过远程协助，“一对一”的解决开发/电脑使用等方面的具体问题。请确认你的求助是否需要远程协助：
+                        </p>
+                        <p class="radio">
+                            <label>
+                                <input type="radio" name="needRemoteHelpInModal" checked="" zyf-need-remote-help-in-modal=""> 需要（推荐）<br>
+                                当有人应答之后，建议你点击他们的<a>用户名</a>获得他们的联系方式，主动联系他/她；当然你也可以等待他们联系你，所以请注意保持<a href="/Contact/New">联系方式</a>畅通。
+                            </label>
+                        </p>
+                        <p class="radio">
+                            <label>
+                                <input type="radio" name="needRemoteHelpInModal">不需要 <br>
+                                类似于传统的论坛问答，解决方案将直接写在应答当中，任何人都可以阅读。<a href="/FAQ/Problem#normal">开始协助</a> -&gt; <a href="/FAQ/Problem#refuse">拒绝全额酬谢</a>/<a href="/FAQ/Problem#normal">酬谢评价</a> 机制被破坏，<a href="/FAQ/Problem#summary">总结</a> 的价值被大大削弱。
+                            </label>
+                        </p>
+                        <hr>
+                        <p class="checkbox">
+                            <label>
+                                <input type="checkbox" zyf-remember-in-needremotehelp-modal=""> 不再提示。（该选项还可以在发布求助前更改）
+                            </label>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <form></form>
+
+
+
+
+    </div>
+    <div class="col-md-3" style="margin-top: 40px;">
+
+    </div>
+
+
+</div>
+

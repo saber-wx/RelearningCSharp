@@ -8,46 +8,30 @@ namespace BLL.Repository
 {
     public class UserRepository 
     {
-        private SQLContext _sqlcontext;
-
-
+        public DbSet<User> _users { get; set; }
 
         public UserRepository()
         {
-            _sqlcontext = new SQLContext();
+            _users.Add(user);
+            SaveChanges();  
         }
 
         public void Save(User user)
         {
-            _sqlcontext._users.Add(user);
-            _sqlcontext.SaveChanges();
+            return _users.Where(u => u.Name == userName).SingleOrDefault();
         }
 
-        public void Save(Email email)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            _sqlcontext.SaveChanges();
-        }
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17Help;Integrated Security=True;";
+            optionsBuilder.UseSqlServer(connectionString);
 
-        public User GetByName(string userName)
-        {
-            
-            return _sqlcontext._users.Where(u => u.Name == userName).SingleOrDefault();
-        }
 
-        public User GetById(int id)
-        {
-            return _sqlcontext._users.Where(u => u.Id == id).SingleOrDefault();
-        }
-
-        public void Flush()
-        {
-            _sqlcontext.SaveChanges();
         }
 
         public Email GetEmailById(int id)
         {
-            return null;
-            //return _sqlcontext.Emailes
+            return _users.Where(u => u.Id == id).SingleOrDefault();
         }
 
     }

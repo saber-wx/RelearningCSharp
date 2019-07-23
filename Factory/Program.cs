@@ -10,15 +10,9 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            DatabaseFacade db = new SQLContext().Database;
-            db.EnsureDeleted();     //如果存在数据库，就删除之
-            db.EnsureCreated();     
-
-            ////new SQLContext().Database.Migrate();
-
+            new UserRepository().Database.Migrate();
             RegisterFactory.Create();
-            //Article.NewFactory.Create();
-            //Console.Read();
+            Console.WriteLine("hello world !");
         }
     }
 }

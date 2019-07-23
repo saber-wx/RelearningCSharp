@@ -17,7 +17,7 @@ namespace Factory
             ////new SQLContext().Database.Migrate();
 
             RegisterFactory.Create();
-            Article.NewFactory.Create();
+            //Article.NewFactory.Create();
             //Console.Read();
         }
     }

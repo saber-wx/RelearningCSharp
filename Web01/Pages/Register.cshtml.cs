@@ -60,18 +60,14 @@ namespace Web01.Pages
 
 
         [DataType(DataType.Password)]
-        [MaxLength(16)]
-        [MinLength(6)]
-        [MustFillInRequired]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
-        [Display(Name = "密码")]
+        [MaxLength(16,ErrorMessage ="密码长度不超过16位")]
+        [MinLength(6,ErrorMessage ="密码长度不低于6位")]
+        [RegularExpression(@"[a-zA-Z0-9]",ErrorMessage ="密码必须是英文字母和数字的组合")]
         public string Password { get; set; }
 
 
-        [Compare("Password")]
-        [MustFillInRequired]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
-        [Display(Name ="验证密码")]
+        [Compare("Password",ErrorMessage ="密码两次输入不一致")]
+        [RegularExpression(@"[a-zA-Z0-9]", ErrorMessage = "密码必须是英文字母和数字的组合")]
         public string ConfirmPassword { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace Web01.Pages
         public override void  OnGet()
         {
             base.OnGet();
+
         }
 
         public IActionResult OnPost()
@@ -72,7 +73,7 @@ namespace Web01.Pages
                 }
                 );
 
-            return RedirectToPage("/index");
+            return RedirectToPage("index");
 
         }
     }

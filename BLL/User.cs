@@ -15,7 +15,7 @@ namespace BLL
 
         public int Id { get; set; }
         public string Name { get; set; }
-        [Required] 
+        [Required]
         public string Password { get; set; }
 
         [NotMapped]

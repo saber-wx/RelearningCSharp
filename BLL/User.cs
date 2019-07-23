@@ -23,6 +23,8 @@ namespace BLL
 
         public User InvitedBy { get; set; }
 
+        public Email Email { get; set; }
+
         public void Register()
         {
             //if (InvitedBy !=null) 

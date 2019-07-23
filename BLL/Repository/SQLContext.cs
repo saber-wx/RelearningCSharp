@@ -10,6 +10,8 @@ namespace BLL.Repository
         public DbSet<User> _users { get; set; }
         //public DbSet<Email> Emails { get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Email> Emails { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,6 +34,11 @@ namespace BLL.Repository
                     options.Ignore(x => x.Url);
                 }
                 );
+
+            modelBuilder.Entity<Email>()
+                .HasOne(e => e.Ower)
+                .WithOne(u => u.Email)
+                .HasForeignKey<Email>(e => e.OwerId);
         }
 
        

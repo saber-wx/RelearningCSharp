@@ -23,6 +23,11 @@ namespace BLL.Repository
             _sqlcontext.SaveChanges();
         }
 
+        public void Save(Email email)
+        {
+            _sqlcontext.SaveChanges();
+        }
+
         public User GetByName(string userName)
         {
             
@@ -39,6 +44,11 @@ namespace BLL.Repository
             _sqlcontext.SaveChanges();
         }
 
+        public Email GetEmailById(int id)
+        {
+            return null;
+            //return _sqlcontext.Emailes
+        }
 
     }
 }

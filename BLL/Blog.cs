@@ -9,7 +9,9 @@ namespace BLL
         public int BlogId { get; set; }
         public string Url { get; set; }
 
-        public List<Post> Posts { get; set; }
+        public IList<Post> Posts { get; set; }
+        //public IList<Keyword> Keywords { get; set; }
+
     }
 
     public class Post

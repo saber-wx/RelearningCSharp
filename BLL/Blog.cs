@@ -11,7 +11,7 @@ namespace BLL
 
         public IList<Post> Posts { get; set; }
 
-        public IList<Keyword> Keywords { get; set; }
+        public IList<BlogToKeyword> Keywords { get; set; }
 
     }
 

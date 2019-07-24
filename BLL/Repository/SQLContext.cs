@@ -8,8 +8,9 @@ namespace BLL.Repository
     public class SQLContext : DbContext
     {
         public DbSet<User> _users { get; set; }
-        //public DbSet<Email> Emails { get; set; }
+        public DbSet<Email> Emails { get; set; }
         public DbSet<Article> Articles { get; set; }
+        //public DbSet<Blog> Blogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

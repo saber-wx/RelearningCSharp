@@ -23,6 +23,18 @@ namespace BLL.Repository
             _sqlcontext.SaveChanges();
         }
 
+        public void Save(Email email)
+        {
+            //_sqlcontext.Emails.Add(email);
+            _sqlcontext.SaveChanges();
+        }
+
+        public Email GetEmailById(int id)
+        {
+            return null;
+            //return _sqlcontext.Emails.Where(e => e.Id == id).SingleOrDefault();
+        }
+
         public User GetByName(string userName)
         {
             

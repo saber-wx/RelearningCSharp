@@ -12,7 +12,7 @@ namespace BLL
         //-- 不可更改！！
         private const string _salt = "s$)&a@^b!~#)e%*r";
         //-- 不可更改！！
-
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         [Required]
@@ -24,6 +24,8 @@ namespace BLL
         public User InvitedBy { get; set; }
 
         public Email Email { get; set; }
+
+        public Article Article { get; set; }
 
         public void Register()
         {

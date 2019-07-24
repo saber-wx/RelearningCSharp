@@ -15,8 +15,8 @@ namespace BLL.Repository
 
         public Article Save(Article article)
         {
-            _sqlcontext.Articles.Add(article);
-            _sqlcontext.SaveChanges();
+            //_sqlcontext.Articles.Add(article);
+            //_sqlcontext.SaveChanges();
             return article;
         }
 

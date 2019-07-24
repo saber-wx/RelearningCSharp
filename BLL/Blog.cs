@@ -10,7 +10,8 @@ namespace BLL
         public string Url { get; set; }
 
         public IList<Post> Posts { get; set; }
-        //public IList<Keyword> Keywords { get; set; }
+
+        public IList<Keyword> Keywords { get; set; }
 
     }
 

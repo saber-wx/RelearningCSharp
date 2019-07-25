@@ -18,6 +18,7 @@ namespace SRV
         {
             Article article = new Article
             {
+                Author = new UserRepository().GetById(authorId),
                 Body = body,
                 Title = title
             };

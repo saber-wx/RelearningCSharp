@@ -37,7 +37,7 @@ namespace Factory.Blogs
                     BLL.Blog b = new BLL.Blog
                     {
                         Title = "我是Blog" + i,
-                        Author = new BLL.User { Name = "saber" + i, Password = Helper.PASSWORD }
+                        Author = context._users.First()
                     };
                     context.Blogs.Add(b);
                 }

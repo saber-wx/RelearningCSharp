@@ -45,10 +45,6 @@ namespace Web01.Pages
             _registerService.Register(Register.UserName, Register.Password);
         }
 
-        private void Save()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class Register

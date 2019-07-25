@@ -12,6 +12,30 @@ namespace Web01.Pages.Shared
         protected const string userIdKey = "userId";
         private const string userAuth = "userAuth";
 
+        public int? CurrentUserId
+        {
+            get
+            {
+                string userIdValue;
+                if (Request.Cookies.TryGetValue(userIdKey, out userIdValue))
+                {
+                    UserModel model = new RegisterService().GetById(Convert.ToInt32(userIdValue));
+
+                    if (Request.Cookies.TryGetValue(userAuth, out string userAuthValue))
+                    {
+                        if (userAuthValue == model.MD5Password)
+                        {
+                            CurrentUserId = model.Id;
+                        }
+                    }
+                }
+                return CurrentUserId;
+            }
+            set
+            {
+            }
+        }
+
         public virtual void OnGet()
         {
             string userIdValue;

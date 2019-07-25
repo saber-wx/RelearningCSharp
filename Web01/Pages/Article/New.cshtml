@@ -1,0 +1,58 @@
+﻿@page
+@model Web01.Pages.Article.NewModel
+@{
+    ViewData["Title"] = "发布文章";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="page-header">
+                <span class="fa fa-pencil-square-o " aria-hidden="true"></span> 文章发布
+            </h2>
+            <form  method="post" asp-page="/Article/New">
+
+                <div class="form-group">
+                    <label>标题：（* 必填）</label>
+                    <input asp-for="Title" class="form-control" placeholder="简明扼要，不超过255字">
+                    <span></span>
+                </div>
+                <div class="form-group">
+                    <label>内容：（* 必填）</label>
+                    <textarea asp-for="Body" class="form-control" placeholder="详细"></textarea>
+                    <span></span>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary ">提交</button>
+                    <button type="reset" class="btn btn-default">清空</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="col-md-2"></div>
+</div>
+
+
+
+
+@*<div class="form-group">
+        <label>摘要：（* 建议填写）</label>
+        <textarea class="form-control" placeholder="不填写的话，系统会截取文章前255字作为摘要显示"></textarea>
+        <span></span>
+    </div>
+
+    <div class="form-group">
+        <a class="text-warning pull-right"><span class="fa fa-remove"></span> 删除</a>
+        <label>之前用过的广告：</label>
+        <select class="form-control" data-val="true" data-val-number="字段 SelectedHistory 必须是一个数字。" id="AdContent_SelectedHistory" name="AdContent.SelectedHistory" zyf-ad-in-widget-history-select="">
+            <option value="">----- 使用新的广告 -----</option>
+            <option value="97"> “源栈”每日一问面试题</option>
+            <option value="96">saber邀请你注册“一起帮”（含邀请码）</option>
+        </select>
+    </div>
+    <ul class="hide" zyf-ad-in-widget-history-url="">
+        <li id="97">http://17bang.ren/Article/Category-55</li>
+        <li id="96">http://17bang.ren/Register/Home?name=Saber&amp;code=6911</li>
+    </ul>*@

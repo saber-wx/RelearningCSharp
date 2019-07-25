@@ -23,7 +23,7 @@ namespace SRV
                 Title = title
             };
             article.Publish();
-            return _articleRepository.Save(article, authorId);
+            return _articleRepository.Save(article);
         }
     }
 }

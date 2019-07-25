@@ -7,10 +7,18 @@ namespace BLL.Repository
 {
     public class SQLContext : DbContext
     {
+        public SQLContext()
+        {
+
+        }
+
+        public SQLContext(DbContextOptions<SQLContext> options) : base(options) { }
+
         public DbSet<User> _users { get; set; }
         public DbSet<Email> Emails { get; set; }
         public DbSet<Article> Articles { get; set; }
-        //public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Writings> Writings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,13 +36,29 @@ namespace BLL.Repository
                 .IsRequired();
             });
 
-            modelBuilder.Entity<Blog>(options =>
-                {
-                    options.Ignore(x => x.Url);
-                }
-                );
+            modelBuilder.Entity<Writings>()
+                .HasDiscriminator(b => b.DiscriminatorType);
+
+            modelBuilder.Entity<BlogToKeyword>()
+                .HasKey(bk => new { bk.BlogId, bk.KeywordId });     //联合主键
+
+            modelBuilder.Entity<BlogToKeyword>()
+                .HasOne(bk => bk.Blog)
+                .WithMany(b => b.Keywords)
+                .HasForeignKey(b => b.BlogId);
+
+            modelBuilder.Entity<BlogToKeyword>()
+                .HasOne(bk => bk.Keyword)
+                .WithMany(b => b.Blogs)
+                .HasForeignKey(b => b.KeywordId);
+
+            //modelBuilder.Entity<Blog>(options =>
+            //    {
+            //        options.Ignore(x => x.Url);
+            //    }
+            //    );
         }
 
-       
+
     }
 }

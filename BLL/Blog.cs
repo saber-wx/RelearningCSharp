@@ -1,12 +1,13 @@
-﻿using System;
+﻿using BLL.Repository;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BLL
 {
-    public class Blog
+    public class Blog:Writings
     {
-        public int BlogId { get; set; }
+        
         public string Url { get; set; }
 
         public IList<Post> Posts { get; set; }

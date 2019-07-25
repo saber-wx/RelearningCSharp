@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL
 {
-    class BlogToKeyword
+   public  class BlogToKeyword
     {
 
         public int  BlogId { get; set; }

@@ -18,12 +18,11 @@ namespace SRV
         {
             Article article = new Article
             {
-                Author = new UserRepository().GetById(authorId),
                 Body = body,
                 Title = title
             };
             article.Publish();
-            return _articleRepository.Save(article);
+            return _articleRepository.Save(article, authorId);
         }
     }
 }

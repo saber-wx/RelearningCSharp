@@ -15,11 +15,11 @@ namespace Factory
         public static readonly LoggerFactory consoleloggerFactory
             = new LoggerFactory(new[] 
             {
-                new ConsoleLoggerProvider((category,level)=>
-                category == DbLoggerCategory.Database.Command.Name&&
-                level == LogLevel.Information,
-                    true)
-                //new ConsoleLoggerProvider((_, __) => true, true)
+                //new ConsoleLoggerProvider((category,level)=>
+                //category == DbLoggerCategory.Database.Command.Name&&
+                //level == LogLevel.Information,
+                //    true)
+                new ConsoleLoggerProvider((_, __) => true, true)
             });
 
        
@@ -33,14 +33,16 @@ namespace Factory
                 .UseLoggerFactory(consoleloggerFactory)
                 .UseSqlServer(connectionString);
             DatabaseFacade db = new SQLContext(optionsBuilder.Options).Database;
-            db.EnsureDeleted();     //如果存在数据库，就删除之
-            db.EnsureCreated();
+            //db.EnsureDeleted();     //如果存在数据库，就删除之
+            //db.EnsureCreated();
 
             ////new SQLContext().Database.Migrate();
 
             RegisterFactory.Create();
-            Article.NewFactory.Create();
+            //Article.NewFactory.Create();
             Console.Read();
+
+            Blogs.NewFactory.Create();
         }
     }
 }

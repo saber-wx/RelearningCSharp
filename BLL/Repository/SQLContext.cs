@@ -30,12 +30,23 @@ namespace BLL.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+
             modelBuilder.Entity<User>(options =>
             {
                 options.ToTable("Users")
                 .Property(x => x.Name)
                 .IsRequired();
             });
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Name)
+                .IsUnique();
+
+            modelBuilder.Entity<Email>()
+                .HasOne(e => e.Ower)
+                .WithOne(u => u.Email)
+                .HasForeignKey<Email>(e => e.OwerId);
 
             modelBuilder.Entity<Writings>()
                 .HasDiscriminator(b => b.DiscriminatorType);

@@ -26,23 +26,25 @@ namespace Factory
 
         static void Main(string[] args)
         {
-            string connectionString =
-    @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = 17Help; Integrated Security = True; ";
-            DbContextOptionsBuilder<SQLContext> optionsBuilder = new DbContextOptionsBuilder<SQLContext>();
-            optionsBuilder
-                .UseLoggerFactory(consoleloggerFactory)
-                .UseSqlServer(connectionString);
-            DatabaseFacade db = new SQLContext(optionsBuilder.Options).Database;
-            //db.EnsureDeleted();     //如果存在数据库，就删除之
-            //db.EnsureCreated();
+            //string connectionString =
+            // @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = 17Help; Integrated Security = True; ";
+            //DbContextOptionsBuilder<SQLContext> optionsBuilder = new DbContextOptionsBuilder<SQLContext>();
+            //optionsBuilder
+            //    .UseLoggerFactory(consoleloggerFactory)
+            //    .UseSqlServer(connectionString);
 
-            ////new SQLContext().Database.Migrate();
+            DatabaseFacade db = new SQLContext().Database;
+            db.EnsureDeleted();     //如果存在数据库，就删除之
+            db.EnsureCreated();
+
+            //new SQLContext().Database.Migrate();
 
             RegisterFactory.Create();
             //Article.NewFactory.Create();
-            Console.Read();
+            //Blogs.NewFactory.Create();
 
-            Blogs.NewFactory.Create();
+            //Console.Read();
+
         }
     }
 }

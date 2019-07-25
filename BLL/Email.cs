@@ -15,8 +15,8 @@ namespace BLL
         public string ValidationCode { get; set; }
         public DateTime? HasValidated { get; set; }
 
-        //public int OwerId { get; set; }
-        //public User Ower { get; set; }
+        public int OwerId { get; set; }
+        public User Ower { get; set; }
 
     }
 }

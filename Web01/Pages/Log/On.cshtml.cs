@@ -73,7 +73,7 @@ namespace Web01.Pages
                 }
                 );
 
-            return RedirectToPage("index");
+            return RedirectToPage("/index");
 
         }
     }

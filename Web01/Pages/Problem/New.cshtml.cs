@@ -8,8 +8,13 @@ using Web01.Pages.Shared;
 
 namespace Web01.Pages.Problem
 {
+    [BindProperties]
     public class NewModel : _LayoutModel
     {
+       
+        public  string Title { get; set; }
+        public  string Body { get; set; }
+
         public override void OnGet()
         {
             base.OnGet();

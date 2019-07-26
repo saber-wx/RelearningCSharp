@@ -3,24 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BLL.Repository;
 
 namespace BLL.Repository
 {
-    public class ArticleRepository
+    public class ArticleRepository:Repositorys
     {
-        private SQLContext _sqlcontext;
-
-        public ArticleRepository()
-        {
-            
-            _sqlcontext = new SQLContext();
-            
-        }
-
+        
         public Article Save(Article article)
         {
-            _sqlcontext.Articles.Add(article);
-            _sqlcontext.SaveChanges();
+            CurrentContext.Articles.Add(article);
+            CurrentContext.SaveChanges();
             return article;
         }
 

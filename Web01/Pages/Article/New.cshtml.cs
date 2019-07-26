@@ -15,13 +15,13 @@ namespace Web01.Pages.Article
     {
         private ArticleService _articleService;
 
+        public Article Article { get; set; }
+
         public NewModel()
         {
             _articleService = new ArticleService();
         }
 
-        public string Title { get; set; }
-        public string Body { get; set; }
         public override void OnGet()
         {
             base.OnGet();
@@ -34,7 +34,13 @@ namespace Web01.Pages.Article
             {
                 return;
             }
-            _articleService.Publish(Title, Body, CurrentUserId.Value);
+            _articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value);
         }
+    }
+
+    public class Article
+    {
+        public string Title { get; set; }
+        public string Body { get; set; }
     }
 }

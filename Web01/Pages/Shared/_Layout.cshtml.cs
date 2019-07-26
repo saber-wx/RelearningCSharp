@@ -25,11 +25,11 @@ namespace Web01.Pages.Shared
                     {
                         if (userAuthValue == model.MD5Password)
                         {
-                            CurrentUserId = model.Id;
+                            return model.Id;
                         }
                     }
                 }
-                return CurrentUserId;
+                return null;
             }
             set
             {

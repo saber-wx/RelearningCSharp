@@ -6,51 +6,36 @@ using System.Text;
 
 namespace BLL.Repository
 {
-    public class UserRepository 
+    public class UserRepository : Repositorys
     {
-        private SQLContext _sqlcontext;
-
-
-
-        public UserRepository()
-        {
-            _sqlcontext = new SQLContext();
-        }
-
+       
         public void Save(User user)
         {
-            _sqlcontext._users.Add(user);
-            _sqlcontext.SaveChanges();
+            CurrentContext._users.Add(user);
+            CurrentContext.SaveChanges();
         }
 
         public void Save(Email email)
         {
-            //_sqlcontext.Emails.Add(email);
-            _sqlcontext.SaveChanges();
+            CurrentContext.Emails.Add(email);
+            CurrentContext.SaveChanges();
         }
 
         public Email GetEmailById(int id)
         {
-            return null;
-            //return _sqlcontext.Emails.Where(e => e.Id == id).SingleOrDefault();
+
+            return CurrentContext.Emails.Where(e => e.Id == id).SingleOrDefault();
         }
 
         public User GetByName(string userName)
         {
-            
-            return _sqlcontext._users.Where(u => u.Name == userName).SingleOrDefault();
+            return CurrentContext._users.Where(u => u.Name == userName).SingleOrDefault();
         }
 
         public User GetById(int id)
         {
-            return _sqlcontext._users.Where(u => u.Id == id).SingleOrDefault();
+            return CurrentContext._users.Where(u => u.Id == id).SingleOrDefault();
         }
-
-        public void Flush()
-        {
-            _sqlcontext.SaveChanges();
-        }
-
-
+        
     }
 }

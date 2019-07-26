@@ -16,9 +16,11 @@ namespace SRV
 
         public Article Publish(string title, string body, int authorId)
         {
+            UserRepository userRepository = new UserRepository();
+            userRepository.CurrentContext = _articleRepository.CurrentContext;
             Article article = new Article
             {
-                Author = new UserRepository().GetById(authorId),
+                Author = userRepository.GetById(authorId),
                 Body = body,
                 Title = title
             };

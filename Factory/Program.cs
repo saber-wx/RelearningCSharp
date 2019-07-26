@@ -34,12 +34,12 @@ namespace Factory
             //    .UseSqlServer(connectionString);
 
             DatabaseFacade db = new SQLContext().Database;
-            db.EnsureDeleted();     //如果存在数据库，就删除之
-            db.EnsureCreated();
+            //db.EnsureDeleted();     //如果存在数据库，就删除之
+            //db.EnsureCreated();
 
             //new SQLContext().Database.Migrate();
 
-            RegisterFactory.Create();
+            //RegisterFactory.Create();
             //Article.NewFactory.Create();
             //Blogs.NewFactory.Create();
 

@@ -9,8 +9,8 @@ using System.Text;
 
 namespace Factory.Blogs
 {
-    internal class NewFactory
-    {
+    //internal class NewFactory
+    //{
     //    public static readonly LoggerFactory consoleloggerFactory
     //        = new LoggerFactory(new[]
     //{
@@ -30,7 +30,7 @@ namespace Factory.Blogs
     //            .UseLoggerFactory(consoleloggerFactory)
     //            .UseSqlServer(connectionString);
 
-    //        using ( SQLContext context = new SQLContext())
+    //        using (SQLContext context = new SQLContext())
     //        {
     //            for (int i = 0; i < 30; i++)
     //            {
@@ -51,5 +51,5 @@ namespace Factory.Blogs
     //            context.SaveChanges();
     //        }
     //    }
-    }
+    //}
 }

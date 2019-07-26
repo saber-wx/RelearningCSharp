@@ -6,15 +6,17 @@ using System.Text;
 
 namespace BLL
 {
-    public class Blog:Writings
+    public class Blog:Entity
     {
+        public string Url { get; set; }
+
         public IList<Post> Posts { get; set; }
 
         public IList<BlogToKeyword> Keywords { get; set; }
 
     }
 
-    public class Post
+    public class Post:Entity
     {
         public int PostId { get; set; }
         public string Title { get; set; }

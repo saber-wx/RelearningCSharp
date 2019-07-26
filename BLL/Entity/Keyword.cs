@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Keyword
+    public class Keyword:Entity
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -1,25 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BLL.Repository
 {
-    public class SQLContext : DbContext
+    public class SQLContext: DbContext
     {
         public SQLContext()
         {
 
         }
 
-        public SQLContext(DbContextOptions<SQLContext> options) : base(options) { }
+        //public static readonly LoggerFactory consoleLoggerFactory
+        //    = new LoggerFactory(
+        //        new[]
+        //        {
+        //            new ConsoleLoggerProvider((category,level))
+        //        }
+        //        )
 
-        public DbSet<User> _users { get; set; }
-        public DbSet<Email> Emails { get; set; }
-        public DbSet<Article> Articles { get; set; }
-        public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Writings> Writings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class User
+    public class User:Entity
     {
         //-- 不可更改！！
         private const string _salt = "s$)&a@^b!~#)e%*r";

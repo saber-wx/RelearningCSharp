@@ -33,7 +33,7 @@ namespace Factory
             //    .UseLoggerFactory(consoleloggerFactory)
             //    .UseSqlServer(connectionString);
 
-            DatabaseFacade db = new SQLContext().Database;
+            //DatabaseFacade db = new SQLContext().Database;
             //db.EnsureDeleted();     //如果存在数据库，就删除之
             //db.EnsureCreated();
 

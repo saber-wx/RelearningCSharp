@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Email
+    public class Email:Entity
     {
         public Email()
         {

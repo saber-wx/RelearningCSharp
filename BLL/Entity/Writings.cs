@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL.Repository
 {
-    public class Writings
+    public class Writings:Entity
     {
         public int Id { get; set; }
         public string Title { get; set; }

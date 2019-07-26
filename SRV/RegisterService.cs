@@ -19,8 +19,7 @@ namespace SRV
             _userRepository.Save(user);
             return user;
         }
-
-
+        
         public UserModel GetById(int id)
         {
             User user = _userRepository.GetById(id);
@@ -95,6 +94,14 @@ namespace SRV
                 return model;
             }
         }
+
+        //public bool ValidateEmail(int id,string code)
+        //{
+        //    Email email = _emailRepository.Get(id);
+        //    email.Validate();
+        //    _userRepository.Flush();
+        //    return email.ValidationCode == code;
+        //}
 
     }
 

@@ -6,7 +6,7 @@ namespace BLL.Repository
 {
     public class Writings:Entity
     {
-        public int Id { get; set; }
+
         public string Title { get; set; }
         public User Author { get; set; }
         public string Url { get; set; }

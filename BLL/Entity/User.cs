@@ -12,8 +12,7 @@ namespace BLL
         //-- 不可更改！！
         private const string _salt = "s$)&a@^b!~#)e%*r";
         //-- 不可更改！！
-        [Key]
-        public int Id { get; set; }
+
         public string Name { get; set; }
         [Required]
         public string Password { get; set; }

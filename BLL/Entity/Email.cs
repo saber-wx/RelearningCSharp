@@ -10,7 +10,7 @@ namespace BLL
         {
 
         }
-        public int Id { get; set; }
+
         public string Address { get; set; }
         public string ValidationCode { get; set; }
         public DateTime? HasValidated { get; set; }
@@ -18,5 +18,9 @@ namespace BLL
         public int OwerId { get; set; }
         public User Ower { get; set; }
 
+        public void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

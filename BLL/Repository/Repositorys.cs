@@ -7,8 +7,9 @@ using System.Text;
 
 namespace BLL
 {
-    public class Repositorys<T> where T :class
+    public class Repositorys<T> where T :Entity
     {
+
         public Repositorys()
         {
             CurrentContext = new SQLContext();
@@ -16,8 +17,15 @@ namespace BLL
         }
 
         public SQLContext CurrentContext { get; set; }
-        protected DbSet<T> entities { get; set; }
+        public DbSet<T> entities { get; set; }
 
+        public void SetEntities(SQLContext context)
+        {
+            CurrentContext = context;
+            entities = CurrentContext.Set<T>();
+        }
+        
+        
         public void Flush()
         {
             CurrentContext.SaveChanges();

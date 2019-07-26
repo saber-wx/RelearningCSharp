@@ -37,11 +37,11 @@ namespace Factory
             //db.EnsureDeleted();     //如果存在数据库，就删除之
             //db.EnsureCreated();
 
-            //new SQLContext().Database.Migrate();
+            ////new SQLContext().Database.Migrate();
 
-            //RegisterFactory.Create();
-            //Article.NewFactory.Create();
-            //Blogs.NewFactory.Create();
+            ////RegisterFactory.Create();
+            ////Article.NewFactory.Create();
+            ////Blogs.NewFactory.Create();
 
             //Console.Read();
 

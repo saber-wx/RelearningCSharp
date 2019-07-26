@@ -14,14 +14,11 @@ namespace BLL.Repository
 
         }
 
-        //public static readonly LoggerFactory consoleLoggerFactory
-        //    = new LoggerFactory(
-        //        new[]
-        //        {
-        //            new ConsoleLoggerProvider((category,level))
-        //        }
-        //        )
-
+        public static readonly LoggerFactory MyLoggerFactory
+         = new LoggerFactory(new[]
+             {
+              new ConsoleLoggerProvider((_, __) => true, true) }
+             );
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,8 +29,6 @@ namespace BLL.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-
             modelBuilder.Entity<User>(options =>
             {
                 options.ToTable("Users")
@@ -65,6 +60,9 @@ namespace BLL.Repository
                 .HasOne(bk => bk.Keyword)
                 .WithMany(b => b.Blogs)
                 .HasForeignKey(b => b.KeywordId);
+
+            modelBuilder.Entity<Article>();
+
 
             //modelBuilder.Entity<Blog>(options =>
             //    {

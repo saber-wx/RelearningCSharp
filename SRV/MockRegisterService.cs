@@ -21,7 +21,7 @@ namespace SRV
 
         public UserModel GetByName(string userName)
         {
-            throw new NotImplementedException();
+            return new UserModel { Id = 1, MD5Password = "1234", Name = "1" };
         }
 
         public bool HasExist(string userName)

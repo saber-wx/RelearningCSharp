@@ -31,7 +31,16 @@ namespace Web01
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddTransient<IRegisterService, RegisterService>();
+
+            //以下方法用来做依赖注入,若每次不同的类注入会重复使用
+            //services.AddTransient<IRegisterService, RegisterService>();//用一次就创建一次
+            //services.AddScoped<IRegisterService, RegisterService>();//一次Request中只创建一个
+            //services.AddSingleton<IRegisterService, RegisterService>();//整个Application只创建一个
+            //因此:将这些方法放入一个扩展方法中
+            services.AddMockService();
+            //services.AddService();
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

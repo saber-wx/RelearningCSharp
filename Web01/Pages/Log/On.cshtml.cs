@@ -15,20 +15,20 @@ namespace Web01.Pages
     [BindProperties]
     public class LogOnModel : _LayoutModel
     {
-        //private const string _userId = "userId";
+
         public string Greet = "Hello,一起帮欢迎您！";
 
-        private RegisterService _registerService;
-        public LogOnModel()
+        private IRegisterService _registerService;
+        public LogOnModel(IRegisterService service)
         {
-            _registerService = new RegisterService();
+            _registerService = service;
         }
 
         [Required]
         public string UserName { get; set; }
         [Required]
         public string Password { get; set; }
-        public override void  OnGet()
+        public override void OnGet()
         {
             base.OnGet();
 

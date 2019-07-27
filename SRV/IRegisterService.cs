@@ -20,7 +20,7 @@ namespace SRV
         
         bool ValidateEmail(int id, string code);
 
-
+        UserModel GetByName(string userName);
 
 
 

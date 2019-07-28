@@ -10,6 +10,14 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static void AddMockService(this IServiceCollection services)
         {
+            services.AddTransient<IRegisterService, MockRegisterService>();//用一次就创建一次
+            //services.AddScoped<IRegisterService, MockRegisterService>();//一次Request中只创建一个
+            //services.AddSingleton<IRegisterService, MockRegisterService>();//整个Application只创建一个
+
+        }
+
+        public static void AddService(this IServiceCollection services)
+        {
             services.AddTransient<IRegisterService, RegisterService>();//用一次就创建一次
             //services.AddScoped<IRegisterService, RegisterService>();//一次Request中只创建一个
             //services.AddSingleton<IRegisterService, RegisterService>();//整个Application只创建一个

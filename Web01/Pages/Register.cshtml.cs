@@ -14,11 +14,11 @@ namespace Web01.Pages
     [BindProperties]
     public class RegisterModel : _LayoutModel
     {
-        private RegisterService _registerService;
+        private IRegisterService _registerService;
 
-        public RegisterModel()
+        public RegisterModel(IRegisterService registerService)
         {
-            _registerService = new RegisterService();
+            _registerService = registerService;
         }
 
         public Register Register { get; set; }

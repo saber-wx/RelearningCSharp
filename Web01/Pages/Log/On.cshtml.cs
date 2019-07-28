@@ -19,9 +19,9 @@ namespace Web01.Pages
         public string Greet = "Hello,一起帮欢迎您！";
 
         private IRegisterService _registerService;
-        public LogOnModel(IRegisterService service)
+        public LogOnModel(IRegisterService registerService)
         {
-            _registerService = service;
+            _registerService = registerService;
         }
 
         [Required]

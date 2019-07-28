@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SRV;
@@ -37,10 +39,11 @@ namespace Web01
             //services.AddScoped<IRegisterService, RegisterService>();//一次Request中只创建一个
             //services.AddSingleton<IRegisterService, RegisterService>();//整个Application只创建一个
             //因此:将这些方法放入一个扩展方法中
-            services.AddMockService();
-            //services.AddService();
+            //services.AddMockService();
+            services.AddScoped<DbContext, SQLContext>();
 
-
+            services.AddService();
+            services.AddHttpContextAccessor();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

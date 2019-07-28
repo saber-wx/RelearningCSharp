@@ -9,19 +9,20 @@ namespace Web01.Pages.Shared
 {
     public class _LayoutModel : PageModel
     {
-        protected const string userIdKey = "userId";
-        private const string userAuth = "userAuth";
+        protected const string USER_ID_KEY = "userId";
+        private const string USER_AUTH = "userAuth";
+
 
         public int? CurrentUserId
         {
             get
             {
                 string userIdValue;
-                if (Request.Cookies.TryGetValue(userIdKey, out userIdValue))
+                if (Request.Cookies.TryGetValue(USER_ID_KEY, out userIdValue))
                 {
                     UserModel model = new RegisterService().GetById(Convert.ToInt32(userIdValue));
 
-                    if (Request.Cookies.TryGetValue(userAuth, out string userAuthValue))
+                    if (Request.Cookies.TryGetValue(USER_AUTH, out string userAuthValue))
                     {
                         if (userAuthValue == model.MD5Password)
                         {
@@ -38,13 +39,14 @@ namespace Web01.Pages.Shared
 
         public virtual void OnGet()
         {
+
             string userIdValue;
-            if (Request.Cookies.TryGetValue(userIdKey, out userIdValue))
+            if (Request.Cookies.TryGetValue(USER_ID_KEY, out userIdValue))
             {
-                UserModel model = new RegisterService().GetById(Convert.ToInt32(userIdValue));
+                UserModel model = new RegisterService(null).GetById(Convert.ToInt32(userIdValue));
                 if (model != null)
                 {
-                    if (Request.Cookies.TryGetValue(userAuth, out string userAuthValue))
+                    if (Request.Cookies.TryGetValue(USER_AUTH, out string userAuthValue))
                     {
                         if (userAuthValue == model.MD5Password)
                         {

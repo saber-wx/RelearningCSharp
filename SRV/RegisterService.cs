@@ -1,5 +1,6 @@
 ﻿using BLL;
 using BLL.Repository;
+using Microsoft.AspNetCore.Http;
 using System;
 
 namespace SRV
@@ -8,9 +9,13 @@ namespace SRV
     {
         public UserRepository _userRepository;
         public EmailRepository _emailRepository;
-        public RegisterService()
+
+        private IHttpContextAccessor _accessor;
+        public RegisterService(IHttpContextAccessor accessor)
         {
             _userRepository = new UserRepository();
+            _emailRepository = new EmailRepository();
+            _accessor = accessor;
         }
 
         public User Register(string userName, string password)
@@ -47,6 +52,7 @@ namespace SRV
 
         public UserModel GetByName(string userName)
         {
+           
             User user = _userRepository.GetByName(userName);
             return MapFrom(user);
         }

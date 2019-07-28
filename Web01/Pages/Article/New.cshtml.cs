@@ -34,7 +34,7 @@ namespace Web01.Pages.Article
             {
                 return;
             }
-            _articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value);
+            //_articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value);
         }
     }
 

@@ -13,25 +13,21 @@ namespace SRV
 
         private ArticleRepository _articleRepository;
         private IHttpContextAccessor _accessor;
+        private UserRepository _userRepository;
 
-        public ArticleService()
-        {
-
-        }
-        public ArticleService(IHttpContextAccessor accessor)
+        public ArticleService(IHttpContextAccessor accessor, ArticleRepository articleRepository, UserRepository userRepository)
         {
             _accessor = accessor;
-            _articleRepository = new ArticleRepository();
+            _articleRepository = articleRepository;
+            _userRepository = userRepository;
         }
 
         public Article Publish(string title, string body, int authorId)
         {
             string CurrentUser = _accessor.HttpContext.Request.Cookies[""];
-            UserRepository userRepository = new UserRepository();
-            userRepository.SetEntities(_articleRepository._dbContext);
             Article article = new Article
             {
-                Author = userRepository.GetById(authorId),
+                Author = _userRepository.GetById(authorId),
                 Body = body,
                 Title = title
             };

@@ -13,13 +13,13 @@ namespace Web01.Pages.Article
     [BindProperties]
     public class NewModel : _LayoutModel
     {
-        private ArticleService _articleService;
+        
 
         public Article Article { get; set; }
-
-        public NewModel()
+        private ArticleService _articleService;
+        public NewModel(ArticleService articleService, IRegisterService registerService) :base(registerService)
         {
-            _articleService = new ArticleService();
+            _articleService = articleService;
         }
 
         public override void OnGet()
@@ -34,7 +34,7 @@ namespace Web01.Pages.Article
             {
                 return;
             }
-            //_articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value);
+            _articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value);
         }
     }
 

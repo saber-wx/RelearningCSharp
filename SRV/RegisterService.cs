@@ -5,16 +5,19 @@ using System;
 
 namespace SRV
 {
-    public class RegisterService:IRegisterService
+    public class RegisterService : IRegisterService
     {
+        protected const string USER_ID_KEY = "userId";
+        private const string USER_AUTH = "userAuth";
+
         public UserRepository _userRepository;
         public EmailRepository _emailRepository;
 
         private IHttpContextAccessor _accessor;
-        public RegisterService(IHttpContextAccessor accessor)
+        public RegisterService(IHttpContextAccessor accessor, UserRepository userRepository, EmailRepository emailRepository)
         {
-            _userRepository = new UserRepository();
-            _emailRepository = new EmailRepository();
+            _userRepository = userRepository;
+            _emailRepository = emailRepository;
             _accessor = accessor;
         }
 
@@ -28,6 +31,8 @@ namespace SRV
 
         public UserModel GetById(int id)
         {
+            string currentUser = _accessor.HttpContext.Request.Cookies["USER_ID_KEY"];
+
             User user = _userRepository.GetById(id);
             return MapFrom(user);
         }
@@ -52,7 +57,6 @@ namespace SRV
 
         public UserModel GetByName(string userName)
         {
-           
             User user = _userRepository.GetByName(userName);
             return MapFrom(user);
         }

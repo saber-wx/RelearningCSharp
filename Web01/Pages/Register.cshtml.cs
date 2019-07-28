@@ -16,7 +16,7 @@ namespace Web01.Pages
     {
         private IRegisterService _registerService;
 
-        public RegisterModel(IRegisterService registerService)
+        public RegisterModel(IRegisterService registerService):base(registerService)
         {
             _registerService = registerService;
         }

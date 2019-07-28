@@ -9,6 +9,10 @@ namespace BLL.Repository
 {
     public class ArticleRepository:Repositorys<Article>
     {
+        public ArticleRepository(DbContext context) : base(context)
+        {
+
+        }
 
     }
 }

@@ -12,7 +12,11 @@ namespace Web01.Pages.Shared
         protected const string USER_ID_KEY = "userId";
         private const string USER_AUTH = "userAuth";
 
-
+        public IRegisterService _registerService;
+        public _LayoutModel(IRegisterService registerService)
+        {
+            _registerService = registerService;
+        }
         public int? CurrentUserId
         {
             get
@@ -20,7 +24,7 @@ namespace Web01.Pages.Shared
                 string userIdValue;
                 if (Request.Cookies.TryGetValue(USER_ID_KEY, out userIdValue))
                 {
-                    UserModel model = new RegisterService().GetById(Convert.ToInt32(userIdValue));
+                    UserModel model = _registerService.GetById(Convert.ToInt32(userIdValue));
 
                     if (Request.Cookies.TryGetValue(USER_AUTH, out string userAuthValue))
                     {
@@ -43,7 +47,7 @@ namespace Web01.Pages.Shared
             string userIdValue;
             if (Request.Cookies.TryGetValue(USER_ID_KEY, out userIdValue))
             {
-                UserModel model = new RegisterService(null).GetById(Convert.ToInt32(userIdValue));
+                UserModel model = _registerService.GetById(Convert.ToInt32(userIdValue));
                 if (model != null)
                 {
                     if (Request.Cookies.TryGetValue(USER_AUTH, out string userAuthValue))

@@ -43,6 +43,7 @@ namespace Web01
             services.AddScoped<DbContext, SQLContext>();
 
             services.AddService();
+            services.AddRepository();
             services.AddHttpContextAccessor();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

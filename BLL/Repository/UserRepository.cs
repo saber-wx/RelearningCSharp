@@ -8,7 +8,10 @@ namespace BLL.Repository
 {
     public class UserRepository : Repositorys<User>
     {
+        public UserRepository(DbContext context) : base(context)
+        {
 
+        }
         public User GetByName(string userName)
         {
             return entities.Where(u => u.Name == userName).SingleOrDefault();

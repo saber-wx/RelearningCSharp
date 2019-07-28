@@ -8,7 +8,10 @@ namespace BLL.Repository
 {
     public class EmailRepository : Repositorys<Email>
     {
-   
+        public EmailRepository(DbContext context):base(context)
+        {
+
+        }
 
         public Email GetEmailById(int id)
         {

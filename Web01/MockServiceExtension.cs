@@ -1,4 +1,5 @@
-﻿using SRV;
+﻿using BLL.Repository;
+using SRV;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,19 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static void AddService(this IServiceCollection services)
         {
-            services.AddTransient<IRegisterService, RegisterService>();//用一次就创建一次
+            //services.AddTransient<IRegisterService, RegisterService>();//用一次就创建一次
             //services.AddScoped<IRegisterService, RegisterService>();//一次Request中只创建一个
             //services.AddSingleton<IRegisterService, RegisterService>();//整个Application只创建一个
+            services.AddScoped<IRegisterService, RegisterService>();
+            services.AddScoped<ArticleService, ArticleService>();
+
+        }
+
+        public static void AddRepository(this IServiceCollection services)
+        {
+            services.AddScoped<UserRepository, UserRepository>();
+            services.AddScoped<ArticleRepository, ArticleRepository>();
+            services.AddScoped<EmailRepository, EmailRepository>();
 
         }
     }

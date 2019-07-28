@@ -12,7 +12,7 @@ namespace Factory
         private static UserRepository _registerFactory;
         static RegisterFactory()
         {
-            _registerFactory = new UserRepository();
+            //_registerFactory = new UserRepository();
         }
         internal static void Create()
         {

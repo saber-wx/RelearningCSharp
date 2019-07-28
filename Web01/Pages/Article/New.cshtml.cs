@@ -13,13 +13,12 @@ namespace Web01.Pages.Article
     [BindProperties]
     public class NewModel : _LayoutModel
     {
-        
-
         public Article Article { get; set; }
         private ArticleService _articleService;
         public NewModel(ArticleService articleService, IRegisterService registerService) :base(registerService)
         {
             _articleService = articleService;
+
         }
 
         public override void OnGet()

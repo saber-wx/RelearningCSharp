@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using BLL;
 using BLL.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +21,16 @@ namespace Web01
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            var autoMapconfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Article, DTOArticle>();
+                //cfg.CreateMap<Bar, BarDto>();
+            });
+            // only during development, validate your mappings; remove it before release
+            autoMapconfig.AssertConfigurationIsValid();
+            // use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself
+            var mapper = autoMapconfig.CreateMapper();
         }
 
         public IConfiguration Configuration { get; }
@@ -72,6 +84,10 @@ namespace Web01
             //app.UseCookiePolicy();
 
             app.UseMvc();
+
+           
         }
+
+
     }
 }

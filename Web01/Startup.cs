@@ -22,15 +22,7 @@ namespace Web01
         {
             Configuration = configuration;
 
-            var autoMapconfig = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Article, DTOArticle>();
-                //cfg.CreateMap<Bar, BarDto>();
-            });
-            // only during development, validate your mappings; remove it before release
-            autoMapconfig.AssertConfigurationIsValid();
-            // use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself
-            var mapper = autoMapconfig.CreateMapper();
+           
         }
 
         public IConfiguration Configuration { get; }

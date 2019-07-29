@@ -1,3 +1,4 @@
+using AutoMapper;
 using BLL;
 using BLL.Repository;
 using Microsoft.AspNetCore.Http;
@@ -8,14 +9,14 @@ using System.Text;
 
 namespace SRV
 {
-    public class ArticleService : IArticleService
+    public class ArticleService : BaseService, IArticleService
     {
 
         private ArticleRepository _articleRepository;
-        private IHttpContextAccessor _accessor;
-        private UserRepository _userRepository;
 
-        public ArticleService(IHttpContextAccessor accessor, ArticleRepository articleRepository, UserRepository userRepository)
+        public ArticleService(IHttpContextAccessor accessor, 
+            ArticleRepository articleRepository, 
+            UserRepository userRepository):base(accessor,userRepository)
         {
             _accessor = accessor;
             _articleRepository = articleRepository;
@@ -25,19 +26,15 @@ namespace SRV
         public DTOArticle Get(int id)
         {
             Article article = _articleRepository.Get(id);
-            return new DTOArticle
-            {
-                Title = article.Title,
-                Body = article.Body
-            };
+            return mapper.Map<Article, DTOArticle>(article);
         }
 
-        public Article Publish(string title, string body, int authorId)
+        public Article Publish(string title, string body)
         {
-            string CurrentUser = _accessor.HttpContext.Request.Cookies[""];
+            //string CurrentUser = _accessor.HttpContext.Request.Cookies[""];
             Article article = new Article
             {
-                Author = _userRepository.GetById(authorId),
+                //Author = CurrentUser,
                 Body = body,
                 Title = title
             };

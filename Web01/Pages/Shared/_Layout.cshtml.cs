@@ -17,29 +17,29 @@ namespace Web01.Pages.Shared
         {
             _registerService = registerService;
         }
-        public int? CurrentUserId
-        {
-            get
-            {
-                string userIdValue;
-                if (Request.Cookies.TryGetValue(USER_ID_KEY, out userIdValue))
-                {
-                    UserModel model = _registerService.GetById(Convert.ToInt32(userIdValue));
+        //public int? CurrentUserId
+        //{
+        //    get
+        //    {
+        //        string userIdValue;
+        //        if (Request.Cookies.TryGetValue(USER_ID_KEY, out userIdValue))
+        //        {
+        //            UserModel model = _registerService.GetById(Convert.ToInt32(userIdValue));
 
-                    if (Request.Cookies.TryGetValue(USER_AUTH, out string userAuthValue))
-                    {
-                        if (userAuthValue == model.MD5Password)
-                        {
-                            return model.Id;
-                        }
-                    }
-                }
-                return null;
-            }
-            set
-            {
-            }
-        }
+        //            if (Request.Cookies.TryGetValue(USER_AUTH, out string userAuthValue))
+        //            {
+        //                if (userAuthValue == model.MD5Password)
+        //                {
+        //                    return model.Id;
+        //                }
+        //            }
+        //        }
+        //        return null;
+        //    }
+        //    set
+        //    {
+        //    }
+        //}
 
         public virtual void OnGet()
         {

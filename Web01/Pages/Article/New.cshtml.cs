@@ -14,8 +14,8 @@ namespace Web01.Pages.Article
     public class NewModel : _LayoutModel
     {
         public Article Article { get; set; }
-        private ArticleService _articleService;
-        public NewModel(ArticleService articleService, IRegisterService registerService) :base(registerService)
+        private IArticleService _articleService;
+        public NewModel(IArticleService articleService, IRegisterService registerService) : base(registerService)
         {
             _articleService = articleService;
 
@@ -26,14 +26,15 @@ namespace Web01.Pages.Article
             base.OnGet();
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-           
+
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
-            _articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value);
+            int id = _articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value).Id;
+            return Redirect("/Article/Single?id=" + id);
         }
     }
 

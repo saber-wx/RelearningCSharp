@@ -11,8 +11,8 @@ namespace Web01.Pages
 {
     public class IndexModel : _LayoutModel
     {
-        private ArticleService _articleService;
-        public IndexModel(ArticleService articleService, IRegisterService registerService) : base(registerService)
+        private IArticleService _articleService;
+        public IndexModel(IArticleService articleService, IRegisterService registerService) : base(registerService)
         {
             _articleService = articleService;
         }

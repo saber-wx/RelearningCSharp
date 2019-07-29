@@ -1,12 +1,25 @@
 ﻿@page
 @model Web01.Pages.Article.SingleModel
 @{
-    ViewData["Title"] = "文章单页";
+    Layout = "_Layout";
+    
 }
 
-<h4>@Model.Title</h4>
-<main>
-    @Model.Body
+<!DOCTYPE html>
 
-</main>
-<p>@Model.id</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>文章单页</title>
+</head>
+<body>
+    <h1>这是文章单页</h1>
+
+    <h4>@Model.article.Title</h4>
+    <main>
+        @Model.article.Body
+
+        <div>@Model.Id</div>
+    </main>
+</body>
+</html>

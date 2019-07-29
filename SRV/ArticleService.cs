@@ -8,7 +8,7 @@ using System.Text;
 
 namespace SRV
 {
-    public class ArticleService
+    public class ArticleService : IArticleService
     {
 
         private ArticleRepository _articleRepository;
@@ -20,6 +20,16 @@ namespace SRV
             _accessor = accessor;
             _articleRepository = articleRepository;
             _userRepository = userRepository;
+        }
+
+        public DTOArticle Get(int id)
+        {
+            Article article = _articleRepository.Get(id);
+            return new DTOArticle
+            {
+                Title = article.Title,
+                Body = article.Body
+            };
         }
 
         public Article Publish(string title, string body, int authorId)
@@ -34,5 +44,11 @@ namespace SRV
             article.Publish();
             return _articleRepository.Save(article);
         }
+    }
+
+    public class DTOArticle
+    {
+        public string Title { get; set; }
+        public string Body { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class MockServiceExtension
+    public static class ServiceExtension
     {
         public static void AddMockService(this IServiceCollection services)
         {
@@ -23,7 +23,7 @@ namespace Microsoft.Extensions.DependencyInjection
             //services.AddScoped<IRegisterService, RegisterService>();//一次Request中只创建一个
             //services.AddSingleton<IRegisterService, RegisterService>();//整个Application只创建一个
             services.AddScoped<IRegisterService, RegisterService>();
-            services.AddScoped<ArticleService, ArticleService>();
+            services.AddScoped<IArticleService, ArticleService>();
 
         }
 

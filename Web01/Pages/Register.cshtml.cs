@@ -14,8 +14,7 @@ namespace Web01.Pages
     [BindProperties]
     public class RegisterModel : _LayoutModel
     {
-        private IRegisterService _registerService;
-
+       
         public RegisterModel(IRegisterService registerService):base(registerService)
         {
             _registerService = registerService;

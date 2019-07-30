@@ -1,11 +1,11 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using BLL;
 using BLL.Repository;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace SRV
 {
@@ -14,15 +14,15 @@ namespace SRV
         protected const string USER_ID_KEY = "userId";
         private const string USER_AUTH = "userAuth";
 
-        protected UserRepository _userRepository;
+        protected UserRepository userRepository;
         protected static MapperConfiguration autoMapperconfig;
 
-        protected IHttpContextAccessor _accessor;
+        protected IHttpContextAccessor accessor;
 
         public BaseService(IHttpContextAccessor accessor, UserRepository userRepository)
         {
-            _accessor = accessor;
-            _userRepository = userRepository;
+            this.accessor = accessor;
+            this.userRepository = userRepository;
             autoMapperconfig = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Article, DTOArticle>();
@@ -41,14 +41,22 @@ namespace SRV
             }
         }
 
-        //protected User currentUser
-        //{
-        //    get
-        //    {
-                
+        /// <summary>
+        /// 当前用户
+        /// </summary>
+        protected User CurrentUser
+        {
+            get
+            {
+                string currentUserId = accessor.HttpContext.Request.Cookies[USER_ID_KEY];
+                if (currentUserId !=null)
+                {
+                    return userRepository.GetById(Convert.ToInt32(currentUserId));
+                }
 
-        //    }
-        //}
+                return null;
+            }
+        }
 
         //public int? CurrentUserId
         //{
@@ -61,7 +69,7 @@ namespace SRV
 
         //            if (_accessor.HttpContext.Request.Cookies.TryGetValue(USER_AUTH, out string userAuthValue))
         //            {
-        //                if (_accessor.HttpContext.userAuthValue == model.MD5Password)
+        //                if (userAuthValue == model.MD5Password)
         //                {
         //                    return model.Id;
         //                }
@@ -73,6 +81,7 @@ namespace SRV
         //    {
         //    }
         //}
+
 
     }
 }

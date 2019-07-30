@@ -33,7 +33,7 @@ namespace Web01.Pages.Article
             {
                 return Page();
             }
-            int id = _articleService.Publish(Article.Title, Article.Body, CurrentUserId.Value).Id;
+            int id = _articleService.Publish(Article.Title, Article.Body).Id;
             return Redirect("/Article/Single?id=" + id);
         }
     }

@@ -18,23 +18,27 @@ namespace SRV
             ArticleRepository articleRepository, 
             UserRepository userRepository):base(accessor,userRepository)
         {
-            _accessor = accessor;
             _articleRepository = articleRepository;
-            _userRepository = userRepository;
         }
 
         public DTOArticle Get(int id)
         {
             Article article = _articleRepository.Get(id);
-            return mapper.Map<Article, DTOArticle>(article);
+
+            return new DTOArticle
+            {
+                Title = article.Title,
+                Body = article.Body
+            };
+            //return mapper.Map<Article, DTOArticle>(article);
         }
 
         public Article Publish(string title, string body)
         {
-            //string CurrentUser = _accessor.HttpContext.Request.Cookies[""];
+
             Article article = new Article
             {
-                //Author = CurrentUser,
+                Author = CurrentUser,
                 Body = body,
                 Title = title
             };

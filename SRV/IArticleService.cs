@@ -10,7 +10,7 @@ namespace SRV
 {
     public interface IArticleService
     {
-        Article Publish(string title, string body);
+        Article Publish(DTOArticle dArticle);
         DTOArticle Get(int id);
     }
 }

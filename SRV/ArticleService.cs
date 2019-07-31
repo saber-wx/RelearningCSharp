@@ -4,6 +4,7 @@ using BLL.Repository;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Text;
 
@@ -24,24 +25,14 @@ namespace SRV
         public DTOArticle Get(int id)
         {
             Article article = _articleRepository.Get(id);
-
-            return new DTOArticle
-            {
-                Title = article.Title,
-                Body = article.Body
-            };
-            //return mapper.Map<Article, DTOArticle>(article);
+            return mapper.Map<Article, DTOArticle>(article);
         }
 
-        public Article Publish(string title, string body)
+        public Article Publish(DTOArticle dArticle)
         {
 
-            Article article = new Article
-            {
-                Author = CurrentUser,
-                Body = body,
-                Title = title
-            };
+            Article article = mapper.Map<DTOArticle, Article>(dArticle);
+            article.Author = CurrentUser;
             article.Publish();
             return _articleRepository.Save(article);
         }
@@ -49,7 +40,9 @@ namespace SRV
 
     public class DTOArticle
     {
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Body { get; set; }
     }
 }

@@ -15,22 +15,24 @@ namespace SRV
         private const string USER_AUTH = "userAuth";
 
         protected UserRepository userRepository;
-        protected static MapperConfiguration autoMapperconfig;
-
         protected IHttpContextAccessor accessor;
+
+        protected static MapperConfiguration autoMapperconfig;
+        static BaseService()
+        {
+            autoMapperconfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Article, DTOArticle>(MemberList.None);
+                cfg.CreateMap<DTOArticle, Article>(MemberList.None);
+            });
+
+        }
 
         public BaseService(IHttpContextAccessor accessor, UserRepository userRepository)
         {
             this.accessor = accessor;
             this.userRepository = userRepository;
-            autoMapperconfig = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Article, DTOArticle>();
-            });
-#if DEBUG
-            autoMapperconfig.AssertConfigurationIsValid();
-            // use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself
-#endif         
+
         }
 
         protected IMapper mapper
@@ -49,7 +51,7 @@ namespace SRV
             get
             {
                 string currentUserId = accessor.HttpContext.Request.Cookies[USER_ID_KEY];
-                if (currentUserId !=null)
+                if (currentUserId != null)
                 {
                     return userRepository.GetById(Convert.ToInt32(currentUserId));
                 }

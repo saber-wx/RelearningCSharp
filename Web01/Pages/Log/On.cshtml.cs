@@ -17,11 +17,9 @@ namespace Web01.Pages
     {
 
         public string Greet = "Hello,一起帮欢迎您！";
-
-        private ArticleService _articleService;
-        public LogOnModel(ArticleService articleService, IRegisterService registerService) : base(registerService)
+        public LogOnModel(IRegisterService registerService):base(registerService)
         {
-            _articleService = articleService;
+            this._registerService = registerService;
         }
 
         [Required]

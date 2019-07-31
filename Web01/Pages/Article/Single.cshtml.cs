@@ -26,7 +26,6 @@ namespace Web01.Pages.Article
         {
             article = _articleService.Get(Id);
             base.OnGet();
-
         }
     }
 }

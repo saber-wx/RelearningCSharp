@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BLL.Repository
 {
-    public class SQLContext: DbContext
+    public class SQLContext : DbContext
     {
         public SQLContext()
         {
@@ -31,7 +31,7 @@ namespace BLL.Repository
         {
             modelBuilder.Entity<User>(options =>
             {
-                options.ToTable("Users")
+                options.ToTable("User")
                 .Property(x => x.Name)
                 .IsRequired();
             });
@@ -44,6 +44,12 @@ namespace BLL.Repository
                 .HasOne(e => e.Ower)
                 .WithOne(u => u.Email)
                 .HasForeignKey<Email>(e => e.OwerId);
+
+            modelBuilder.Entity<Article>()
+    .HasOne(e => e.Author)
+    .WithOne(u => u.Article)
+    .HasForeignKey<Article>(e => e.AuthorId);
+
 
             modelBuilder.Entity<Writings>()
                 .HasDiscriminator(b => b.DiscriminatorType);

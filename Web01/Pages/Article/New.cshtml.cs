@@ -13,12 +13,11 @@ namespace Web01.Pages.Article
     [BindProperties]
     public class NewModel : _LayoutModel
     {
-        public Article Article { get; set; }
+        public DTOArticle Article { get; set; }
         private IArticleService _articleService;
         public NewModel(IArticleService articleService, IRegisterService registerService) : base(registerService)
         {
             _articleService = articleService;
-
         }
 
         public override void OnGet()
@@ -33,14 +32,9 @@ namespace Web01.Pages.Article
             {
                 return Page();
             }
-            int id = _articleService.Publish(Article.Title, Article.Body).Id;
+            int id = _articleService.Publish(Article).Id;
             return Redirect("/Article/Single?id=" + id);
         }
     }
 
-    public class Article
-    {
-        public string Title { get; set; }
-        public string Body { get; set; }
-    }
 }

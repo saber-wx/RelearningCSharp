@@ -21,7 +21,7 @@ namespace BLL
         [NotMapped]
         public string ConfirmPassword { get; set; }
 
-        public User InvitedBy { get; set; }
+        //public User InvitedBy { get; set; }
 
         public Email Email { get; set; }
 

@@ -17,7 +17,12 @@ namespace BLL.Repository
         public static readonly LoggerFactory MyLoggerFactory
          = new LoggerFactory(new[]
              {
-              new ConsoleLoggerProvider((_, __) => true, true) }
+             new ConsoleLoggerProvider((category,level)
+                 =>category == DbLoggerCategory.Database.Command.Name&&
+             level == LogLevel.Information,true
+                 )
+              //new ConsoleLoggerProvider((_, __) => true, true)
+         }
              );
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -25,6 +30,7 @@ namespace BLL.Repository
             string connectionString =
                 @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = 17Help; Integrated Security = True; ";
             optionsBuilder
+                .UseLoggerFactory(MyLoggerFactory)
                 .UseSqlServer(connectionString);
         }
 

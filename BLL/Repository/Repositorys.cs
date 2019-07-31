@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Repositorys<T> where T :Entity
+    public class Repositorys<T> where T : Entity
     {
         public DbContext _dbContext;
         public Repositorys(DbContext context)
@@ -23,8 +23,8 @@ namespace BLL
             _dbContext = context;
             entities = _dbContext.Set<T>();
         }
-        
-        
+
+
         public void Flush()
         {
             _dbContext.SaveChanges();
@@ -43,6 +43,14 @@ namespace BLL
         public T Get(int id)
         {
             return entities.Single(u => u.Id == id);
+        }
+
+        public IList<T> Paged(IList<T> entities, int pageIndex, int pageSize)
+        {
+            return entities
+            .Skip((pageIndex - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
         }
     }
 }

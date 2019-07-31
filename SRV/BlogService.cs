@@ -30,9 +30,19 @@ namespace SRV
             //return mapper.Map<Blog, Blog>(blog);
         }
 
-        public IList<Blog> Get()
+        public IList<Blog> Get(int? bloggerId, int pageIndex,int pageSize)
         {
-            return _blogRepository.Get();
+            if (bloggerId.HasValue)
+            {
+              //blogs =  _blogRepository.GetByAuthor(bloggerId.Value);
+
+                return _blogRepository.GetByAuthor(bloggerId.Value,pageIndex,pageSize);
+                //return _blogRepository.Paged(blogs, pageIndex, pageSize);
+            }
+            else
+            {
+                return _blogRepository.Get(pageIndex, pageSize);
+            }
         }
 
         public Blog Publish(Blog blog)

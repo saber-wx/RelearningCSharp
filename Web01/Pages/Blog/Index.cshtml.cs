@@ -18,15 +18,19 @@ namespace Web01.Pages.Blog
         {
             _BlogService = BlogService;
         }
-
-  
-
+        
         public IList<BLL.Blog> Blogs { get; set; }
 
+        [BindProperty(SupportsGet =true)]
+        public int PageIndex { get; set; }
+
+        [BindProperty(SupportsGet =true)]
+        public int? BloggerId { get; set; }
 
         public override void OnGet()
         {
-            Blogs = _BlogService.Get();
+
+            Blogs = _BlogService.Get(BloggerId, PageIndex,3);
             base.OnGet();
         }
     }

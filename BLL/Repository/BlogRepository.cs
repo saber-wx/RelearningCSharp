@@ -22,5 +22,20 @@ namespace BLL.Repository
         {
             return entities.ToList();
         }
+
+        public IList<Blog> Get(int pageIndex, int pageSize)
+        {
+            return Paged(entities.ToList(), pageIndex, pageSize);
+        }
+        
+        public IList<Blog> GetByAuthor(int authorId, int pageIndex, int pageSize)
+        {
+            return entities
+                .Where(e => e.Author.Id == authorId)
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+        }
     }
 }

@@ -12,6 +12,6 @@ namespace SRV
     {
         Blog Publish(Blog dBlog);
         Blog Get(int id);
-        IList<Blog> Get();
+        IList<Blog> Get(int? bloggerId, int pageIndex, int pageSize);
     }
 }

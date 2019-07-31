@@ -1,0 +1,34 @@
+<ul>
+	<li>
+		<strong>2019.6.21 <a href="http://17bang.ren/Article/542" target="_blank">C#进阶-8：异步和并行（一）</a></strong> 
+	</li>
+</ul>
+<ol>
+	<li>
+		线程池中的线程用完就销毁吗?
+	</li>
+	<li>
+		前台线程和后台线程的区别?
+	</li>
+	<li>
+		Wait() 和 RunSynchronously()的区别?
+	</li>
+	<li>
+		ContinueWith确保一个线程在之前线程完成之后再开始运行?
+	</li>
+	<li>
+		线程托管
+	</li>
+	<li>
+		向Task传递参数,直接使用外部变量?
+	</li>
+	<li>
+		异步多线程的优点?
+	</li>
+	<li>
+		让Task开始执行的方法?
+	</li>
+	<li>
+		为什么要使用线程池?
+	</li>
+</ol>

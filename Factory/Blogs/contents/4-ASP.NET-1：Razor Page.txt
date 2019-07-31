@@ -1,0 +1,37 @@
+<ul>
+	<li>
+		<strong>2019.7.4 </strong><a href="http://17bang.ren/Article/546" target="_blank"><strong>源栈培训：ASP.NET-1：Razor Page</strong><strong></strong></a><br />
+	</li>
+</ul>
+<ol>
+	<li>
+		为什么叫做ASP.NET？
+	</li>
+	<li>
+		浏览器地址包含着什么?
+	</li>
+	<li>
+		.NET core和.NET Framework有什么区别?
+	</li>
+	<li>
+		目前主流的三大主流动态网站技术技术有哪些?
+	</li>
+	<li>
+		.cshtml和.cshtml.cs的区别?
+	</li>
+	<li>
+		相对路径和绝对路径的区别?
+	</li>
+	<li>
+		在页面中怎么引入C#代码块?
+	</li>
+	<li>
+		代码块中可以做什么?
+	</li>
+	<li>
+		概括一下IIS?
+	</li>
+	<li>
+		@除了可以标明代码块还可以做什么?<br />
+	</li>
+</ol>

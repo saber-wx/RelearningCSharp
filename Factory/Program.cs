@@ -39,9 +39,9 @@ namespace Factory
 
             ////new SQLContext().Database.Migrate();
 
-            //RegisterFactory.Create();
+            RegisterFactory.Create();
             ////Article.NewFactory.Create();
-            ////Blogs.NewFactory.Create();
+            Blogs.NewFactory.Create();
 
             //Console.Read();
 

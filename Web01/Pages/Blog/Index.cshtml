@@ -1,0 +1,23 @@
+﻿@page
+@model Web01.Pages.Blog.IndexModel
+@{
+    Layout = "_Layout";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Blog列表</title>
+</head>
+<body>
+
+@foreach (var item in Model.Blogs)
+{
+    <h5>@item.Title</h5>
+    <main>@Html.Raw(item.Body)</main>
+}
+</body>
+</html>

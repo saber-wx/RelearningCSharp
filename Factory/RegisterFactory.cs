@@ -9,11 +9,11 @@ namespace Factory
     internal class RegisterFactory
     {
         internal static User Saber, Lancer, Caster;
-        private static UserRepository _registerFactory;
-        static RegisterFactory()
-        {
-            //_registerFactory = new UserRepository();
-        }
+        //private static UserRepository _registerFactory;
+        //static RegisterFactory()
+        //{
+        //    _registerFactory = new UserRepository();
+        //}
         internal static void Create()
         {
             Saber = register("saber");
@@ -24,9 +24,11 @@ namespace Factory
 
         private static User register(string name)
         {
+            UserRepository userRepository = new UserRepository(Helper.context);
+
             User user = new User { Name = name, Password = Helper.PASSWORD };
             user.Register();
-            _registerFactory.Save(user);
+            userRepository.Save(user);
             return user;
         }
     }

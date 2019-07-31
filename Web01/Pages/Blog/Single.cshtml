@@ -1,0 +1,23 @@
+﻿@page
+@model Web01.Pages.Blog.SingleModel
+@{
+    Layout = "_Layout";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Blog单页</title>
+</head>
+<body>
+    <h1>这是Blog单页</h1>
+
+    <h4>@Model.Blog.Title</h4>
+    <main>
+        @Html.Raw(Model.Blog.Body)
+    </main>
+</body>
+</html>

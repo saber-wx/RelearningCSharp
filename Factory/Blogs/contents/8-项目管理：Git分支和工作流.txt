@@ -1,0 +1,37 @@
+<ul>
+	<li>
+		<strong>2019.7.3&nbsp;</strong><a href="http://17bang.ren/Article/522"><strong>源栈培训：项目管理：Git分支和工作流</strong></a> 
+	</li>
+</ul>
+<ol>
+	<li>
+		checkout和reset的区别?<br />
+	</li>
+	<li>
+		如何撤销一次提交?<br />
+	</li>
+	<li>
+		如果将fetch到的内容更新到工作区?<br />
+	</li>
+	<li>
+		从本地推送一个远程仓库没有的分支, 会发生什么情况?<br />
+	</li>
+	<li>
+		使用git开发的常见模式(工作流)?<br />
+	</li>
+	<li>
+		如何跟踪远程仓库的分支?<br />
+	</li>
+	<li>
+		创建一个仓库时有无默认分支,是什么?<br />
+	</li>
+	<li>
+		怎么打标签?怎么推送标签?<br />
+	</li>
+	<li>
+		git分支的特色是? <br />
+	</li>
+	<li>
+		reset可以带的三个参数是?各自的含义<br />
+	</li>
+</ol>

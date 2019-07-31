@@ -1,0 +1,25 @@
+<ul>
+	<li>
+		<strong>2019.7.23&nbsp; <a href="http://17bang.ren/Article/559" target="_blank">ASP.NET-8：项目架构进化</a></strong><br />
+	</li>
+</ul>
+<ol>
+	<li>
+		什么是影子属性？
+	</li>
+	<li>
+		为什么推荐使用逻辑主键？
+	</li>
+	<li>
+		什么事EF框架？
+	</li>
+	<li>
+		什么是依赖注入？
+	</li>
+	<li>
+		什么是控制反转（IoC：Inversion of Control）？
+	</li>
+	<li>
+		Entity Framework中的DBContxet有什么用？<br />
+	</li>
+</ol>

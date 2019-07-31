@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Blog:Entity
+    public class Blog:Writings
     {
         public string Url { get; set; }
 
@@ -14,6 +14,10 @@ namespace BLL
 
         public IList<BlogToKeyword> Keywords { get; set; }
 
+        public void Publish()
+        {
+            
+        }
     }
 
     public class Post:Entity

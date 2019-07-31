@@ -1,0 +1,34 @@
+<ul>
+	<li>
+		<strong>2019.6.25 </strong><a href="http://17bang.ren/Article/543" target="_blank"><strong>C#进阶-8：异步和并行（二）</strong><strong></strong></a><br />
+	</li>
+</ul>
+<ol>
+	<li>
+		基于Task的并行的循环特征
+	</li>
+	<li>
+		Task返回的的语法,方法中return一个类型,方法声明中怎么写
+	</li>
+	<li>
+		任务并行的作用
+	</li>
+	<li>
+		异步和多线程有什么关系?
+	</li>
+	<li>
+		await必须和async一起使用吗?
+	</li>
+	<li>
+		.Net为什么鼓励我们使用Task?Task的基础是什么?
+	</li>
+	<li>
+		怎么让Task返回一个值?如何接收Task返回的值?会造成什么现象?
+	</li>
+	<li>
+		async和await有什么用?
+	</li>
+	<li>
+		解释一下任务并行库
+	</li>
+</ol>

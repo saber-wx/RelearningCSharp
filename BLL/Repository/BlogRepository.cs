@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BLL.Repository
 {
-    class BlogRepository : Repositorys<Blog>
+    public class BlogRepository : Repositorys<Blog>
     {
-        public BlogRepository(DbContext context):base (context)
+        public BlogRepository(DbContext context) : base(context)
         {
 
         }
@@ -15,6 +16,11 @@ namespace BLL.Repository
 
         public void Add(Post post)
         {
+        }
+
+        public IList<Blog> Get()
+        {
+            return entities.ToList();
         }
     }
 }

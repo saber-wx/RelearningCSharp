@@ -24,6 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
             //services.AddSingleton<IRegisterService, RegisterService>();//整个Application只创建一个
             services.AddScoped<IRegisterService, RegisterService>();
             services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<IBlogService, BlogService>();
 
         }
 
@@ -32,6 +33,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<UserRepository, UserRepository>();
             services.AddScoped<ArticleRepository, ArticleRepository>();
             services.AddScoped<EmailRepository, EmailRepository>();
+            services.AddScoped<BlogRepository, BlogRepository>();
 
         }
     }

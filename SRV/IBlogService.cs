@@ -8,10 +8,10 @@ using System.Text;
 
 namespace SRV
 {
-    
-    public interface IArticleService
+    public interface IBlogService
     {
-        Article Publish(DTOArticle dArticle);
-        DTOArticle Get(int id);
+        Blog Publish(Blog dBlog);
+        Blog Get(int id);
+        IList<Blog> Get();
     }
 }

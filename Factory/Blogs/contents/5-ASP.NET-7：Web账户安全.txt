@@ -1,0 +1,31 @@
+<ul>
+	<li>
+		<strong>2019.7.16&nbsp; <a href="http://17bang.ren/Article/555" target="_blank">ASP.NET-7：Web账户安全</a></strong><br />
+	</li>
+</ul>
+<ol>
+	<li>
+		md5单向加密特点？
+	</li>
+	<li>
+		大量字符串操作提高性能？<br />
+	</li>
+	<li>
+		加密后的密码，登陆时如何进行比对？
+	</li>
+	<li>
+		什么是Entity Framework？
+	</li>
+	<li>
+		get和post有什么区别？
+	</li>
+	<li>
+		DbSet类有什么用？
+	</li>
+	<li>
+		怎么释放资源？<br />
+	</li>
+</ol>
+<p>
+	<br />
+</p>

@@ -22,8 +22,8 @@ namespace SRV
         {
             autoMapperconfig = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Article, DTOArticle>(MemberList.None);
-                cfg.CreateMap<DTOArticle, Article>(MemberList.None);
+                cfg.CreateMap<Blog, Blog>(MemberList.None);
+                cfg.CreateMap<Blog, Blog>(MemberList.None);
             });
 
         }

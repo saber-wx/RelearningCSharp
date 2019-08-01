@@ -54,8 +54,8 @@ namespace BLL.Repository
 
             modelBuilder.Entity<Article>()
     .HasOne(e => e.Author)
-    .WithOne(u => u.Article)
-    .HasForeignKey<Article>(e => e.AuthorId);
+    .WithMany(u => u.Article);
+    //.HasForeignKey<Article>(e => e.AuthorId);
 
 
             modelBuilder.Entity<Writings>()

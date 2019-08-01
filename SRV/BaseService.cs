@@ -24,6 +24,8 @@ namespace SRV
             {
                 cfg.CreateMap<Blog, Blog>(MemberList.None);
                 cfg.CreateMap<Blog, Blog>(MemberList.None);
+                cfg.CreateMap<DTOArticle, Article>();
+                cfg.CreateMap<Article,DTOArticle > ();
             });
 
         }

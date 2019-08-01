@@ -5,6 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -25,7 +27,7 @@ namespace BLL
 
         public Email Email { get; set; }
 
-        public Article Article { get; set; }
+        public IList<Article> Article { get; set; }
 
         public void Register()
         {

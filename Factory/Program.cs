@@ -33,17 +33,18 @@ namespace Factory
             //    //.UseLoggerFactory(consoleloggerFactory)
             //    .UseSqlServer(connectionString);
 
-            //DatabaseFacade db = new SQLContext().Database;
-            //db.EnsureDeleted();     //如果存在数据库，就删除之
-            //db.EnsureCreated();
+            DatabaseFacade db = new SQLContext().Database;
+            db.EnsureDeleted();     //如果存在数据库，就删除之
+            db.EnsureCreated();
 
-            //////new SQLContext().Database.Migrate();
+            ////new SQLContext().Database.Migrate();
 
-            //RegisterFactory.Create();
-            //////Article.NewFactory.Create();
-            //Blogs.NewFactory.Create();
+            RegisterFactory.Create();
+            ////Article.NewFactory.Create();
+            Blogs.NewFactory.Create();
+            Blogs.SingleFactory.Create();
 
-            ////Console.Read();
+            //Console.Read();
 
         }
     }

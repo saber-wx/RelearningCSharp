@@ -9,7 +9,7 @@ namespace Factory.Blogs
     {
         internal static void Create()
         {
-
+            comment(Blogs.NewFactory.blogs[0], "666", RegisterFactory.Lancer);
         }
 
         private static BLL.Post comment(BLL.Blog onblog,string content,BLL.User author)
@@ -21,12 +21,15 @@ namespace Factory.Blogs
                 Content = content,
                 Author = author
             };
-
             //onblog.Publish();
-            //new PostRepository().Save(post);
+            ////面向数据库：
+            //new PostRepository(Helper.context).Save(post);
 
+            //面向对象写法：
+            onblog.Posts = onblog.Posts ?? new List<BLL.Post>();
             onblog.Posts.Add(post);
             new BlogRepository(Helper.context).Flush();
+
             return post;
         }
     }

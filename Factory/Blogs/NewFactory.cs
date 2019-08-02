@@ -22,6 +22,8 @@ namespace Factory.Blogs
         //new ConsoleLoggerProvider((_, __) => true, true)
     });
 
+        internal static IList<BLL.Blog> blogs;
+
         internal static void Create()
         {
             //using (SQLContext context = new SQLContext())
@@ -50,6 +52,8 @@ namespace Factory.Blogs
             string folderPath = "..\\..\\..\\Blogs\\contents";
             string[] filenames = Directory.GetFiles(folderPath);
 
+            blogs = new List<BLL.Blog>();
+
             for (int i = 0; i < filenames.Length; i++)
             {
                 string path = filenames[i];
@@ -63,7 +67,7 @@ namespace Factory.Blogs
                 {
                     author = RegisterFactory.Lancer;
                 }
-                publish(Path.GetFileName(path), body, author);
+                blogs.Add(publish(Path.GetFileName(path), body, author));
             }
 
 

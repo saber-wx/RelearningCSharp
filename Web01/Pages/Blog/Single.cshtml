@@ -24,8 +24,8 @@
 
     @foreach (var item in Model.Blog.Posts)
     {
-        <p>标题：@item.Title</p>
-        <div>@item.Content</div>
+        <div>@item.Content <span>作者：@item.Author.Name</span> </div>
+
     }
 </body>
 </html>

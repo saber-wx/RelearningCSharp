@@ -10,9 +10,9 @@ namespace BLL
     {
         public string Url { get; set; }
 
-        public IList<Post> Posts { get; set; }
+        public virtual IList<Post> Posts { get; set; }
 
-        public IList<BlogToKeyword> Keywords { get; set; }
+        public virtual IList<BlogToKeyword> Keywords { get; set; }
 
         public void Publish()
         {
@@ -20,12 +20,15 @@ namespace BLL
         }
     }
 
+
     public class Post : Entity
     {
-        public User Author { get; set; }
+       
+
+        public virtual User Author { get; set; }
         public string Content { get; set; }
 
         public int BlogId { get; set; }//如果不声明的话，就会产生“影子”属性
-        public Blog Blog { get; set; }
+        public virtual  Blog Blog { get; set; }
     }
 }

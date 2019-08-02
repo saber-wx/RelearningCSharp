@@ -10,6 +10,9 @@ namespace Factory.Blogs
         internal static void Create()
         {
             comment(Blogs.NewFactory.blogs[0], "666", RegisterFactory.Lancer);
+            comment(Blogs.NewFactory.blogs[1], "666", RegisterFactory.Caster);
+            comment(Blogs.NewFactory.blogs[2], "666", RegisterFactory.Saber);
+            comment(Blogs.NewFactory.blogs[3], "666", RegisterFactory.Caster);
         }
 
         private static BLL.Post comment(BLL.Blog onblog,string content,BLL.User author)

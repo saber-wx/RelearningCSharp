@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Text;
+using System.Linq;
 
 namespace SRV
 {
@@ -24,7 +25,7 @@ namespace SRV
 
         public DTOArticle Get(int id)
         {
-            Article article = _articleRepository.Get(id);
+            Article article = _articleRepository.Get(id).SingleOrDefault();
             return mapper.Map<Article, DTOArticle>(article);
         }
 

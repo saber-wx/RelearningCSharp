@@ -9,7 +9,7 @@ namespace BLL.Repository
 
         public string Title { get; set; }
         public string Body { get; set; }
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
         public string DiscriminatorType { get; set; }
 

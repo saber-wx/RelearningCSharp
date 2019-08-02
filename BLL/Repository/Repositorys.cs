@@ -40,17 +40,21 @@ namespace BLL
             return entity;
         }
 
-        public T Get(int id)
+        public IQueryable<T> Get(int id)
         {
-            return entities.Single(u => u.Id == id);
+            return entities.Where(u => u.Id == id);
+        }
+        
+        public IQueryable<T> Get()
+        {
+            return entities;
         }
 
-        public IList<T> Paged(IList<T> entities, int pageIndex, int pageSize)
+        public IQueryable<T> Paged(IQueryable<T> entities, int pageIndex, int pageSize)
         {
             return entities
             .Skip((pageIndex - 1) * pageSize)
-            .Take(pageSize)
-            .ToList();
+            .Take(pageSize);
         }
     }
 }

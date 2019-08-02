@@ -25,9 +25,9 @@ namespace BLL
 
         //public User InvitedBy { get; set; }
 
-        public Email Email { get; set; }
+        public virtual Email Email { get; set; }
 
-        public IList<Article> Article { get; set; }
+        public virtual IList<Article> Article { get; set; }
 
         public void Register()
         {

@@ -11,7 +11,7 @@ namespace BLL
         public string Body { get; set; }
 
         public int AuthorId { get; set; }
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
         public DateTime PubishTime { get; private set; }
 

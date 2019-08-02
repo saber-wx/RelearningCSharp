@@ -16,7 +16,7 @@ namespace BLL
         public DateTime? HasValidated { get; set; }
 
         public int OwerId { get; set; }
-        public User Ower { get; set; }
+        public virtual User Ower { get; set; }
 
         public void Validate()
         {

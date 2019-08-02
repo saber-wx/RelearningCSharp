@@ -9,6 +9,6 @@ namespace BLL
 
         public string Name { get; set; }
 
-        public IList<BlogToKeyword> Blogs { get; set; }
+        public virtual IList<BlogToKeyword> Blogs { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BLL;
 using BLL.Repository;
 using Microsoft.AspNetCore.Http;
+using System.Linq;
 using System;
 
 namespace SRV
@@ -106,7 +107,7 @@ namespace SRV
 
         public bool ValidateEmail(int id, string code)
         {
-            Email email = _emailRepository.Get(id);
+            Email email = _emailRepository.Get(id).SingleOrDefault();
             email.Validate();
             _userRepository.Flush();
             return email.ValidationCode == code;

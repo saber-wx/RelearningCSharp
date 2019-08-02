@@ -30,6 +30,7 @@ namespace BLL.Repository
             string connectionString =
                 @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = 17Help; Integrated Security = True; ";
             optionsBuilder
+                .UseLazyLoadingProxies() //lazy加载
                 .UseLoggerFactory(MyLoggerFactory)
                 .UseSqlServer(connectionString);
         }

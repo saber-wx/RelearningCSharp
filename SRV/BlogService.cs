@@ -2,6 +2,7 @@ using AutoMapper;
 using BLL;
 using BLL.Repository;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -26,27 +27,24 @@ namespace SRV
 
         public Blog Get(int id)
         {
-            return _blogRepository.Get(id);
-            //Blog blog = _blogRepository.Get(id);
-            //return mapper.Map<Blog, Blog>(blog);
+            return _blogRepository.Get(id)
+                .Include(b=>b.Author)
+                .Include(b=>b.Posts)
+                    .ThenInclude(p=>p.Author)
+                .SingleOrDefault();
         }
 
+        //获取分页以及有作者的结果
         public IList<Blog> Get(int? bloggerId, int pageIndex,int pageSize)
         {
-            IEnumerable<Blog> blogs = null;
+            //获取所有blogs
+            IQueryable<Blog> blogs = _blogRepository.Get();
+            //如果有blogger，过滤结果
             if (bloggerId.HasValue)
             {
-                blogs = _blogRepository.GetByAuthor(bloggerId.Value, pageIndex, pageSize);
-
-                return blogs.ToList();
-                
-                //return _blogRepository.GetByAuthor(bloggerId.Value,pageIndex,pageSize);
-                //return _blogRepository.Paged(blogs, pageIndex, pageSize);
-            }
-            else
-            {
-                return _blogRepository.Get(pageIndex, pageSize);
-            }
+                blogs = _blogRepository.GetByAuthor(bloggerId.Value);
+            }//else {}
+            return _blogRepository.Paged(blogs, pageIndex, pageSize).ToList();
         }
 
         public Blog Publish(Blog blog)

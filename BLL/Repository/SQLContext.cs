@@ -22,7 +22,7 @@ namespace BLL.Repository
              level == LogLevel.Information,true
                  )
               //new ConsoleLoggerProvider((_, __) => true, true)
-         }
+               }
              );
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

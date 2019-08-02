@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Blog:Writings
+    public class Blog : Writings
     {
         public string Url { get; set; }
 
@@ -16,14 +16,13 @@ namespace BLL
 
         public void Publish()
         {
-            
+
         }
     }
 
-    public class Post:Entity
+    public class Post : Entity
     {
-        public int PostId { get; set; }
-        public string Title { get; set; }
+        public User Author { get; set; }
         public string Content { get; set; }
 
         public int BlogId { get; set; }//如果不声明的话，就会产生“影子”属性

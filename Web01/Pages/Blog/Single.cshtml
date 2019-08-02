@@ -16,8 +16,16 @@
     <h1>这是Blog单页</h1>
 
     <h3>@Model.Blog.Title</h3>
+    <p>作者：@Model.Blog.Author.Name</p>
     <main>
         @Html.Raw(Model.Blog.Body)
     </main>
+    <h5>评论</h5>
+
+    @foreach (var item in Model.Blog.Posts)
+    {
+        <p>标题：@item.Title</p>
+        <div>@item.Content</div>
+    }
 </body>
 </html>

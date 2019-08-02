@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -32,11 +33,14 @@ namespace SRV
 
         public IList<Blog> Get(int? bloggerId, int pageIndex,int pageSize)
         {
+            IEnumerable<Blog> blogs = null;
             if (bloggerId.HasValue)
             {
-              //blogs =  _blogRepository.GetByAuthor(bloggerId.Value);
+                blogs = _blogRepository.GetByAuthor(bloggerId.Value, pageIndex, pageSize);
 
-                return _blogRepository.GetByAuthor(bloggerId.Value,pageIndex,pageSize);
+                return blogs.ToList();
+                
+                //return _blogRepository.GetByAuthor(bloggerId.Value,pageIndex,pageSize);
                 //return _blogRepository.Paged(blogs, pageIndex, pageSize);
             }
             else

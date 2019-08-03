@@ -28,7 +28,7 @@ namespace BLL
         public virtual User Author { get; set; }
         public string Content { get; set; }
 
-        public int BlogId { get; set; }//如果不声明的话，就会产生“影子”属性
+        public int? BlogId { get; set; }//如果不声明的话，就会产生“影子”属性
         public virtual  Blog Blog { get; set; }
     }
 }

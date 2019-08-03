@@ -16,6 +16,7 @@
     <h1>这是Blog单页</h1>
 
     <h3>@Model.Blog.Title</h3>
+    <a href="/Blog/Delete?id=@Model.Blog.Id">删除</a>
     <p>作者：@Model.Blog.Author.Name</p>
     <main>
         @Html.Raw(Model.Blog.Body)

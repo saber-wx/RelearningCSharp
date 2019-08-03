@@ -78,11 +78,10 @@ namespace BLL.Repository
             modelBuilder.Entity<Article>();
 
 
-            //modelBuilder.Entity<Blog>(options =>
-            //    {
-            //        options.Ignore(x => x.Url);
-            //    }
-            //    );
+            modelBuilder.Entity<Blog>()
+                .HasMany(b => b.Posts)
+                .WithOne(p => p.Blog)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
 

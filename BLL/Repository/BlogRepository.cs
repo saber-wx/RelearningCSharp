@@ -18,6 +18,8 @@ namespace BLL.Repository
         {
         }
 
+
+
         //public new Blog Get(int id)
         //{
         //    ////显示加载：稍后（需要用到的时候）从数据库加载，但关联数据不能自动加载

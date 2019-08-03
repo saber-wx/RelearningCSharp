@@ -24,6 +24,11 @@ namespace BLL
             entities = _dbContext.Set<T>();
         }
 
+        public void Delete(T entity)
+        {
+            entities.Remove(entity);
+            Flush();
+        }
 
         public void Flush()
         {
@@ -53,7 +58,7 @@ namespace BLL
         public IQueryable<T> Paged(IQueryable<T> entities, int pageIndex, int pageSize)
         {
             return entities
-            .Skip((pageIndex - 1) * pageSize)
+            .Skip((pageIndex) * pageSize)
             .Take(pageSize);
         }
     }

@@ -25,6 +25,12 @@ namespace SRV
             _blogRepository = blogRepository;
         }
 
+        public void Delete(int id)
+        {
+            _blogRepository.Delete(Get(id));
+            //_blogRepository.Flush();
+        }
+
         public Blog Get(int id)
         {
             return _blogRepository.Get(id)

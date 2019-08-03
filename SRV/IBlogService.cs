@@ -13,5 +13,6 @@ namespace SRV
         Blog Publish(Blog dBlog);
         Blog Get(int id);
         IList<Blog> Get(int? bloggerId, int pageIndex, int pageSize);
+        void Delete(int id);
     }
 }

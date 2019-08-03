@@ -22,7 +22,7 @@ namespace Factory
         //        new ConsoleLoggerProvider((_, __) => true, true)
         //    });
 
-       
+
 
         static void Main(string[] args)
         {
@@ -33,9 +33,10 @@ namespace Factory
             //    //.UseLoggerFactory(consoleloggerFactory)
             //    .UseSqlServer(connectionString);
 
-            DatabaseFacade db = new SQLContext().Database;
+            DatabaseFacade db = Helper.context.Database;
             db.EnsureDeleted();     //如果存在数据库，就删除之
             db.EnsureCreated();
+
 
             ////new SQLContext().Database.Migrate();
 
@@ -44,7 +45,7 @@ namespace Factory
             Blogs.NewFactory.Create();
             Blogs.SingleFactory.Create();
 
-            //Console.Read();
+            Helper.context.Dispose();
 
         }
     }

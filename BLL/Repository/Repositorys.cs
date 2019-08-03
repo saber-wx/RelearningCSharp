@@ -13,6 +13,11 @@ namespace BLL
         public Repositorys(DbContext context)
         {
             _dbContext = context;
+
+            if (_dbContext.Database.CurrentTransaction == null)
+            {
+                _dbContext.Database.BeginTransaction();
+            }
             entities = _dbContext.Set<T>();
         }
 

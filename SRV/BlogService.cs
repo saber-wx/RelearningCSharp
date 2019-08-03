@@ -17,12 +17,24 @@ namespace SRV
     {
 
         private BlogRepository _blogRepository;
+        private PostRepository _postRepository;
 
         public BlogService(IHttpContextAccessor accessor, 
-            BlogRepository blogRepository, 
+            BlogRepository blogRepository,
+            PostRepository postRepository, 
             UserRepository userRepository):base(accessor,userRepository)
         {
             _blogRepository = blogRepository;
+            _postRepository = postRepository;
+        }
+
+        public void Comment(int id, Post newPost)
+        {
+            newPost.Author = CurrentUser;
+            newPost.Blog = _blogRepository.Get(id).SingleOrDefault();
+
+            newPost.Publish();
+            //_postRepository.Save(newPost);
         }
 
         public void Delete(int id)

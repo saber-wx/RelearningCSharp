@@ -28,5 +28,11 @@
         <div>@item.Content <span>作者：@item.Author.Name</span> </div>
 
     }
+
+    <h4>留言</h4>
+    <form method="post">
+        <textarea asp-for="NewPost.Content"></textarea><br />
+        <button type ="submit">提交</button>
+    </form>
 </body>
 </html>

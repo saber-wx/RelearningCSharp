@@ -34,6 +34,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<ArticleRepository, ArticleRepository>();
             services.AddScoped<EmailRepository, EmailRepository>();
             services.AddScoped<BlogRepository, BlogRepository>();
+            services.AddScoped<PostRepository, PostRepository>();
 
         }
     }

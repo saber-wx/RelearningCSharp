@@ -14,5 +14,6 @@ namespace SRV
         Blog Get(int id);
         IList<Blog> Get(int? bloggerId, int pageIndex, int pageSize);
         void Delete(int id);
+        void Comment(int Id, Post newPost);
     }
 }

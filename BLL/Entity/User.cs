@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class User:Entity
+    public class User : Entity
     {
         //-- 不可更改！！
         private const string _salt = "s$)&a@^b!~#)e%*r";
@@ -26,6 +26,8 @@ namespace BLL
         //public User InvitedBy { get; set; }
 
         public virtual Email Email { get; set; }
+
+        public virtual IList<Message> Messages { get; set; }
 
         public virtual IList<Article> Article { get; set; }
 

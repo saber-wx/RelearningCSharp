@@ -54,9 +54,9 @@ namespace BLL.Repository
                 .HasForeignKey<Email>(e => e.OwerId);
 
             modelBuilder.Entity<Article>()
-    .HasOne(e => e.Author)
-    .WithMany(u => u.Article);
-    //.HasForeignKey<Article>(e => e.AuthorId);
+                .HasOne(e => e.Author)
+                .WithMany(u => u.Article);
+                //.HasForeignKey<Article>(e => e.AuthorId);
 
 
             modelBuilder.Entity<Writings>()
@@ -82,8 +82,24 @@ namespace BLL.Repository
                 .HasMany(b => b.Posts)
                 .WithOne(p => p.Blog)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Message>();
         }
 
+        public override void Dispose()
+        {
+            try
+            {
+                SaveChanges();
+                Database.CommitTransaction();
+            }
+            catch (Exception)
+            {
+                Database.RollbackTransaction();
+                throw;
+            }
+            base.Dispose();
+        }
 
     }
 }

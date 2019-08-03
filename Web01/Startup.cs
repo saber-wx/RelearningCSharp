@@ -41,14 +41,21 @@ namespace Web01
             //services.AddScoped<IRegisterService, RegisterService>();//一次Request中只创建一个
             //services.AddSingleton<IRegisterService, RegisterService>();//整个Application只创建一个
             //因此:将这些方法放入一个扩展方法中
-            //services.AddMockService();
+            //services.AddMockService 
             services.AddScoped<DbContext, SQLContext>();
 
             services.AddService();
             services.AddRepository();
             services.AddHttpContextAccessor();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .AddRazorPagesOptions(
+                    opt => {
+                        //opt.Conventions.AddPageRoute("/Blog/Single", "/Blog/Single/{id}");
+                        opt.Conventions.AddPageRoute("/Blog/Single", "/Blog/{id}");
+                    }
+                )
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

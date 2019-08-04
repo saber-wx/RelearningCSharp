@@ -1,0 +1,44 @@
+﻿@using UI.Models.Register
+@model  UI.Models.Register.IndexModel
+@{
+
+}
+
+<h1>注册</h1>
+
+<p>@ViewBag.greet</p>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.UserName)<br />
+    @Html.TextBoxFor(m => m.UserName, new { @class = "input" })<br />
+    @Html.ValidationMessageFor(m => m.UserName)
+
+    <label>密码：</label><br />
+    @Html.PasswordFor(m => m.Password)<br />
+
+    <div>
+        <label>性别：</label>
+        <label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
+        <label>@Html.RadioButtonFor(m => m.IsMale, false)女</label>
+    </div>
+    @Html.ValidationMessageFor(m=>m.IsMale)
+    <div>
+        <label>来自：</label>@Html.EnumDropDownListFor(m => m.InCity)
+    </div>
+    <div>
+        <label>介绍</label>@Html.TextAreaFor(m=>m.SelfIntroduction)
+    </div>
+    <div>
+        <input type="submit" value="提交">
+        <label>@Html.CheckBox("remember") 记住我 </label>
+    </div>
+}
+
+@Html.Action("Reminder",new { id = 32})
+
+<h3>Id=@ViewBag.Id</h3>
+<h3>UserName=@ViewBag.userName</h3>
+
+@*<label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
+    <label>介绍：</label>@Html.TextAreaFor(m => m.SelfIntroduction)
+    <label>@Html.CheckBoxFor(m => m.RememberMe)记住我</label>*@

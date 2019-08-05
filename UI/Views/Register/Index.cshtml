@@ -6,14 +6,14 @@
 
 <h1>注册</h1>
 
-<p>@ViewBag.greet</p>
+@*<p>@ViewBag.greet</p>*@
 @using (Html.BeginForm())
 {
-    @Html.TextBoxFor(m=>m.Inviter.Name)<br />
+    @*@Html.TextBoxFor(m => m.Inviter.Name)<br />*@
 
     @Html.LabelFor(m => m.UserName)<br />
     @Html.TextBoxFor(m => m.UserName, new { @class = "input" })<br />
-    @Html.ValidationMessageFor(m => m.UserName)
+    @Html.ValidationMessageFor(m => m.UserName)<br />
 
     <label>密码：</label><br />
     @Html.PasswordFor(m => m.Password)<br />
@@ -23,12 +23,16 @@
         <label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
         <label>@Html.RadioButtonFor(m => m.IsMale, false)女</label>
     </div>
-    @Html.ValidationMessageFor(m=>m.IsMale)
+    @Html.ValidationMessageFor(m => m.IsMale)
     <div>
         <label>来自：</label>@Html.EnumDropDownListFor(m => m.InCity)
     </div>
     <div>
-        <label>介绍</label>@Html.TextAreaFor(m=>m.SelfIntroduction)
+        <label>介绍</label>@Html.TextAreaFor(m => m.SelfIntroduction)
+    </div>
+    <div>
+        <lable>验证码</lable>@Html.TextBoxFor(m => m.Captcha, new { style = "width:80px" })<img id="captcha" src="Captcha/Get?version=1" /><a href="#" onclick="refreshCaptcha()">刷新</a>
+        @Html.ValidationMessageFor(m => m.Captcha)
     </div>
     <div>
         <input type="submit" value="提交">
@@ -36,12 +40,24 @@
     </div>
 }
 
-@Html.Action("Reminder",new { id = 32})
 
-<h3>Id=@ViewBag.Id</h3>
-<h3>UserName=@ViewBag.userName</h3>
+<script>
+    function refreshCaptcha() {
+        var captcha = document.getElementById("captcha"),
+            url = captcha.getAttribute("src"),
+            random = Math.random();
+        captcha.setAttribute("src", url + "?version=" + random);
+    }
 
-@Html.Partial("Reminder")
+</script>
+
+@*以下是：partialAction*@
+@*@Html.Action("Reminder", new { id = 32 })
+
+    <h3>Id=@ViewBag.Id</h3>
+    <h3>UserName=@ViewBag.userName</h3>
+
+    @Html.Partial("Reminder")*@
 
 @*<label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
     <label>介绍：</label>@Html.TextAreaFor(m => m.SelfIntroduction)

@@ -34,6 +34,13 @@ namespace UI.Controllers
             {
                 return View(model);
             }
+
+            if (model.Captcha != Session[CaptchaController.CAPTCHA].ToString())
+            {
+                ModelState.AddModelError("Captcha", "* 验证码输入错误");
+                return View(model);
+            }
+
             ViewBag.userName = UserName;
 
             return View();

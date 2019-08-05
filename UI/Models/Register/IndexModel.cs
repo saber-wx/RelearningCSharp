@@ -9,7 +9,7 @@ namespace UI.Models.Register
     public class IndexModel
     {
 
-        [Required(ErrorMessage = "用户名不能为空")]
+        [Required(ErrorMessage = "* 用户名不能为空")]
         public string UserName { get; set; }
 
         public string Password { get; set; }
@@ -21,6 +21,8 @@ namespace UI.Models.Register
         public Cities? InCity { get; set; }
 
         public User Inviter { get; set; }
+
+        public string Captcha { get; set; }
 
         public bool RemberMe { get; set; }
 

@@ -10,7 +10,7 @@ namespace UI.Controllers
     public class RegisterController : Controller
     {
 
-        public ActionResult Index(int? id,string UserName)
+        public ActionResult Index(int? id)
         {
 
             IndexModel model = new IndexModel
@@ -21,7 +21,6 @@ namespace UI.Controllers
             ViewData["greet"] = "Hello,Hello";
 
             ViewBag.Id = id;
-            ViewBag.userName = UserName;
 
             //return View("Failed");//除shared和同一文件夹外，如果需要跳转需要写完整路径带.cshtml后缀
             //return View(model);//还可以传model,可以设置默认传值
@@ -29,12 +28,13 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(IndexModel model)
+        public ActionResult Index(IndexModel model, string UserName)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
+            ViewBag.userName = UserName;
 
             return View();
         }

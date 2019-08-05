@@ -20,6 +20,8 @@ namespace UI.Models.Register
 
         public Cities? InCity { get; set; }
 
+        public User Inviter { get; set; }
+
         public bool RemberMe { get; set; }
 
     }
@@ -30,5 +32,11 @@ namespace UI.Models.Register
         chengdu,
         [Display(Name = "武汉")]
         wuhan
+    }
+
+    public class User
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

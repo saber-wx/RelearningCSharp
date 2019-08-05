@@ -9,6 +9,8 @@
 <p>@ViewBag.greet</p>
 @using (Html.BeginForm())
 {
+    @Html.TextBoxFor(m=>m.Inviter.Name)<br />
+
     @Html.LabelFor(m => m.UserName)<br />
     @Html.TextBoxFor(m => m.UserName, new { @class = "input" })<br />
     @Html.ValidationMessageFor(m => m.UserName)
@@ -38,6 +40,8 @@
 
 <h3>Id=@ViewBag.Id</h3>
 <h3>UserName=@ViewBag.userName</h3>
+
+@Html.Partial("Reminder")
 
 @*<label>@Html.RadioButtonFor(m => m.IsMale, true)男</label>
     <label>介绍：</label>@Html.TextAreaFor(m => m.SelfIntroduction)

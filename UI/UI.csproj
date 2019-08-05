@@ -126,16 +126,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="Controllers\AdController.cs" />
     <Compile Include="Controllers\CaptchaController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\ContextPerRequestAttribute.cs" />
+    <Compile Include="Filters\ErrorLogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Home\AboutModel.cs" />
     <Compile Include="Models\Message\MineModel.cs" />
     <Compile Include="Models\Register\IndexModel.cs" />
+    <Compile Include="Filters\NeedLogOnAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +184,8 @@
     <Content Include="Views\Register\Failed.cshtml" />
     <Content Include="Views\Register\Reminder.cshtml" />
     <Content Include="Views\Message\Mine.cshtml" />
+    <Content Include="Views\Ad\Write.cshtml" />
+    <Content Include="Views\Log\On.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

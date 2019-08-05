@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UI.Filters;
 using UI.Models.Register;
 
 namespace UI.Controllers
 {
     public class RegisterController : Controller
     {
-
+        [HttpGet]
+        [ImportModelState]
         public ActionResult Index(int? id)
         {
 
             IndexModel model = new IndexModel
             {
+                Cities = new List<Cities>
+                {
+                    Cities.chengdu,Cities.wuhan
+                },
                 UserName = "Saber",
                 IsMale = true
             };
@@ -23,17 +29,18 @@ namespace UI.Controllers
             ViewBag.Id = id;
 
             //return View("Failed");//除shared和同一文件夹外，如果需要跳转需要写完整路径带.cshtml后缀
-            //return View(model);//还可以传model,可以设置默认传值
-            return PartialView(model);//还可以传model,可以设置默认传值
+            return View(model);//还可以传model,可以设置默认传值
+                               //return PartialView(model);//还可以传model,可以设置默认传值
         }
 
         [HttpPost]
+        [AutoValidationFilter]
         public ActionResult Index(IndexModel model, string UserName)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
             if (model.Captcha != Session[CaptchaController.CAPTCHA].ToString())
             {

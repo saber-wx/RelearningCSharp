@@ -25,6 +25,7 @@
     </div>
     @Html.ValidationMessageFor(m => m.IsMale)
     <div>
+        <label>来自：</label>@Html.DropDownListFor(m => m.InCity,new SelectList(Model.Cities),"---")
         <label>来自：</label>@Html.EnumDropDownListFor(m => m.InCity)
     </div>
     <div>

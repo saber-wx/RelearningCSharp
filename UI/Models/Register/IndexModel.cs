@@ -20,6 +20,8 @@ namespace UI.Models.Register
 
         public Cities? InCity { get; set; }
 
+        public IList<Cities> Cities { get; set; }
+
         public User Inviter { get; set; }
 
         public string Captcha { get; set; }

@@ -133,8 +133,10 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\AutoValidationFilter.cs" />
     <Compile Include="Filters\ContextPerRequestAttribute.cs" />
     <Compile Include="Filters\ErrorLogAttribute.cs" />
+    <Compile Include="Filters\ImportModelState.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

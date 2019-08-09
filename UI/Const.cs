@@ -10,5 +10,6 @@ namespace UI
         public const string USER_ID = "UserId";
         public const string USER_PASSWORD = "UserPassword";
         public const string ERROR_DATA = "ErrorDaea";
+        public const string TIME = "time";
     }
 }

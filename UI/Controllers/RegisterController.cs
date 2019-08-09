@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using UI.Filters;
@@ -35,12 +36,13 @@ namespace UI.Controllers
 
         [HttpPost]
         [AutoValidationFilter]
-        public ActionResult Index(IndexModel model, string UserName)
+        [ImportModelState]
+        [OutputCache(Duration = 1000)]
+        public ActionResult Index(IndexModel model, string UserName,int? id)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(model);
-            //}
+            Thread.Sleep(1000);
+
+            ViewData[Const.TIME] = DateTime.Now;
 
             if (model.Captcha != Session[CaptchaController.CAPTCHA].ToString())
             {
@@ -54,13 +56,10 @@ namespace UI.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 50,
+            Order = 300, VaryByParam = "none")]
         public PartialViewResult Reminder(int? id)//部分
         {
-            //User user = new User
-            //{
-            //    ID = 22,
-            //    Name = "saber"
-            //};
 
             ViewBag.Id = id;
             return PartialView();
